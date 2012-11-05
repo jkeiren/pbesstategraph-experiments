@@ -1,0 +1,1 @@
+[true*](forall v:D. ([r(v)]<(!(exists w:D.r(w)))*.s(v)>true) )

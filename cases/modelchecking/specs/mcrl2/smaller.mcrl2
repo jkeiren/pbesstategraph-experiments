@@ -1,0 +1,8 @@
+sort D = struct ${data};
+
+act lost; s,r:D;
+
+proc X = sum f:D. r(f). (tau.lost. X + tau.s(f). X);
+
+init X;
+

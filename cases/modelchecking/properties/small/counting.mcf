@@ -1,0 +1,6 @@
+nu X.
+( 
+   [true]X 
+&& forall h:D. [r(h)]nu Y(k:Nat = 0). ( [l]Y(k+1) && [tau]Y(k) && [!abort](mu Z. (<true>Z  ||<s(h)>true) )
+)
+)

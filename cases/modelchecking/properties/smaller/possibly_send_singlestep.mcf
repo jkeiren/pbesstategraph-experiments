@@ -1,0 +1,1 @@
+[r(d1)]<(!(exists w:D.r(w)))*.s(d1)>true

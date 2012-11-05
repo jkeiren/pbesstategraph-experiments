@@ -1,0 +1,16 @@
+sort D = struct d1 | d2 | d3;
+
+map MAX : Nat;
+eqn
+ MAX = 20;
+
+act abort,l; s,r:D;
+
+proc X = sum f:D. r(f). Y(0,f);
+
+proc Y(n:Nat,g:D) = (n < MAX) -> (tau.l. Y(n+1,g) + tau.s(g). tau.tau. X)
+               +(n == MAX) -> abort.X
+;
+
+init X;
+
