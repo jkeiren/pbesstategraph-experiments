@@ -1,0 +1,1820 @@
+Debug spec:
+  sizes:
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '2', mueqns: '0', nueqns: '2'}
+      pbesstategraph: {bnd: '0', eqns: '2', mueqns: '0', nueqns: '2'}
+  solutions:
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    nodeadlock:
+      pbesparelm: {instantiation: 0.01, reduction: 0.040000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: 0.01, reduction: 0.040000000000000001, solving: 0.0}
+Small:
+  sizes:
+    counting:
+      pbesparelm: {bnd: '1', eqns: '559', mueqns: '387', nueqns: '172'}
+      pbesstategraph: {bnd: '1', eqns: '559', mueqns: '387', nueqns: '172'}
+  solutions:
+    counting: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    counting:
+      pbesparelm: {instantiation: 0.16, reduction: 0.089999999999999997, solving: 0.0}
+      pbesstategraph: {instantiation: 0.12, reduction: 0.48999999999999999, solving: 0.0}
+Smaller [datasize=4]:
+  sizes:
+    possibly_send:
+      pbesparelm: {bnd: '1', eqns: '21', mueqns: '16', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '18', mueqns: '13', nueqns: '5'}
+    possibly_send_d1:
+      pbesparelm: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+    possibly_send_d1_once:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+    possibly_send_singlestep:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+  solutions:
+    possibly_send: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1_once: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_singlestep: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    possibly_send:
+      pbesparelm: {instantiation: 0.080000000000000002, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.080000000000000002, reduction: 0.069999999999999993,
+        solving: 0.0}
+    possibly_send_d1:
+      pbesparelm: {instantiation: 0.029999999999999999, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.029999999999999999,
+        solving: 0.0}
+    possibly_send_d1_once:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.040000000000000001, reduction: 0.040000000000000001,
+        solving: 0.0}
+    possibly_send_singlestep:
+      pbesparelm: {instantiation: 0.050000000000000003, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.01, reduction: 0.01, solving: 0.0}
+ABP [datasize=8]:
+  sizes:
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '2611', mueqns: '0', nueqns: '2611'}
+      pbesstategraph: {bnd: '0', eqns: '2359', mueqns: '0', nueqns: '2359'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '2643', mueqns: '2320', nueqns: '323'}
+      pbesstategraph: {bnd: '1', eqns: '2391', mueqns: '2320', nueqns: '71'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '515', mueqns: '144', nueqns: '371'}
+      pbesstategraph: {bnd: '1', eqns: '263', mueqns: '144', nueqns: '119'}
+  solutions:
+    no_duplication_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.14000000000000001, reduction: 0.059999999999999998,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.12, reduction: 0.10000000000000001, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.11, reduction: 0.050000000000000003, solving: 0.23000000000000001}
+      pbesstategraph: {instantiation: 0.089999999999999997, reduction: 0.059999999999999998,
+        solving: 0.23999999999999999}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.050000000000000003, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.080000000000000002, reduction: 0.059999999999999998,
+        solving: 0.0}
+ABP [datasize=32]:
+  sizes:
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '38083', mueqns: '0', nueqns: '38083'}
+      pbesstategraph: {bnd: '0', eqns: '36967', mueqns: '0', nueqns: '36967'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '38211', mueqns: '36928', nueqns: '1283'}
+      pbesstategraph: {bnd: '1', eqns: '37095', mueqns: '36928', nueqns: '167'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '2051', mueqns: '576', nueqns: '1475'}
+      pbesstategraph: {bnd: '1', eqns: '935', mueqns: '576', nueqns: '359'}
+  solutions:
+    no_duplication_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 1.1499999999999999, reduction: 0.16, solving: 0.01}
+      pbesstategraph: {instantiation: 1.1899999999999999, reduction: 0.22, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 1.22, reduction: 0.12, solving: 57.700000000000003}
+      pbesstategraph: {instantiation: 1.01, reduction: 0.26000000000000001, solving: 57.490000000000002}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.20000000000000001, reduction: 0.12, solving: 0.0}
+      pbesstategraph: {instantiation: 0.17000000000000001, reduction: 0.17999999999999999,
+        solving: 0.0}
+ABP [datasize=4]:
+  sizes:
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '731', mueqns: '0', nueqns: '731'}
+      pbesstategraph: {bnd: '0', eqns: '623', mueqns: '0', nueqns: '623'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '747', mueqns: '584', nueqns: '163'}
+      pbesstategraph: {bnd: '1', eqns: '639', mueqns: '584', nueqns: '55'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '259', mueqns: '72', nueqns: '187'}
+      pbesstategraph: {bnd: '1', eqns: '151', mueqns: '72', nueqns: '79'}
+  solutions:
+    no_duplication_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.080000000000000002, reduction: 0.059999999999999998,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.070000000000000007, reduction: 0.11, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.050000000000000003, reduction: 0.02, solving: 0.02}
+      pbesstategraph: {instantiation: 0.040000000000000001, reduction: 0.040000000000000001,
+        solving: 0.02}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.029999999999999999, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+ABP [datasize=2]:
+  sizes:
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '223', mueqns: '0', nueqns: '223'}
+      pbesstategraph: {bnd: '0', eqns: '187', mueqns: '0', nueqns: '187'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '231', mueqns: '148', nueqns: '83'}
+      pbesstategraph: {bnd: '1', eqns: '195', mueqns: '148', nueqns: '47'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '131', mueqns: '36', nueqns: '95'}
+      pbesstategraph: {bnd: '1', eqns: '95', mueqns: '36', nueqns: '59'}
+  solutions:
+    no_duplication_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.080000000000000002, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.070000000000000007, reduction: 0.090000000000000011,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.050000000000000003, reduction: 0.050000000000000003,
+        solving: 0.0}
+ABP [datasize=16]:
+  sizes:
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '9827', mueqns: '0', nueqns: '9827'}
+      pbesstategraph: {bnd: '0', eqns: '9287', mueqns: '0', nueqns: '9287'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '9891', mueqns: '9248', nueqns: '643'}
+      pbesstategraph: {bnd: '1', eqns: '9351', mueqns: '9248', nueqns: '103'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '1027', mueqns: '288', nueqns: '739'}
+      pbesstategraph: {bnd: '1', eqns: '487', mueqns: '288', nueqns: '199'}
+  solutions:
+    no_duplication_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.33000000000000002, reduction: 0.089999999999999997,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.38, reduction: 0.16, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.25, reduction: 0.029999999999999999, solving: 3.54}
+      pbesstategraph: {instantiation: 0.23000000000000001, reduction: 0.070000000000000007,
+        solving: 3.5600000000000001}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.080000000000000002, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.050000000000000003, reduction: 0.090000000000000011,
+        solving: 0.0}
+Smaller [datasize=2]:
+  sizes:
+    possibly_send:
+      pbesparelm: {bnd: '1', eqns: '13', mueqns: '8', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '12', mueqns: '7', nueqns: '5'}
+    possibly_send_d1:
+      pbesparelm: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+    possibly_send_d1_once:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+    possibly_send_singlestep:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+  solutions:
+    possibly_send: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1_once: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_singlestep: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    possibly_send:
+      pbesparelm: {instantiation: 0.10000000000000001, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.080000000000000002, reduction: 0.10000000000000001,
+        solving: 0.0}
+    possibly_send_d1:
+      pbesparelm: {instantiation: 0.029999999999999999, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+    possibly_send_d1_once:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.02, reduction: 0.040000000000000001, solving: 0.0}
+    possibly_send_singlestep:
+      pbesparelm: {instantiation: 0.029999999999999999, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.040000000000000001,
+        solving: 0.0}
+Smaller [datasize=8]:
+  sizes:
+    possibly_send:
+      pbesparelm: {bnd: '1', eqns: '37', mueqns: '32', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '30', mueqns: '25', nueqns: '5'}
+    possibly_send_d1:
+      pbesparelm: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+    possibly_send_d1_once:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+    possibly_send_singlestep:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+  solutions:
+    possibly_send: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1_once: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_singlestep: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    possibly_send:
+      pbesparelm: {instantiation: 0.080000000000000002, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.070000000000000007, reduction: 0.080000000000000002,
+        solving: 0.0}
+    possibly_send_d1:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+    possibly_send_d1_once:
+      pbesparelm: {instantiation: 0.029999999999999999, reduction: 0.01, solving: 0.0}
+      pbesstategraph: {instantiation: 0.040000000000000001, reduction: 0.040000000000000001,
+        solving: 0.0}
+    possibly_send_singlestep:
+      pbesparelm: {instantiation: 0.029999999999999999, reduction: 0.01, solving: 0.0}
+      pbesstategraph: {instantiation: 0.02, reduction: 0.040000000000000001, solving: 0.0}
+Smaller [datasize=16]:
+  sizes:
+    possibly_send:
+      pbesparelm: {bnd: '1', eqns: '69', mueqns: '64', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '54', mueqns: '49', nueqns: '5'}
+    possibly_send_d1:
+      pbesparelm: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+    possibly_send_d1_once:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+    possibly_send_singlestep:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+  solutions:
+    possibly_send: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1_once: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_singlestep: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    possibly_send:
+      pbesparelm: {instantiation: 0.10000000000000001, reduction: 0.070000000000000007,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.059999999999999998, reduction: 0.11, solving: 0.0}
+    possibly_send_d1:
+      pbesparelm: {instantiation: 0.070000000000000007, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.060000000000000005,
+        solving: 0.0}
+    possibly_send_d1_once:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.040000000000000001, reduction: 0.059999999999999998,
+        solving: 0.0}
+    possibly_send_singlestep:
+      pbesparelm: {instantiation: 0.040000000000000001, reduction: 0.02, solving: 0.0}
+      pbesstategraph: {instantiation: 0.029999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+Smaller [datasize=32]:
+  sizes:
+    possibly_send:
+      pbesparelm: {bnd: '1', eqns: '133', mueqns: '128', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '102', mueqns: '97', nueqns: '5'}
+    possibly_send_d1:
+      pbesparelm: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+      pbesstategraph: {bnd: '1', eqns: '9', mueqns: '4', nueqns: '5'}
+    possibly_send_d1_once:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+    possibly_send_singlestep:
+      pbesparelm: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+      pbesstategraph: {bnd: '1', eqns: '6', mueqns: '4', nueqns: '2'}
+  solutions:
+    possibly_send: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_d1_once: {pbesparelm: 'true', pbesstategraph: 'true'}
+    possibly_send_singlestep: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    possibly_send:
+      pbesparelm: {instantiation: 0.20999999999999999, reduction: 0.14000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.17000000000000001, reduction: 0.22999999999999998,
+        solving: 0.0}
+    possibly_send_d1:
+      pbesparelm: {instantiation: 0.12, reduction: 0.080000000000000002, solving: 0.0}
+      pbesstategraph: {instantiation: 0.050000000000000003, reduction: 0.14999999999999999,
+        solving: 0.0}
+    possibly_send_d1_once:
+      pbesparelm: {instantiation: 0.089999999999999997, reduction: 0.059999999999999998,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.050000000000000003, reduction: 0.14000000000000001,
+        solving: 0.0}
+    possibly_send_singlestep:
+      pbesparelm: {instantiation: 0.080000000000000002, reduction: 0.059999999999999998,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.050000000000000003, reduction: 0.14000000000000001,
+        solving: 0.0}
+Hesselink [datasize=2]:
+  sizes:
+    property1:
+      pbesparelm: {bnd: '0', eqns: '1081473', mueqns: '0', nueqns: '1081473'}
+      pbesstategraph: {bnd: '0', eqns: '86065', mueqns: '0', nueqns: '86065'}
+    property2:
+      pbesparelm: {bnd: '0', eqns: '1081345', mueqns: '0', nueqns: '1081345'}
+      pbesstategraph: {bnd: '0', eqns: '83713', mueqns: '0', nueqns: '83713'}
+  solutions:
+    property1: {pbesparelm: 'false', pbesstategraph: 'false'}
+    property2: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    property1:
+      pbesparelm: {instantiation: 68.450000000000003, reduction: 0.029999999999999999,
+        solving: 1.97}
+      pbesstategraph: {instantiation: 7.6299999999999999, reduction: 1.1600000000000001,
+        solving: 0.10000000000000001}
+    property2:
+      pbesparelm: {instantiation: 71.760000000000005, reduction: 0.11000000000000001,
+        solving: 0.10000000000000001}
+      pbesstategraph: {instantiation: 6.71, reduction: 1.6700000000000002, solving: 0.01}
+BRP [datasize=3]:
+  sizes:
+    counting:
+      pbesparelm: {bnd: '1', eqns: '914747', mueqns: '771042', nueqns: '143705'}
+      pbesstategraph: unknown
+  solutions:
+    counting: {pbesparelm: 'true', pbesstategraph: unknown}
+  times:
+    counting:
+      pbesparelm: {instantiation: 33.289999999999999, reduction: 0.089999999999999997,
+        solving: 1.25}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+SWP [datasize=2, windowsize=2]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '14882', mueqns: '3720', nueqns: '11162'}
+      pbesstategraph: {bnd: '2', eqns: '14882', mueqns: '3720', nueqns: '11162'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '42617', mueqns: '28433', nueqns: '14184'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      pbesstategraph: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '5092', mueqns: '3720', nueqns: '1372'}
+      pbesstategraph: {bnd: '1', eqns: '5092', mueqns: '3720', nueqns: '1372'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '54321', mueqns: '0', nueqns: '54321'}
+      pbesstategraph: {bnd: '0', eqns: '54321', mueqns: '0', nueqns: '54321'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '3949', mueqns: '0', nueqns: '3949'}
+      pbesstategraph: {bnd: '0', eqns: '3949', mueqns: '0', nueqns: '3949'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      pbesstategraph: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '56241', mueqns: '28128', nueqns: '28113'}
+      pbesstategraph: {bnd: '1', eqns: '56241', mueqns: '28128', nueqns: '28113'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '17689', mueqns: '5208', nueqns: '12481'}
+      pbesstategraph: {bnd: '1', eqns: '10706', mueqns: '1056', nueqns: '9650'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 0.64000000000000001, reduction: 0.080000000000000002,
+        solving: 3.9900000000000002}
+      pbesstategraph: {instantiation: 0.62, reduction: 0.11, solving: 4.0599999999999996}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 2.48, reduction: 0.059999999999999998, solving: 0.029999999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.20999999999999999, reduction: 0.10000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.20999999999999999, reduction: 23.809999999999999,
+        solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.28000000000000003, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.29999999999999999, reduction: 22.879999999999999,
+        solving: 0.0}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 2.98, reduction: 0.089999999999999997, solving: 0.050000000000000003}
+      pbesstategraph: {instantiation: 3.1699999999999999, reduction: 0.14999999999999999,
+        solving: 0.040000000000000001}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 0.45000000000000001, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.29999999999999999, reduction: 0.15000000000000002,
+        solving: 0.0}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.26000000000000001, reduction: 0.10000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.23999999999999999, reduction: 0.10000000000000001,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 2.3300000000000001, reduction: 0.029999999999999999,
+        solving: 45.32}
+      pbesstategraph: {instantiation: 2.6099999999999999, reduction: 0.11000000000000001,
+        solving: 45.57}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.73999999999999999, reduction: 0.040000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.62, reduction: 0.11, solving: 0.01}
+SWP [datasize=4, windowsize=2]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '29762', mueqns: '7440', nueqns: '22322'}
+      pbesstategraph: {bnd: '2', eqns: '29762', mueqns: '7440', nueqns: '22322'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '512017', mueqns: '326593', nueqns: '185424'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      pbesstategraph: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '10182', mueqns: '7440', nueqns: '2742'}
+      pbesstategraph: {bnd: '1', eqns: '10182', mueqns: '7440', nueqns: '2742'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '858113', mueqns: '0', nueqns: '858113'}
+      pbesstategraph: {bnd: '0', eqns: '858113', mueqns: '0', nueqns: '858113'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '211955', mueqns: '0', nueqns: '211955'}
+      pbesstategraph: {bnd: '0', eqns: '211955', mueqns: '0', nueqns: '211955'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      pbesstategraph: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '869569', mueqns: '561408', nueqns: '308161'}
+      pbesstategraph: {bnd: '1', eqns: '869569', mueqns: '561408', nueqns: '308161'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '103441', mueqns: '35088', nueqns: '68353'}
+      pbesstategraph: {bnd: '1', eqns: '50882', mueqns: '3648', nueqns: '47234'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: unknown, pbesstategraph: unknown}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 1.2, reduction: 0.089999999999999997, solving: 16.629999999999999}
+      pbesstategraph: {instantiation: 1.28, reduction: 0.11, solving: 17.109999999999999}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 34.57, reduction: 0.070000000000000007, solving: 0.39000000000000001}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.28999999999999998, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.22, reduction: 24.0, solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.54000000000000004, reduction: 0.10000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.56000000000000005, reduction: 23.349999999999998,
+        solving: 0.01}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 45.130000000000003, reduction: 0.089999999999999997,
+        solving: 0.80000000000000004}
+      pbesstategraph: {instantiation: 57.859999999999999, reduction: 0.10000000000000001,
+        solving: 0.66000000000000003}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 11.57, reduction: 0.089999999999999997, solving: 0.02}
+      pbesstategraph: {instantiation: 15.07, reduction: 0.11000000000000001, solving: 0.02}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.28999999999999998, reduction: 0.13, solving: 0.0}
+      pbesstategraph: {instantiation: 0.19, reduction: 0.11, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 42.280000000000001, reduction: 0.080000000000000002,
+        solving: timeout}
+      pbesstategraph: {instantiation: 47.539999999999999, reduction: 0.090000000000000011,
+        solving: timeout}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 5.6399999999999997, reduction: 0.080000000000000002,
+        solving: 0.02}
+      pbesstategraph: {instantiation: 4.0199999999999996, reduction: 0.12, solving: 0.01}
+SWP [datasize=8, windowsize=2]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '59522', mueqns: '14880', nueqns: '44642'}
+      pbesstategraph: {bnd: '2', eqns: '59522', mueqns: '14880', nueqns: '44642'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '7108769', mueqns: '4422401', nueqns: '2686368'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      pbesstategraph: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '20362', mueqns: '14880', nueqns: '5482'}
+      pbesstategraph: {bnd: '1', eqns: '20362', mueqns: '14880', nueqns: '5482'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '17788545', mueqns: '0', nueqns: '17788545'}
+      pbesstategraph: {bnd: '0', eqns: '17788545', mueqns: '0', nueqns: '17788545'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '8455207', mueqns: '0', nueqns: '8455207'}
+      pbesstategraph: {bnd: '0', eqns: '8455207', mueqns: '0', nueqns: '8455207'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      pbesstategraph: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '17869569', mueqns: '13854720', nueqns: '4014849'}
+      pbesstategraph: {bnd: '1', eqns: '17869569', mueqns: '13854720', nueqns: '4014849'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '672673', mueqns: '251808', nueqns: '420865'}
+      pbesstategraph: {bnd: '1', eqns: '276098', mueqns: '14016', nueqns: '262082'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: unknown, pbesstategraph: unknown}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 2.2999999999999998, reduction: 0.070000000000000007,
+        solving: 68.450000000000003}
+      pbesstategraph: {instantiation: 2.7000000000000002, reduction: 0.090000000000000011,
+        solving: 70.840000000000003}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 509.66000000000003, reduction: 0.040000000000000001,
+        solving: 6.5700000000000003}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.23999999999999999, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.20999999999999999, reduction: 23.889999999999997,
+        solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.81000000000000005, reduction: 0.059999999999999998,
+        solving: 0.02}
+      pbesstategraph: {instantiation: 1.0800000000000001, reduction: 22.91, solving: 0.01}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 1105.0799999999999, reduction: 0.040000000000000001,
+        solving: 12.48}
+      pbesstategraph: {instantiation: 1130.74, reduction: 0.10000000000000001, solving: 12.67}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 510.20999999999998, reduction: 0.050000000000000003,
+        solving: 1.05}
+      pbesstategraph: {instantiation: 523.34000000000003, reduction: 0.11, solving: 0.82999999999999996}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.17999999999999999, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.20999999999999999, reduction: 0.14000000000000001,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 953.35000000000002, reduction: 0.050000000000000003,
+        solving: timeout}
+      pbesstategraph: {instantiation: 1065.2, reduction: 0.090000000000000011, solving: timeout}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 30.559999999999999, reduction: 0.040000000000000001,
+        solving: 0.17999999999999999}
+      pbesstategraph: {instantiation: 21.420000000000002, reduction: 0.080000000000000002,
+        solving: 0.029999999999999999}
+Hanoi:
+  sizes:
+    eventually_done:
+      pbesparelm: {bnd: '0', eqns: '531442', mueqns: '531442', nueqns: '0'}
+      pbesstategraph: {bnd: '0', eqns: '531442', mueqns: '531442', nueqns: '0'}
+  solutions:
+    eventually_done: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    eventually_done:
+      pbesparelm: {instantiation: 12.73, reduction: 0.059999999999999998, solving: 184.09}
+      pbesstategraph: {instantiation: 11.98, reduction: 0.060000000000000005, solving: 189.97999999999999}
+Lift (Correct) [nlifts=4]:
+  sizes:
+    liveness_1_1:
+      pbesparelm: {bnd: '1', eqns: '107275', mueqns: '53637', nueqns: '53638'}
+      pbesstategraph: unknown
+    liveness_1_2:
+      pbesparelm: {bnd: '1', eqns: '107275', mueqns: '53637', nueqns: '53638'}
+      pbesstategraph: unknown
+    liveness_2_1:
+      pbesparelm: {bnd: '1', eqns: '44772', mueqns: '15651', nueqns: '29121'}
+      pbesstategraph: unknown
+    liveness_2_2:
+      pbesparelm: {bnd: '1', eqns: '44772', mueqns: '15651', nueqns: '29121'}
+      pbesstategraph: unknown
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '53638', mueqns: '0', nueqns: '53638'}
+      pbesstategraph: unknown
+    safety_1:
+      pbesparelm: {bnd: '0', eqns: '51219', mueqns: '0', nueqns: '51219'}
+      pbesstategraph: unknown
+    safety_2_1:
+      pbesparelm: {bnd: '0', eqns: '18624', mueqns: '0', nueqns: '18624'}
+      pbesstategraph: unknown
+    safety_2_2:
+      pbesparelm: {bnd: '0', eqns: '18624', mueqns: '0', nueqns: '18624'}
+      pbesstategraph: unknown
+  solutions:
+    liveness_1_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_1_2: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_2_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_2_2: {pbesparelm: 'true', pbesstategraph: unknown}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+  times:
+    liveness_1_1:
+      pbesparelm: {instantiation: 34.229999999999997, reduction: 0.21000000000000002,
+        solving: 0.070000000000000007}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_1_2:
+      pbesparelm: {instantiation: 34.979999999999997, reduction: 0.21000000000000002,
+        solving: 0.080000000000000002}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_1:
+      pbesparelm: {instantiation: 15.76, reduction: 0.29000000000000004, solving: 0.059999999999999998}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_2:
+      pbesparelm: {instantiation: 15.75, reduction: 0.23000000000000001, solving: 0.059999999999999998}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    nodeadlock:
+      pbesparelm: {instantiation: 26.27, reduction: 0.16, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_1:
+      pbesparelm: {instantiation: 21.239999999999998, reduction: 0.23999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_1:
+      pbesparelm: {instantiation: 7.6399999999999997, reduction: 0.13, solving: 0.070000000000000007}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_2:
+      pbesparelm: {instantiation: 7.3799999999999999, reduction: 0.14000000000000001,
+        solving: 0.070000000000000007}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+IEEE1394:
+  sizes:
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '173100', mueqns: '0', nueqns: '173100'}
+      pbesstategraph: unknown
+    property1:
+      pbesparelm: {bnd: '0', eqns: '343156', mueqns: '0', nueqns: '343156'}
+      pbesstategraph: unknown
+    property2:
+      pbesparelm: {bnd: '0', eqns: '338290', mueqns: '0', nueqns: '338290'}
+      pbesstategraph: unknown
+    property3:
+      pbesparelm: {bnd: '1', eqns: '1179768', mueqns: '327806', nueqns: '851962'}
+      pbesstategraph: unknown
+    property4:
+      pbesparelm: {bnd: '1', eqns: '524967', mueqns: '5668', nueqns: '519299'}
+      pbesstategraph: unknown
+    property5:
+      pbesparelm: {bnd: '0', eqns: '1295249', mueqns: '0', nueqns: '1295249'}
+      pbesstategraph: unknown
+  solutions:
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: unknown}
+    property1: {pbesparelm: 'true', pbesstategraph: unknown}
+    property2: {pbesparelm: 'true', pbesstategraph: unknown}
+    property3: {pbesparelm: 'false', pbesstategraph: unknown}
+    property4: {pbesparelm: 'false', pbesstategraph: unknown}
+    property5: {pbesparelm: 'true', pbesstategraph: unknown}
+  times:
+    nodeadlock:
+      pbesparelm: {instantiation: 182.34999999999999, reduction: 0.5, solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    property1:
+      pbesparelm: {instantiation: 322.75, reduction: 0.55000000000000004, solving: 0.02}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    property2:
+      pbesparelm: {instantiation: 291.05000000000001, reduction: 0.51000000000000001,
+        solving: 0.029999999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    property3:
+      pbesparelm: {instantiation: 1113.3699999999999, reduction: 0.69999999999999996,
+        solving: 1.6899999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    property4:
+      pbesparelm: {instantiation: 418.56999999999999, reduction: 0.38, solving: 0.75}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    property5:
+      pbesparelm: {instantiation: 1057.1700000000001, reduction: 0.56999999999999995,
+        solving: 0.12}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+Lift (Incorrect) [nlifts=3]:
+  sizes:
+    liveness_1_1:
+      pbesparelm: {bnd: '1', eqns: '63905', mueqns: '31952', nueqns: '31953'}
+      pbesstategraph: unknown
+    liveness_1_2:
+      pbesparelm: {bnd: '1', eqns: '63905', mueqns: '31952', nueqns: '31953'}
+      pbesstategraph: unknown
+    liveness_2_1:
+      pbesparelm: {bnd: '1', eqns: '13220', mueqns: '2979', nueqns: '10241'}
+      pbesstategraph: unknown
+    liveness_2_2:
+      pbesparelm: {bnd: '1', eqns: '13220', mueqns: '2979', nueqns: '10241'}
+      pbesstategraph: unknown
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '31953', mueqns: '0', nueqns: '31953'}
+      pbesstategraph: unknown
+    safety_1:
+      pbesparelm: {bnd: '0', eqns: '26995', mueqns: '0', nueqns: '26995'}
+      pbesstategraph: unknown
+    safety_2_1:
+      pbesparelm: {bnd: '0', eqns: '11975', mueqns: '0', nueqns: '11975'}
+      pbesstategraph: unknown
+    safety_2_2:
+      pbesparelm: {bnd: '0', eqns: '11975', mueqns: '0', nueqns: '11975'}
+      pbesstategraph: unknown
+  solutions:
+    liveness_1_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_1_2: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+    nodeadlock: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+  times:
+    liveness_1_1:
+      pbesparelm: {instantiation: 10.869999999999999, reduction: 0.13, solving: 5.1900000000000004}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_1_2:
+      pbesparelm: {instantiation: 11.5, reduction: 0.11000000000000001, solving: 5.2199999999999998}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_1:
+      pbesparelm: {instantiation: 2.3599999999999999, reduction: 0.13, solving: 0.17999999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_2:
+      pbesparelm: {instantiation: 2.2599999999999998, reduction: 0.14999999999999999,
+        solving: 0.17999999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    nodeadlock:
+      pbesparelm: {instantiation: 6.8700000000000001, reduction: 0.089999999999999997,
+        solving: 0.02}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_1:
+      pbesparelm: {instantiation: 5.7400000000000002, reduction: 0.22, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_1:
+      pbesparelm: {instantiation: 2.3599999999999999, reduction: 0.080000000000000002,
+        solving: 0.02}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_2:
+      pbesparelm: {instantiation: 2.29, reduction: 0.070000000000000007, solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+SWP [datasize=2, windowsize=1]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '1250', mueqns: '312', nueqns: '938'}
+      pbesstategraph: {bnd: '2', eqns: '1250', mueqns: '312', nueqns: '938'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '1045', mueqns: '745', nueqns: '300'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      pbesstategraph: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '388', mueqns: '312', nueqns: '76'}
+      pbesstategraph: {bnd: '1', eqns: '388', mueqns: '312', nueqns: '76'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '1369', mueqns: '0', nueqns: '1369'}
+      pbesstategraph: {bnd: '0', eqns: '1369', mueqns: '0', nueqns: '1369'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '326', mueqns: '0', nueqns: '326'}
+      pbesstategraph: {bnd: '0', eqns: '326', mueqns: '0', nueqns: '326'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      pbesstategraph: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '1621', mueqns: '864', nueqns: '757'}
+      pbesstategraph: {bnd: '1', eqns: '1621', mueqns: '864', nueqns: '757'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '625', mueqns: '144', nueqns: '481'}
+      pbesstategraph: {bnd: '1', eqns: '506', mueqns: '72', nueqns: '434'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 0.11, reduction: 0.040000000000000001, solving: 0.029999999999999999}
+      pbesstategraph: {instantiation: 0.13, reduction: 0.080000000000000002, solving: 0.029999999999999999}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 0.13, reduction: 0.050000000000000003, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.059999999999999998,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.089999999999999997, reduction: 22.370000000000001,
+        solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.14000000000000001, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.10000000000000001, reduction: 22.219999999999999,
+        solving: 0.0}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.14999999999999999, reduction: 0.040000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.17000000000000001, reduction: 0.080000000000000002,
+        solving: 0.0}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 0.12, reduction: 0.040000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: 0.14000000000000001, reduction: 0.070000000000000007,
+        solving: 0.0}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.11, reduction: 0.029999999999999999, solving: 0.0}
+      pbesstategraph: {instantiation: 0.11, reduction: 0.069999999999999993, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.050000000000000003,
+        solving: 0.059999999999999998}
+      pbesstategraph: {instantiation: 0.20999999999999999, reduction: 0.10000000000000001,
+        solving: 0.040000000000000001}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.16, reduction: 0.070000000000000007, solving: 0.0}
+      pbesstategraph: {instantiation: 0.16, reduction: 0.12, solving: 0.0}
+SWP [datasize=4, windowsize=1]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '2498', mueqns: '624', nueqns: '1874'}
+      pbesstategraph: {bnd: '2', eqns: '2498', mueqns: '624', nueqns: '1874'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '3529', mueqns: '2449', nueqns: '1080'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      pbesstategraph: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '774', mueqns: '624', nueqns: '150'}
+      pbesstategraph: {bnd: '1', eqns: '774', mueqns: '624', nueqns: '150'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '6865', mueqns: '0', nueqns: '6865'}
+      pbesstategraph: {bnd: '0', eqns: '6865', mueqns: '0', nueqns: '6865'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '3344', mueqns: '0', nueqns: '3344'}
+      pbesstategraph: {bnd: '0', eqns: '3344', mueqns: '0', nueqns: '3344'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      pbesstategraph: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '7897', mueqns: '5376', nueqns: '2521'}
+      pbesstategraph: {bnd: '1', eqns: '7897', mueqns: '5376', nueqns: '2521'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '1825', mueqns: '480', nueqns: '1345'}
+      pbesstategraph: {bnd: '1', eqns: '1346', mueqns: '216', nueqns: '1130'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.050000000000000003,
+        solving: 0.10000000000000001}
+      pbesstategraph: {instantiation: 0.20999999999999999, reduction: 0.12000000000000001,
+        solving: 0.16}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 0.25, reduction: 0.059999999999999998, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.16, reduction: 0.080000000000000002, solving: 0.0}
+      pbesstategraph: {instantiation: 0.10000000000000001, reduction: 22.029999999999998,
+        solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.14999999999999999, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.13, reduction: 22.420000000000002, solving: 0.0}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.38, reduction: 0.059999999999999998, solving: 0.01}
+      pbesstategraph: {instantiation: 0.42999999999999999, reduction: 0.13, solving: 0.01}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 0.23999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.25, reduction: 0.090000000000000011, solving: 0.0}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.14000000000000001, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.14000000000000001, reduction: 0.11000000000000001,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.40000000000000002, reduction: 0.040000000000000001,
+        solving: 1.4099999999999999}
+      pbesstategraph: {instantiation: 0.40999999999999998, reduction: 0.13, solving: 1.54}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.20000000000000001, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.17000000000000001, reduction: 0.090000000000000011,
+        solving: 0.0}
+Lift (Incorrect) [nlifts=4]:
+  sizes:
+    liveness_1_1:
+      pbesparelm: {bnd: '1', eqns: '1997577', mueqns: '998788', nueqns: '998789'}
+      pbesstategraph: unknown
+    liveness_1_2:
+      pbesparelm: {bnd: '1', eqns: '1997577', mueqns: '998788', nueqns: '998789'}
+      pbesstategraph: unknown
+    liveness_2_1:
+      pbesparelm: {bnd: '1', eqns: '134160', mueqns: '27641', nueqns: '106519'}
+      pbesstategraph: unknown
+    liveness_2_2:
+      pbesparelm: {bnd: '1', eqns: '134160', mueqns: '27641', nueqns: '106519'}
+      pbesstategraph: unknown
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '998789', mueqns: '0', nueqns: '998789'}
+      pbesstategraph: unknown
+    safety_1:
+      pbesparelm: {bnd: '0', eqns: '788878', mueqns: '0', nueqns: '788878'}
+      pbesstategraph: unknown
+    safety_2_1:
+      pbesparelm: {bnd: '0', eqns: '267376', mueqns: '0', nueqns: '267376'}
+      pbesstategraph: unknown
+    safety_2_2:
+      pbesparelm: {bnd: '0', eqns: '267376', mueqns: '0', nueqns: '267376'}
+      pbesstategraph: unknown
+  solutions:
+    liveness_1_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_1_2: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+    nodeadlock: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+  times:
+    liveness_1_1:
+      pbesparelm: {instantiation: 470.85000000000002, reduction: 0.12000000000000001,
+        solving: 1125.23}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_1_2:
+      pbesparelm: {instantiation: 478.42000000000002, reduction: 0.20000000000000001,
+        solving: 1134.8199999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_1:
+      pbesparelm: {instantiation: 29.800000000000001, reduction: 0.26000000000000001,
+        solving: 25.640000000000001}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_2:
+      pbesparelm: {instantiation: 31.27, reduction: 0.18000000000000002, solving: 26.52}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    nodeadlock:
+      pbesparelm: {instantiation: 310.75, reduction: 0.12000000000000001, solving: 1.6799999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_1:
+      pbesparelm: {instantiation: 231.84999999999999, reduction: 0.22, solving: 0.080000000000000002}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_1:
+      pbesparelm: {instantiation: 74.340000000000003, reduction: 0.13, solving: 0.60999999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_2:
+      pbesparelm: {instantiation: 70.799999999999997, reduction: 0.10000000000000001,
+        solving: 0.59999999999999998}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+Lift (Correct) [nlifts=3]:
+  sizes:
+    liveness_1_1:
+      pbesparelm: {bnd: '1', eqns: '8625', mueqns: '4312', nueqns: '4313'}
+      pbesstategraph: unknown
+    liveness_1_2:
+      pbesparelm: {bnd: '1', eqns: '8625', mueqns: '4312', nueqns: '4313'}
+      pbesstategraph: unknown
+    liveness_2_1:
+      pbesparelm: {bnd: '1', eqns: '6358', mueqns: '2104', nueqns: '4254'}
+      pbesstategraph: unknown
+    liveness_2_2:
+      pbesparelm: {bnd: '1', eqns: '6358', mueqns: '2104', nueqns: '4254'}
+      pbesstategraph: unknown
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '4313', mueqns: '0', nueqns: '4313'}
+      pbesstategraph: unknown
+    safety_1:
+      pbesparelm: {bnd: '0', eqns: '4020', mueqns: '0', nueqns: '4020'}
+      pbesstategraph: unknown
+    safety_2_1:
+      pbesparelm: {bnd: '0', eqns: '2125', mueqns: '0', nueqns: '2125'}
+      pbesstategraph: unknown
+    safety_2_2:
+      pbesparelm: {bnd: '0', eqns: '2125', mueqns: '0', nueqns: '2125'}
+      pbesstategraph: unknown
+  solutions:
+    liveness_1_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_1_2: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_2_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_2_2: {pbesparelm: 'true', pbesstategraph: unknown}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+  times:
+    liveness_1_1:
+      pbesparelm: {instantiation: 2.0899999999999999, reduction: 0.12000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_1_2:
+      pbesparelm: {instantiation: 2.1299999999999999, reduction: 0.17999999999999999,
+        solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_1:
+      pbesparelm: {instantiation: 1.6599999999999999, reduction: 0.19, solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_2:
+      pbesparelm: {instantiation: 1.71, reduction: 0.17000000000000001, solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    nodeadlock:
+      pbesparelm: {instantiation: 1.54, reduction: 0.13, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_1:
+      pbesparelm: {instantiation: 1.3200000000000001, reduction: 0.19, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_1:
+      pbesparelm: {instantiation: 0.65000000000000002, reduction: 0.13, solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_2_2:
+      pbesparelm: {instantiation: 0.66000000000000003, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+Snake:
+  sizes:
+    black_has_winning_strategy:
+      pbesparelm: {bnd: '0', eqns: '132540', mueqns: '132540', nueqns: '0'}
+      pbesstategraph: {bnd: '0', eqns: '132540', mueqns: '132540', nueqns: '0'}
+    white_has_winning_strategy:
+      pbesparelm: {bnd: '0', eqns: '47247', mueqns: '47247', nueqns: '0'}
+      pbesstategraph: {bnd: '0', eqns: '47247', mueqns: '47247', nueqns: '0'}
+  solutions:
+    black_has_winning_strategy: {pbesparelm: 'true', pbesstategraph: 'true'}
+    white_has_winning_strategy: {pbesparelm: 'false', pbesstategraph: 'false'}
+  times:
+    black_has_winning_strategy:
+      pbesparelm: {instantiation: 27.239999999999998, reduction: 0.089999999999999997,
+        solving: 743.35000000000002}
+      pbesstategraph: {instantiation: 26.75, reduction: 0.44000000000000006, solving: 703.22000000000003}
+    white_has_winning_strategy:
+      pbesparelm: {instantiation: 6.3499999999999996, reduction: 0.050000000000000003,
+        solving: 0.02}
+      pbesstategraph: {instantiation: 6.29, reduction: 0.17999999999999999, solving: 0.01}
+SWP [datasize=3, windowsize=1]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '1874', mueqns: '468', nueqns: '1406'}
+      pbesstategraph: {bnd: '2', eqns: '1874', mueqns: '468', nueqns: '1406'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '2107', mueqns: '1477', nueqns: '630'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      pbesstategraph: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '581', mueqns: '468', nueqns: '113'}
+      pbesstategraph: {bnd: '1', eqns: '581', mueqns: '468', nueqns: '113'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '3421', mueqns: '0', nueqns: '3421'}
+      pbesstategraph: {bnd: '0', eqns: '3421', mueqns: '0', nueqns: '3421'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '1319', mueqns: '0', nueqns: '1319'}
+      pbesstategraph: {bnd: '0', eqns: '1319', mueqns: '0', nueqns: '1319'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      pbesstategraph: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '3997', mueqns: '2484', nueqns: '1513'}
+      pbesstategraph: {bnd: '1', eqns: '3997', mueqns: '2484', nueqns: '1513'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '1153', mueqns: '288', nueqns: '865'}
+      pbesstategraph: {bnd: '1', eqns: '878', mueqns: '132', nueqns: '746'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.050000000000000003,
+        solving: 0.050000000000000003}
+      pbesstategraph: {instantiation: 0.19, reduction: 0.11, solving: 0.089999999999999997}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 0.19, reduction: 0.050000000000000003, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.25, reduction: 0.070000000000000007, solving: 0.0}
+      pbesstategraph: {instantiation: 0.13, reduction: 21.68, solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.14999999999999999, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.13, reduction: 22.739999999999998, solving: 0.0}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.23000000000000001, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.27000000000000002, reduction: 0.12000000000000001,
+        solving: 0.0}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 0.16, reduction: 0.050000000000000003, solving: 0.0}
+      pbesstategraph: {instantiation: 0.17000000000000001, reduction: 0.10000000000000001,
+        solving: 0.0}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.13, reduction: 0.040000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: 0.11, reduction: 0.10000000000000001, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.26000000000000001, reduction: 0.040000000000000001,
+        solving: 0.28999999999999998}
+      pbesstategraph: {instantiation: 0.25, reduction: 0.080000000000000002, solving: 0.28999999999999998}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.14999999999999999, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.14999999999999999, reduction: 0.080000000000000002,
+        solving: 0.0}
+Othello:
+  sizes:
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '86066', mueqns: '0', nueqns: '86066'}
+      pbesstategraph: {bnd: '0', eqns: '86066', mueqns: '0', nueqns: '86066'}
+    red_wins_always:
+      pbesparelm: {bnd: '0', eqns: '86066', mueqns: '86066', nueqns: '0'}
+      pbesstategraph: {bnd: '0', eqns: '86066', mueqns: '86066', nueqns: '0'}
+    white_wins_always:
+      pbesparelm: {bnd: '0', eqns: '86066', mueqns: '86066', nueqns: '0'}
+      pbesstategraph: {bnd: '0', eqns: '86066', mueqns: '86066', nueqns: '0'}
+  solutions:
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    red_wins_always: {pbesparelm: 'false', pbesstategraph: 'false'}
+    white_wins_always: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    nodeadlock:
+      pbesparelm: {instantiation: 268.22000000000003, reduction: 0.050000000000000003,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 260.29000000000002, reduction: 0.10000000000000001,
+        solving: 0.0}
+    red_wins_always:
+      pbesparelm: {instantiation: 248.63, reduction: 0.050000000000000003, solving: 0.040000000000000001}
+      pbesstategraph: {instantiation: 243.63999999999999, reduction: 0.14999999999999999,
+        solving: 0.029999999999999999}
+    white_wins_always:
+      pbesparelm: {instantiation: 241.59, reduction: 0.12, solving: 0.040000000000000001}
+      pbesstategraph: {instantiation: 235.47999999999999, reduction: 0.13, solving: 0.040000000000000001}
+Lift (Correct) [nlifts=2]:
+  sizes:
+    liveness_1_1:
+      pbesparelm: {bnd: '1', eqns: '655', mueqns: '327', nueqns: '328'}
+      pbesstategraph: unknown
+    liveness_1_2:
+      pbesparelm: {bnd: '1', eqns: '655', mueqns: '327', nueqns: '328'}
+      pbesstategraph: unknown
+    liveness_2_1:
+      pbesparelm: {bnd: '1', eqns: '648', mueqns: '180', nueqns: '468'}
+      pbesstategraph: unknown
+    liveness_2_2:
+      pbesparelm: {bnd: '1', eqns: '648', mueqns: '180', nueqns: '468'}
+      pbesstategraph: unknown
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '328', mueqns: '0', nueqns: '328'}
+      pbesstategraph: unknown
+    safety_1:
+      pbesparelm: {bnd: '0', eqns: '307', mueqns: '0', nueqns: '307'}
+      pbesstategraph: {bnd: '0', eqns: '307', mueqns: '0', nueqns: '307'}
+    safety_2_1:
+      pbesparelm: {bnd: '0', eqns: '226', mueqns: '0', nueqns: '226'}
+      pbesstategraph: {bnd: '0', eqns: '226', mueqns: '0', nueqns: '226'}
+    safety_2_2:
+      pbesparelm: {bnd: '0', eqns: '226', mueqns: '0', nueqns: '226'}
+      pbesstategraph: {bnd: '0', eqns: '226', mueqns: '0', nueqns: '226'}
+  solutions:
+    liveness_1_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_1_2: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_2_1: {pbesparelm: 'true', pbesstategraph: unknown}
+    liveness_2_2: {pbesparelm: 'true', pbesstategraph: unknown}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: unknown}
+    safety_1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    safety_2_1: {pbesparelm: 'false', pbesstategraph: 'false'}
+    safety_2_2: {pbesparelm: 'false', pbesstategraph: 'false'}
+  times:
+    liveness_1_1:
+      pbesparelm: {instantiation: 0.20999999999999999, reduction: 0.10000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_1_2:
+      pbesparelm: {instantiation: 0.20999999999999999, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_1:
+      pbesparelm: {instantiation: 0.26000000000000001, reduction: 0.17000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_2:
+      pbesparelm: {instantiation: 0.23999999999999999, reduction: 0.11, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.22, reduction: 0.10000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_1:
+      pbesparelm: {instantiation: 0.22, reduction: 0.19, solving: 0.0}
+      pbesstategraph: {instantiation: 0.93000000000000005, reduction: 44.849999999999994,
+        solving: 0.0}
+    safety_2_1:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.059999999999999998,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.41999999999999998, reduction: 27.890000000000001,
+        solving: 0.0}
+    safety_2_2:
+      pbesparelm: {instantiation: 0.14000000000000001, reduction: 0.070000000000000007,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.41999999999999998, reduction: 28.140000000000001,
+        solving: 0.0}
+Lift (Incorrect) [nlifts=2]:
+  sizes:
+    liveness_1_1:
+      pbesparelm: {bnd: '1', eqns: '1689', mueqns: '844', nueqns: '845'}
+      pbesstategraph: unknown
+    liveness_1_2:
+      pbesparelm: {bnd: '1', eqns: '1689', mueqns: '844', nueqns: '845'}
+      pbesstategraph: unknown
+    liveness_2_1:
+      pbesparelm: {bnd: '1', eqns: '880', mueqns: '165', nueqns: '715'}
+      pbesstategraph: unknown
+    liveness_2_2:
+      pbesparelm: {bnd: '1', eqns: '880', mueqns: '165', nueqns: '715'}
+      pbesstategraph: unknown
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '845', mueqns: '0', nueqns: '845'}
+      pbesstategraph: unknown
+    safety_1:
+      pbesparelm: {bnd: '0', eqns: '762', mueqns: '0', nueqns: '762'}
+      pbesstategraph: {bnd: '0', eqns: '620', mueqns: '0', nueqns: '620'}
+    safety_2_1:
+      pbesparelm: {bnd: '0', eqns: '484', mueqns: '0', nueqns: '484'}
+      pbesstategraph: {bnd: '0', eqns: '394', mueqns: '0', nueqns: '394'}
+    safety_2_2:
+      pbesparelm: {bnd: '0', eqns: '484', mueqns: '0', nueqns: '484'}
+      pbesstategraph: {bnd: '0', eqns: '394', mueqns: '0', nueqns: '394'}
+  solutions:
+    liveness_1_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_1_2: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_2_1: {pbesparelm: 'false', pbesstategraph: unknown}
+    liveness_2_2: {pbesparelm: 'false', pbesstategraph: unknown}
+    nodeadlock: {pbesparelm: 'false', pbesstategraph: unknown}
+    safety_1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    safety_2_1: {pbesparelm: 'false', pbesstategraph: 'false'}
+    safety_2_2: {pbesparelm: 'false', pbesstategraph: 'false'}
+  times:
+    liveness_1_1:
+      pbesparelm: {instantiation: 0.31, reduction: 0.070000000000000007, solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_1_2:
+      pbesparelm: {instantiation: 0.32000000000000001, reduction: 0.10000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_1:
+      pbesparelm: {instantiation: 0.20000000000000001, reduction: 0.14000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    liveness_2_2:
+      pbesparelm: {instantiation: 0.22, reduction: 0.10000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.23999999999999999, reduction: 0.089999999999999997,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    safety_1:
+      pbesparelm: {instantiation: 0.29999999999999999, reduction: 0.12000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.68000000000000005, reduction: 40.0, solving: 0.0}
+    safety_2_1:
+      pbesparelm: {instantiation: 0.20000000000000001, reduction: 0.080000000000000002,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.29999999999999999, reduction: 16.920000000000002,
+        solving: 0.0}
+    safety_2_2:
+      pbesparelm: {instantiation: 0.14999999999999999, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.28000000000000003, reduction: 16.84, solving: 0.0}
+SWP [datasize=5, windowsize=1]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '3122', mueqns: '780', nueqns: '2342'}
+      pbesstategraph: {bnd: '2', eqns: '3122', mueqns: '780', nueqns: '2342'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '5311', mueqns: '3661', nueqns: '1650'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      pbesstategraph: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '967', mueqns: '780', nueqns: '187'}
+      pbesstategraph: {bnd: '1', eqns: '967', mueqns: '780', nueqns: '187'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '12061', mueqns: '0', nueqns: '12061'}
+      pbesstategraph: {bnd: '0', eqns: '12061', mueqns: '0', nueqns: '12061'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '6761', mueqns: '0', nueqns: '6761'}
+      pbesstategraph: {bnd: '0', eqns: '6761', mueqns: '0', nueqns: '6761'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      pbesstategraph: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '13681', mueqns: '9900', nueqns: '3781'}
+      pbesstategraph: {bnd: '1', eqns: '13681', mueqns: '9900', nueqns: '3781'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '2641', mueqns: '720', nueqns: '1921'}
+      pbesstategraph: {bnd: '1', eqns: '1910', mueqns: '324', nueqns: '1586'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.059999999999999998,
+        solving: 0.16}
+      pbesstategraph: {instantiation: 0.22, reduction: 0.10000000000000001, solving: 0.17000000000000001}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 0.33000000000000002, reduction: 0.070000000000000007,
+        solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.14000000000000001, reduction: 0.050000000000000003,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.11, reduction: 22.530000000000001, solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.12, reduction: 0.040000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: 0.12, reduction: 22.740000000000002, solving: 0.0}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.53000000000000003, reduction: 0.040000000000000001,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.57999999999999996, reduction: 0.12000000000000001,
+        solving: 0.01}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 0.32000000000000001, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.38, reduction: 0.11, solving: 0.0}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.14000000000000001, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.13, reduction: 0.10000000000000001, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.53000000000000003, reduction: 0.040000000000000001,
+        solving: 4.3600000000000003}
+      pbesstategraph: {instantiation: 0.60999999999999999, reduction: 0.12000000000000001,
+        solving: 4.3600000000000003}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.17999999999999999, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.17999999999999999, reduction: 0.070000000000000007,
+        solving: 0.0}
+SWP [datasize=6, windowsize=1]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '3746', mueqns: '936', nueqns: '2810'}
+      pbesstategraph: {bnd: '2', eqns: '3746', mueqns: '936', nueqns: '2810'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '7453', mueqns: '5113', nueqns: '2340'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      pbesstategraph: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '1160', mueqns: '936', nueqns: '224'}
+      pbesstategraph: {bnd: '1', eqns: '1160', mueqns: '936', nueqns: '224'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '19369', mueqns: '0', nueqns: '19369'}
+      pbesstategraph: {bnd: '0', eqns: '19369', mueqns: '0', nueqns: '19369'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '11930', mueqns: '0', nueqns: '11930'}
+      pbesstategraph: {bnd: '0', eqns: '11930', mueqns: '0', nueqns: '11930'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      pbesstategraph: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '21709', mueqns: '16416', nueqns: '5293'}
+      pbesstategraph: {bnd: '1', eqns: '21709', mueqns: '16416', nueqns: '5293'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '3601', mueqns: '1008', nueqns: '2593'}
+      pbesstategraph: {bnd: '1', eqns: '2570', mueqns: '456', nueqns: '2114'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: 'false', pbesstategraph: 'false'}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 0.17000000000000001, reduction: 0.029999999999999999,
+        solving: 0.23999999999999999}
+      pbesstategraph: {instantiation: 0.23000000000000001, reduction: 0.12000000000000001,
+        solving: 0.26000000000000001}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 0.37, reduction: 0.029999999999999999, solving: 0.0}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.12, reduction: 0.050000000000000003, solving: 0.0}
+      pbesstategraph: {instantiation: 0.12, reduction: 22.350000000000001, solving: 0.0}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 0.13, reduction: 0.040000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: 0.16, reduction: 22.120000000000001, solving: 0.0}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 0.81000000000000005, reduction: 0.050000000000000003,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.90000000000000002, reduction: 0.090000000000000011,
+        solving: 0.01}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 0.53000000000000003, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.56999999999999995, reduction: 0.12, solving: 0.01}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.10000000000000001, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.13, reduction: 0.090000000000000011, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 0.81999999999999995, reduction: 0.040000000000000001,
+        solving: 11.68}
+      pbesstategraph: {instantiation: 0.93999999999999995, reduction: 0.080000000000000002,
+        solving: 11.73}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 0.19, reduction: 0.040000000000000001, solving: 0.0}
+      pbesstategraph: {instantiation: 0.19, reduction: 0.080000000000000002, solving: 0.0}
+SWP [datasize=2, windowsize=3]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '84866', mueqns: '21216', nueqns: '63650'}
+      pbesstategraph: {bnd: '2', eqns: '84866', mueqns: '21216', nueqns: '63650'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '742969', mueqns: '484033', nueqns: '258936'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      pbesstategraph: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '30652', mueqns: '21216', nueqns: '9436'}
+      pbesstategraph: {bnd: '1', eqns: '30652', mueqns: '21216', nueqns: '9436'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '944089', mueqns: '0', nueqns: '944089'}
+      pbesstategraph: {bnd: '0', eqns: '944089', mueqns: '0', nueqns: '944089'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '22873', mueqns: '0', nueqns: '22873'}
+      pbesstategraph: {bnd: '0', eqns: '22873', mueqns: '0', nueqns: '22873'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '10609', mueqns: '0', nueqns: '10609'}
+      pbesstategraph: {bnd: '0', eqns: '10610', mueqns: '0', nueqns: '10610'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '917713', mueqns: '446784', nueqns: '470929'}
+      pbesstategraph: {bnd: '1', eqns: '917713', mueqns: '446784', nueqns: '470929'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '217537', mueqns: '70752', nueqns: '146785'}
+      pbesstategraph: {bnd: '1', eqns: '109682', mueqns: '6360', nueqns: '103322'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: unknown, pbesstategraph: unknown}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 3.3300000000000001, reduction: 0.040000000000000001,
+        solving: 144.90000000000001}
+      pbesstategraph: {instantiation: 3.6299999999999999, reduction: 0.12000000000000001,
+        solving: 146.68000000000001}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 58.68, reduction: 0.050000000000000003, solving: 0.65000000000000002}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.59999999999999998, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.68999999999999995, reduction: 22.619999999999997,
+        solving: 0.01}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 1.1399999999999999, reduction: 0.059999999999999998,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 1.3100000000000001, reduction: 23.380000000000003,
+        solving: 0.01}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 50.649999999999999, reduction: 0.029999999999999999,
+        solving: 1.1200000000000001}
+      pbesstategraph: {instantiation: 57.200000000000003, reduction: 0.080000000000000002,
+        solving: 1.1100000000000001}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 1.1699999999999999, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 1.3300000000000001, reduction: 0.069999999999999993,
+        solving: 0.01}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.56000000000000005, reduction: 0.029999999999999999,
+        solving: 0.01}
+      pbesstategraph: {instantiation: 0.55000000000000004, reduction: 0.080000000000000002,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 45.460000000000001, reduction: 0.050000000000000003,
+        solving: timeout}
+      pbesstategraph: {instantiation: 49.549999999999997, reduction: 0.080000000000000002,
+        solving: timeout}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 9.7100000000000009, reduction: 0.050000000000000003,
+        solving: 0.070000000000000007}
+      pbesstategraph: {instantiation: 7.3600000000000003, reduction: 0.10000000000000001,
+        solving: 0.02}
+SWP [datasize=3, windowsize=3]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '127298', mueqns: '31824', nueqns: '95474'}
+      pbesstategraph: {bnd: '2', eqns: '127298', mueqns: '31824', nueqns: '95474'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '6302377', mueqns: '3980989', nueqns: '2321388'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      pbesstategraph: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '45977', mueqns: '31824', nueqns: '14153'}
+      pbesstategraph: {bnd: '1', eqns: '45977', mueqns: '31824', nueqns: '14153'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '9206767', mueqns: '0', nueqns: '9206767'}
+      pbesstategraph: {bnd: '0', eqns: '9206767', mueqns: '0', nueqns: '9206767'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '687235', mueqns: '0', nueqns: '687235'}
+      pbesstategraph: {bnd: '0', eqns: '687235', mueqns: '0', nueqns: '687235'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '10609', mueqns: '0', nueqns: '10609'}
+      pbesstategraph: {bnd: '0', eqns: '10610', mueqns: '0', nueqns: '10610'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '8680285', mueqns: '4958172', nueqns: '3722113'}
+      pbesstategraph: {bnd: '1', eqns: '8680285', mueqns: '4958172', nueqns: '3722113'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '901045', mueqns: '324000', nueqns: '577045'}
+      pbesstategraph: {bnd: '1', eqns: '394586', mueqns: '13260', nueqns: '381326'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: unknown, pbesstategraph: unknown}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 4.4900000000000002, reduction: 0.070000000000000007,
+        solving: 336.17000000000002}
+      pbesstategraph: {instantiation: 5.1799999999999997, reduction: 0.090000000000000011,
+        solving: 337.77999999999997}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 519.17999999999995, reduction: 0.050000000000000003,
+        solving: 6.7400000000000002}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.58999999999999997, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.87, reduction: 22.970000000000002, solving: 0.01}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 2.0, reduction: 0.050000000000000003, solving: 0.02}
+      pbesstategraph: {instantiation: 2.0699999999999998, reduction: 23.390000000000004,
+        solving: 0.02}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 531.13999999999999, reduction: 0.050000000000000003,
+        solving: 10.539999999999999}
+      pbesstategraph: {instantiation: 622.37, reduction: 0.10000000000000001, solving: 11.32}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 39.259999999999998, reduction: 0.029999999999999999,
+        solving: 0.059999999999999998}
+      pbesstategraph: {instantiation: 42.450000000000003, reduction: 0.060000000000000005,
+        solving: 0.059999999999999998}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.54000000000000004, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.63, reduction: 0.090000000000000011, solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 446.86000000000001, reduction: 0.050000000000000003,
+        solving: timeout}
+      pbesstategraph: {instantiation: 486.89999999999998, reduction: 0.070000000000000007,
+        solving: timeout}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 43.140000000000001, reduction: 0.029999999999999999,
+        solving: 0.32000000000000001}
+      pbesstategraph: {instantiation: 28.32, reduction: 0.070000000000000007, solving: 0.040000000000000001}
+SWP [datasize=4, windowsize=3]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '169730', mueqns: '42432', nueqns: '127298'}
+      pbesstategraph: {bnd: '2', eqns: '169730', mueqns: '42432', nueqns: '127298'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '30615553', mueqns: '19032577', nueqns: '11582976'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      pbesstategraph: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '61302', mueqns: '42432', nueqns: '18870'}
+      pbesstategraph: {bnd: '1', eqns: '61302', mueqns: '42432', nueqns: '18870'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '50479825', mueqns: '0', nueqns: '50479825'}
+      pbesstategraph: {bnd: '0', eqns: '50479825', mueqns: '0', nueqns: '50479825'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '6690605', mueqns: '0', nueqns: '6690605'}
+      pbesstategraph: {bnd: '0', eqns: '6690605', mueqns: '0', nueqns: '6690605'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '10609', mueqns: '0', nueqns: '10609'}
+      pbesstategraph: {bnd: '0', eqns: '10610', mueqns: '0', nueqns: '10610'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '47057281', mueqns: '29718528', nueqns: '17338753'}
+      pbesstategraph: {bnd: '1', eqns: '47057281', mueqns: '29718528', nueqns: '17338753'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '2525185', mueqns: '963840', nueqns: '1561345'}
+      pbesstategraph: {bnd: '1', eqns: '1015058', mueqns: '22920', nueqns: '992138'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: 'false'}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: unknown, pbesstategraph: unknown}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 6.3300000000000001, reduction: 0.050000000000000003,
+        solving: 728.60000000000002}
+      pbesstategraph: {instantiation: 7.21, reduction: 0.090000000000000011, solving: 655.75999999999999}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 2685.6399999999999, reduction: 0.040000000000000001,
+        solving: 32.240000000000002}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 0.59999999999999998, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.67000000000000004, reduction: 23.030000000000005,
+        solving: 0.01}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 2.3900000000000001, reduction: 0.050000000000000003,
+        solving: 0.029999999999999999}
+      pbesstategraph: {instantiation: 2.7799999999999998, reduction: 22.700000000000003,
+        solving: 0.029999999999999999}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 3073.6900000000001, reduction: 0.050000000000000003,
+        solving: 62.289999999999999}
+      pbesstategraph: {instantiation: 3388.98, reduction: 0.090000000000000011, solving: 66.099999999999994}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 397.83999999999997, reduction: 0.029999999999999999,
+        solving: 0.77000000000000002}
+      pbesstategraph: {instantiation: 437.38, reduction: 0.090000000000000011, solving: 0.71999999999999997}
+    nodeadlock:
+      pbesparelm: {instantiation: 0.47999999999999998, reduction: 0.029999999999999999,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 0.57999999999999996, reduction: 0.060000000000000005,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 3050.1500000000001, reduction: 0.050000000000000003,
+        solving: timeout}
+      pbesstategraph: {instantiation: 3043.6599999999999, reduction: 0.090000000000000011,
+        solving: timeout}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 127.41, reduction: 0.050000000000000003, solving: 0.96999999999999997}
+      pbesstategraph: {instantiation: 83.560000000000002, reduction: 0.089999999999999997,
+        solving: 0.11}
+SWP [datasize=2, windowsize=4]:
+  sizes:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {bnd: '2', eqns: '346562', mueqns: '86640', nueqns: '259922'}
+      pbesstategraph: {bnd: '2', eqns: '346562', mueqns: '86640', nueqns: '259922'}
+    infinitely_often_lost:
+      pbesparelm: {bnd: '2', eqns: '8964337', mueqns: '5783297', nueqns: '3181040'}
+      pbesstategraph: unknown
+    infinitely_often_receive_d1:
+      pbesparelm: {bnd: '1', eqns: '64610', mueqns: '43320', nueqns: '21290'}
+      pbesstategraph: {bnd: '1', eqns: '64610', mueqns: '43320', nueqns: '21290'}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {bnd: '1', eqns: '129220', mueqns: '86640', nueqns: '42580'}
+      pbesstategraph: {bnd: '1', eqns: '129220', mueqns: '86640', nueqns: '42580'}
+    no_duplication_of_messages:
+      pbesparelm: {bnd: '0', eqns: '11488273', mueqns: '0', nueqns: '11488273'}
+      pbesstategraph: {bnd: '0', eqns: '11488273', mueqns: '0', nueqns: '11488273'}
+    no_generation_of_messages:
+      pbesparelm: {bnd: '0', eqns: '94710', mueqns: '0', nueqns: '94710'}
+      pbesstategraph: {bnd: '0', eqns: '94710', mueqns: '0', nueqns: '94710'}
+    nodeadlock:
+      pbesparelm: {bnd: '0', eqns: '43321', mueqns: '0', nueqns: '43321'}
+      pbesstategraph: {bnd: '0', eqns: '43322', mueqns: '0', nueqns: '43322'}
+    read_then_eventually_send:
+      pbesparelm: {bnd: '1', eqns: '10782593', mueqns: '5178112', nueqns: '5604481'}
+      pbesstategraph: {bnd: '1', eqns: '10782593', mueqns: '5178112', nueqns: '5604481'}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {bnd: '1', eqns: '1841201', mueqns: '629296', nueqns: '1211905'}
+      pbesstategraph: {bnd: '1', eqns: '835522', mueqns: '26656', nueqns: '808866'}
+  solutions:
+    infinitely_often_enabled_then_infinitely_often_taken: {pbesparelm: 'false', pbesstategraph: unknown}
+    infinitely_often_lost: {pbesparelm: 'true', pbesstategraph: unknown}
+    infinitely_often_receive_d1: {pbesparelm: 'true', pbesstategraph: 'true'}
+    infinitely_often_receive_for_all_d: {pbesparelm: 'true', pbesstategraph: 'true'}
+    no_duplication_of_messages: {pbesparelm: 'false', pbesstategraph: 'false'}
+    no_generation_of_messages: {pbesparelm: 'true', pbesstategraph: 'true'}
+    nodeadlock: {pbesparelm: 'true', pbesstategraph: 'true'}
+    read_then_eventually_send: {pbesparelm: unknown, pbesstategraph: unknown}
+    read_then_eventually_send_if_fair: {pbesparelm: 'true', pbesstategraph: 'true'}
+  times:
+    infinitely_often_enabled_then_infinitely_often_taken:
+      pbesparelm: {instantiation: 13.25, reduction: 0.02, solving: 3469.2199999999998}
+      pbesstategraph: {instantiation: 16.890000000000001, reduction: 0.090000000000000011,
+        solving: timeout}
+    infinitely_often_lost:
+      pbesparelm: {instantiation: 859.78999999999996, reduction: 0.02, solving: 10.369999999999999}
+      pbesstategraph: {instantiation: timeout, reduction: timeout, solving: timeout}
+    infinitely_often_receive_d1:
+      pbesparelm: {instantiation: 2.6600000000000001, reduction: 0.02, solving: 0.029999999999999999}
+      pbesstategraph: {instantiation: 2.7999999999999998, reduction: 23.400000000000002,
+        solving: 0.02}
+    infinitely_often_receive_for_all_d:
+      pbesparelm: {instantiation: 5.3300000000000001, reduction: 0.059999999999999998,
+        solving: 0.059999999999999998}
+      pbesstategraph: {instantiation: 6.0499999999999998, reduction: 24.439999999999998,
+        solving: 0.059999999999999998}
+    no_duplication_of_messages:
+      pbesparelm: {instantiation: 723.16999999999996, reduction: 0.040000000000000001,
+        solving: 17.960000000000001}
+      pbesstategraph: {instantiation: 780.20000000000005, reduction: 0.080000000000000002,
+        solving: 17.77}
+    no_generation_of_messages:
+      pbesparelm: {instantiation: 5.2400000000000002, reduction: 0.02, solving: 0.01}
+      pbesstategraph: {instantiation: 6.0800000000000001, reduction: 0.070000000000000007,
+        solving: 0.0}
+    nodeadlock:
+      pbesparelm: {instantiation: 1.8999999999999999, reduction: 0.040000000000000001,
+        solving: 0.0}
+      pbesstategraph: {instantiation: 2.3300000000000001, reduction: 0.069999999999999993,
+        solving: 0.0}
+    read_then_eventually_send:
+      pbesparelm: {instantiation: 686.89999999999998, reduction: 0.050000000000000003,
+        solving: timeout}
+      pbesstategraph: {instantiation: 727.55999999999995, reduction: 0.10000000000000001,
+        solving: timeout}
+    read_then_eventually_send_if_fair:
+      pbesparelm: {instantiation: 97.730000000000004, reduction: 0.070000000000000007,
+        solving: 0.85999999999999999}
+      pbesstategraph: {instantiation: 69.599999999999994, reduction: 0.090000000000000011,
+        solving: 0.12}
