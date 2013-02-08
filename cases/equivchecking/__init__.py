@@ -73,7 +73,10 @@ class Case(TempObj):
 def getcases():
   import specs
   buf = specs.get('Buffer')
+  abp = specs.get('ABP')
   swp = specs.get('SWP')
   return \
     [Case('Buffer/SWP (w={0}, d={1})'.format(w, d), swp.mcrl2(w, d), buf.mcrl2(2 * w, d))
+      for w, d in [(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (2, 2), (2, 3)]] + \
+    [Case('ABP/SWP (w={0}, d={1})'.format(w, d), swp.mcrl2(w, d), abp.mcrl2(d))
      for w, d in [(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (2, 2), (2, 3)]]
