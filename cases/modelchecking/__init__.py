@@ -81,21 +81,20 @@ def getcases():
     [Case('Smaller', datasize=i) for i in [2,4,8,16,32]] + \
     [Case('ABP', datasize=i) for i in [2,4,8,16,32]] + \
     [Case('Hesselink', datasize=i) for i in [2]] + \
-    [Case('SWP', windowsize=2, datasize=i) for i in [2,4,8]] + \
-    [Case('BRP', datasize=i) for i in [3]]
-    
-#     Case('Othello'),
-#     Case('Clobber'),
-#     Case('Snake'),
-#     Case('Hex'),
-#     Case('Domineering', boardsize=5),
-#     Case('Elevator'),
-#     Case('Hanoi'),
-#     Case('IEEE1394')] + \
-#    [Case('Lift (Correct)', nlifts=n) for n in range(2, 5)] + \
-#    [Case('Lift (Incorrect)', nlifts=n) for n in range(2, 5)] + \
-#    [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \
-#    [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
-#    [Case('SWP', windowsize=3, datasize=i) for i in range(2, 5)] + \
-#    [Case('SWP', windowsize=4, datasize=2)] + \
-#    [Case('Leader', nparticipants=n) for n in range(3, 7)]
+    [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \
+    [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
+    [Case('BRP', datasize=i) for i in [3]] + \
+    [Case('Othello'),
+     Case('Clobber'),
+     Case('Snake'),
+     Case('Hex'),
+     Case('Domineering', boardsize=5),
+     Case('Elevator'),
+     Case('Hanoi'),
+     Case('IEEE1394')] + \
+    [Case('Lift (Correct)', nlifts=n) for n in range(2, 5)] + \
+    [Case('Lift (Incorrect)', nlifts=n) for n in range(2, 5)] + \
+    [Case('SWP', windowsize=3, datasize=i) for i in range(2, 5)] + \
+    [Case('SWP', windowsize=4, datasize=2)] + \
+    [Case('Onebit', datasize=i) for i in range(2,5)] + \
+    [Case('Leader', nparticipants=n) for n in range(3, 7)]

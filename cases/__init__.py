@@ -36,7 +36,7 @@ class TempObj(pool.Task):
     return fn.name
 
 class ReduceAndSolveTask(TempObj):
-  def __init__(self, name, prefix, filename, *args):
+  def __init__(self, name, prefix, filename):
     super(ReduceAndSolveTask, self).__init__()
     self.__pbesfile = filename
     if name.startswith('pbesparelm'):
@@ -45,7 +45,6 @@ class ReduceAndSolveTask(TempObj):
     else:
       self.__reducedPbesfile = self._newTempFilename('pbes', 'constelm.stategraph.constelm')
       self.__besfile = self._newTempFilename('bes', 'stategraph')
-    self.__opts = list(args)
     self._prefix = prefix
     self.name = name
     self.times = {}
@@ -61,16 +60,16 @@ class ReduceAndSolveTask(TempObj):
       tmpfile2 = self._newTempFilename('pbes', 'constelm.stategraph')
     
     log.debug('Constelm')
-    result, t = tools.pbesconstelm(self.__pbesfile, tmpfile1, *self.__opts, timed=True)
+    result, t = tools.pbesconstelm(self.__pbesfile, tmpfile1, timed=True)
     self.times['reduction'] = t[0]['timing']['total'] 
     
     try:
       if self.name.startswith('pbesparelm'):
         log.debug('Parelm')
-        result, t = tools.pbesparelm(tmpfile1, tmpfile2, *self.__opts, timed=True, timeout=REDUCTION_TIMEOUT)
+        result, t = tools.pbesparelm(tmpfile1, tmpfile2, timed=True, timeout=REDUCTION_TIMEOUT)
       else:
         log.debug('Stategraph')
-        result, t = tools.pbesstategraph(tmpfile1, tmpfile2, *self.__opts, timed=True, timeout=REDUCTION_TIMEOUT)
+        result, t = tools.pbesstategraph(tmpfile1, tmpfile2, '-s1', '-p0', '-a1', '-l0', timed=True, timeout=REDUCTION_TIMEOUT)
       self.times['reduction'] += t[0]['timing']['total']
 
       log.debug('Constelm again')
@@ -95,7 +94,7 @@ class ReduceAndSolveTask(TempObj):
   
   def __solve(self, log):
     try:      
-      result, t = tools.pbespgsolve(self.__besfile, *self.__opts, timed=True, timeout=SOLVE_TIMEOUT)
+      result, t = tools.pbespgsolve(self.__besfile, timed=True, timeout=SOLVE_TIMEOUT)
       self.times['solving'] = t[0]['timing']['solving']      
       self.result = result.strip()
     except (tools.Timeout):
