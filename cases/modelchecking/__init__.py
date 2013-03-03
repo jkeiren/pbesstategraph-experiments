@@ -88,7 +88,7 @@ def getcases():
      Case('Clobber'),
      Case('Snake'),
      Case('Hex'),
-     Case('Domineering', boardsize=5),
+     Case('Domineering'),
      Case('Elevator'),
      Case('Hanoi'),
      Case('IEEE1394')] + \
