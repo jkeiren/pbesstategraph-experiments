@@ -10,12 +10,14 @@ import sys
 
 SOLVE_TIMEOUT = 3600
 REDUCTION_TIMEOUT = 900
+# Memlimit in KBytes
+MEMLIMIT = 1*1024*1024
 
 class TempObj(pool.Task):
-  def __init__(self):
+  def __init__(self, temppath='temp', prefix=""):
     super(TempObj, self).__init__()
-    self._temppath = 'temp'
-    self._prefix = ""
+    self._temppath = temppath
+    self._prefix = prefix
 
   def __escape(self, s):
     return s.replace('/', '_').replace(' ', '_')
@@ -39,43 +41,39 @@ class ReduceAndSolveTask(TempObj):
   def __init__(self, name, prefix, filename, *args):
     super(ReduceAndSolveTask, self).__init__()
     self.__pbesfile = filename
-    if name.startswith('pbesparelm'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', 'constelm.parelm.constelm')
-      self.__besfile = self._newTempFilename('bes', 'parelm')
-    else:
-      self.__reducedPbesfile = self._newTempFilename('pbes', 'constelm.stategraph.constelm')
-      self.__besfile = self._newTempFilename('bes', 'stategraph')
     self.__opts = list(args)
     self._prefix = prefix
+    if name.startswith('pbesparelm'):
+      self.__reducedPbesfile = self._newTempFilename('pbes', 'parelm.constelm')
+      self.__besfile = self._newTempFilename('bes', '.parelm.constelm')
+    else:
+      self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')
+      self.__besfile = self._newTempFilename('bes', '.stategraph.constelm')
     self.name = name
-    self.times = {}
-    self.sizes = 'error'
-    self.result = None
+    self.result = {}
+    self.result['name'] = self.name
+    self.result['times'] = {}
+    self.result['sizes'] = 'unknown'
   
   def __reduce(self, log):
     log.debug('Creating temp files')
-    tmpfile1 = self._newTempFilename('pbes', 'constelm')
     if self.name.startswith('pbesparelm'):
-      tmpfile2 = self._newTempFilename('pbes','constelm.parelm')
+      tmpfile = self._newTempFilename('pbes','.parelm')
     else:
-      tmpfile2 = self._newTempFilename('pbes', 'constelm.stategraph')
-    
-    log.debug('Constelm')
-    result, t = tools.pbesconstelm(self.__pbesfile, tmpfile1, *self.__opts, timed=True)
-    self.times['reduction'] = t[0]['timing']['total'] 
+      tmpfile = self._newTempFilename('pbes', '.stategraph')
     
     try:
       if self.name.startswith('pbesparelm'):
         log.debug('Parelm')
-        result, t = tools.pbesparelm(tmpfile1, tmpfile2, *self.__opts, timed=True, timeout=REDUCTION_TIMEOUT)
+        result = tools.pbesparelm(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       else:
         log.debug('Stategraph')
-        result, t = tools.pbesstategraph(tmpfile1, tmpfile2, *self.__opts, timed=True, timeout=REDUCTION_TIMEOUT)
-      self.times['reduction'] += t[0]['timing']['total']
+        result = tools.pbesstategraph(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+       
+      self.result['times']['reduction'] = result['times']
 
-      log.debug('Constelm again')
-      result, t = tools.pbesconstelm(tmpfile2, self.__reducedPbesfile, timed=True)
-      self.times['reduction'] += t[0]['timing']['total'] 
+      result = tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
+       
     except (tools.Timeout):
       log.info('Timeout')
       self.times['reduction'] = 'timeout'
@@ -83,25 +81,26 @@ class ReduceAndSolveTask(TempObj):
 
     
   def __instantiate(self, log):
-    result, t = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timed=True)
-    self.times['instantiation'] = t[0]['timing']['total']
-    info = tools.besinfo(self.__besfile, '-v')
+    result = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timed=True)
+    self.result['times']['instantiation'] = result['times']
+    
+    info = tools.besinfo(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
     BESINFO_RE = '.*Number of equations:\s*(?P<eqns>\d+)' \
              '.*Number of mu.?s:\s*(?P<mueqns>\d+)' \
              '.*Number of nu.?s:\s*(?P<nueqns>\d+)' \
              '.*Block nesting depth:\s*(?P<bnd>\d+).*?'
     m = re.search(BESINFO_RE, info, re.DOTALL)
-    self.sizes = m.groupdict()
+    self.result['sizes'] = m.groupdict()
   
   def __solve(self, log):
     try:      
-      result, t = tools.pbespgsolve(self.__besfile, *self.__opts, timed=True, timeout=SOLVE_TIMEOUT)
-      self.times['solving'] = t[0]['timing']['solving']      
-      self.result = result.strip()
+      result = tools.pbespgsolve(self.__besfile, timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
+      self.result['times']['solving'] = result['times']      
+      self.result['solution'] = result['out'].strip()
     except (tools.Timeout):
       log.info('Timeout')
-      self.times['solving'] = 'timeout'
-      self.result = 'unknown'
+      self.result['times']['solving'] = 'timeout'
+      self.result['solution'] = 'unknown'
   
   def phase0(self, log):
     log.info('Reducing PBES')
@@ -109,10 +108,10 @@ class ReduceAndSolveTask(TempObj):
     try:
       self.__reduce(log)
     except (tools.Timeout):
-      self.times['solving'] = 'timeout'
-      self.times['instantiation'] = 'timeout'
-      self.result = 'unknown'
-      self.sizes = 'unknown'
+      self.result['times']['solving'] = 'timeout'
+      self.result['times']['instantiation'] = 'timeout'
+      self.result['solution'] = 'unknown'
+      self.result['sizes'] = 'unknown'
       timeout = True
 
     if not timeout:
@@ -122,25 +121,24 @@ class ReduceAndSolveTask(TempObj):
       self.__solve(log)
   
 class PBESCase(TempObj):
-  def __init__(self):
-    super(PBESCase, self).__init__()
+  def __init__(self, temppath='temp', prefix=""):
+    super(PBESCase, self).__init__(temppath, prefix)
     self.__pbesfile = self._newTempFilename('pbes')
-    self.sizes = {}
-    self.times = {}
-    self.solutions = {}
+    self.result = {}
   
   def _makePBES(self):
     raise NotImplementedError()
   
   def _writePBESfile(self, log):
-    tmp = self._makePBES()
-    tmp = tools.pbesrewr('-psimplify', stdin=tmp)
-    tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp)
-    tmp = tools.pbesrewr('-psimplify', stdin=tmp)
+    pbes = self._makePBES()
+    tmp = tools.pbesrewr('-psimplify', stdin=pbes, memlimit=MEMLIMIT)
+    tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
+    tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
+    tmp = tools.pbesconstelm(stdin=tmp['out'], memlimit=MEMLIMIT)
 
     log.debug("Writing PBES")
     pbes = open(self.__pbesfile, 'w')
-    pbes.write(tmp)
+    pbes.write(tmp['out'])
     pbes.close()
     
   def __reduce(self, pbesfile, log):
@@ -158,7 +156,5 @@ class PBESCase(TempObj):
     
   def phase1(self, log):
     for task in self.results:
-      self.sizes[task.name] = task.sizes
-      self.times[task.name] = task.times
-      self.solutions[task.name] = task.result
+      self.result[task.name] = task.result
     

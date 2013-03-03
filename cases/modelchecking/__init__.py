@@ -1,4 +1,4 @@
-from cases import tools, TempObj, PBESCase
+from cases import tools, TempObj, PBESCase, MEMLIMIT
 import specs
 import os.path
 import logging
@@ -10,10 +10,9 @@ import traceback
 
 class Property(PBESCase):
   def __init__(self, description, lps, mcf, temppath):
-    PBESCase.__init__(self)
+    PBESCase.__init__(self, temppath=temppath, prefix=description + '_' + os.path.splitext(os.path.split(mcf)[1])[0])
     self.__desc = description
     self._temppath = temppath
-    self._prefix = self.__desc + '_' + os.path.splitext(os.path.split(mcf)[1])[0]
     self.lps = lps
     self.mcffile = mcf
     self.renfile = os.path.splitext(self.mcffile)[0] + '.ren'
@@ -25,13 +24,17 @@ class Property(PBESCase):
     '''If a lpsactionrename specification exists for this property, transform
        the LPS.'''
     if os.path.exists(self.renfile):
-      self.lps = tools.lpsactionrename('-f', self.renfile, '-v', stdin=self.lps)
+      self.lps = tools.lpsactionrename('-f', self.renfile, '-v', stdin=self.lps, memlimit=MEMLIMIT)['out']
   
   def _makePBES(self):
     '''Generate a PBES out of self.lps and self.mcffile, and apply pbesconstelm
        to it.'''
     self.__rename()
-    return tools.lps2pbes('-f', self.mcffile, '-v', stdin=self.lps)
+    lps = self._newTempFilename("lps")
+    f = open(lps, 'w')
+    f.write(self.lps)
+    f.close()
+    return tools.lps2pbes('-f', self.mcffile, '-v', lps, memlimit=MEMLIMIT)['out']
 
 class Case(TempObj):
   def __init__(self, name, **kwargs):
@@ -43,10 +46,7 @@ class Case(TempObj):
     self._temppath = os.path.join(os.path.split(__file__)[0], 'temp')
     self._prefix = '{0}{1}'.format(self.__name, ('_'.join('{0}={1}'.format(k,v) for k,v in self.__kwargs.items())))
     self.proppath = os.path.join(os.path.split(__file__)[0], 'properties', spec.TEMPLATE)
-    self.sizes = {}
-    self.times = {}
-    self.solutions = {}
-    self.results = []
+    self.result = {}
   
   def __str__(self):
     argstr = ', '.join(['{0}={1}'.format(k, v) for k, v in self.__kwargs.items()])
@@ -55,7 +55,7 @@ class Case(TempObj):
   def _makeLPS(self, log):
     '''Linearises the specification in self._mcrl2.'''
     log.debug('Linearising {0}'.format(self))
-    return tools.mcrl22lps('-nfv', stdin=self._mcrl2)
+    return tools.mcrl22lps('-nfv', stdin=self._mcrl2, memlimit=MEMLIMIT)['out']
 
   def phase0(self, log):
     '''Generates an LPS and creates subtasks for every property that should be
@@ -70,20 +70,21 @@ class Case(TempObj):
   def phase1(self, log):
     log.debug('Finalising {0}'.format(self))
     for prop in self.results:
-      self.sizes[str(prop)] = prop.sizes
-      self.times[str(prop)] = prop.times
-      self.solutions[str(prop)] = prop.solutions
+      self.result[str(prop)] = prop.result
 
-def getcases():
-  return \
-    [Case('Debug spec'),
-     Case('Small')] +\
-    [Case('Smaller', datasize=i) for i in [2,4,8,16,32]] + \
-    [Case('ABP', datasize=i) for i in [2,4,8,16,32]] + \
-    [Case('Hesselink', datasize=i) for i in [2]] + \
-    [Case('SWP', windowsize=2, datasize=i) for i in [2,4,8]] + \
-    [Case('BRP', datasize=i) for i in [3]]
-    
+def getcases(debug):
+  if debug:
+    return [Case('Debug spec'),
+     Case('Small')]
+  else:
+    return \
+      [Case('Debug spec'),
+       Case('Small')] +\
+      [Case('Smaller', datasize=i) for i in [2,4,8,16,32]] + \
+      [Case('ABP', datasize=i) for i in [2,4]] + \
+      [Case('SWP', windowsize=2, datasize=i) for i in [2]] + \
+      [Case('BRP', datasize=i) for i in [3]]
+    #[Case('Hesselink', datasize=i) for i in [2]] + \
 #     Case('Othello'),
 #     Case('Clobber'),
 #     Case('Snake'),

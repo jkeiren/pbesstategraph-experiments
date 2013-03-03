@@ -1,82 +1,132 @@
 import subprocess
 import logging
 import tempfile
-import threading
 import yaml
 import os
 import re
 
 __LOG = logging.getLogger('tools')
+logging.raiseExceptions = False
+
+_TIMEOUTSCRIPT = os.path.join(os.path.dirname(os.path.realpath(__file__)), "timeout")
 
 class ToolException(Exception):
-  def __init__(self, tool, exitcode, out, err):
+  def __init__(self, tool, exitcode, result):
     Exception.__init__(self)
-    self.__out = out
-    self.__err = err
+    self.__result = result
     self.__ret = exitcode
     self.__cmdline = ' '.join(tool)
   
   def __str__(self):
     return 'The commandline "{0}" failed with exit code "{1}".\nStandard error:\n{2}\nStandard output:\n{3}\n'.format(
-      self.__cmdline, self.__ret, self.__err, self.__out)
+      self.__cmdline, self.__ret, self.__result['err'], self.__result['out'])
 
 class Timeout(Exception):
-  def __init__(self, out, err):
+  def __init__(self, cmdline, result):
     super(Timeout, self).__init__()
-    self.out = out
-    self.err = err
+    self.__cmdline = ' '.join(cmdline)
+    self.result = result
+    
+  def __str__(self):
+    return 'The commandline "{0}" timed out'.format(self.__cmdline)
+    
+class OutOfMemory(Exception):
+  def __init__(self, cmdline, result):
+    super(OutOfMemory, self).__init__()
+    self.__cmdline = ' '.join(cmdline)
+    self.result = result
+    
+  def __str__(self):
+    return 'The commandline "{0}" exceeded the memory limit'.format(self.__cmdline)
 
 class Tool(object):
-  def __init__(self, name, log, filter_=None, timed=False, timeout=None):
+  def __init__(self, name, log, hastimings = True, filter_=None, timed=False, timeout=None, memlimit=None):
     self.__name = name
     self.__log = log
-    self.__timeout = timeout 
+    self.__hastimings = hastimings
+    self.__timeout = timeout
+    self.__memlimit = memlimit 
     self.__filter = filter_
     self.__timed = timed
-    self.result = None
-    self.error = None
-  
-  def __run(self, stdin, stdout, stderr, timeout, *args):
-    cmdline = [self.__name] + [str(x) for x in args]
+    self.result = {}
+    self.result['cmdline'] = None
+    self.result['out'] = None
+    self.result['err'] = None
+    self.result['filter'] = None
+    self.result['times'] = None    
+    self.result['memory'] = 'unknown'
+    
+  def __run(self, stdin, stdout, stderr, timeout, memlimit, *args, **kwargs):
+    cmdline = kwargs.pop('prependcmdline', [])
+    if kwargs:
+      raise TypeError('Unknown parameter(s) for run instance: ' + 
+                      ', '.join(['{0}={1}'.format(k, v) 
+                                 for k, v in kwargs.items()]))
+    cmdline += [self.__name] + [str(x) for x in args]
     self.__log.info('Running {0}'.format(' '.join(cmdline)))
-    p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=stdout, 
-                         stderr=stderr)
-    if timeout is not None:
-      timer = threading.Timer(timeout, p.kill)
-      timer.start()
-      self.result, self.error = p.communicate(stdin)
-      if not timer.isAlive():
-        raise Timeout(self.result, self.error)
-      else: 
-        timer.cancel()
-    else:
-      self.result, self.error = p.communicate(stdin)
+    self.result['cmdline'] = ' '.join(cmdline)
+    timeoutcmd = []
+
+    if timeout is not None or memlimit is not None:
+      if not os.path.exists(_TIMEOUTSCRIPT):
+        self.__log.error('The script {0} does not exists, cannot run without it'.format(_TIMEOUTSCRIPT))
+        raise Exception('File {0} not found'.format(_TIMEOUTSCRIPT))
+      
+      timeoutcmd += [_TIMEOUTSCRIPT, '--confess', '--no-info-on-success']
+      if timeout is not None:
+        timeoutcmd += ['-t', str(timeout)]
+      if memlimit is not None:
+        timeoutcmd += ['-m', str(memlimit)]
+        
+      cmdline = timeoutcmd + cmdline
+    
+    p = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=stdout, stderr=stderr)
+    out, err = p.communicate(stdin)
+    self.result['out'], self.result['err'] = out, err 
+    
     if p.returncode != 0:
-      raise ToolException(cmdline, p.returncode, self.result, self.error)      
-  
-  def __run_timed(self, stdin, stdout, stderr, timeout, *args):
-    timings = tempfile.NamedTemporaryFile(suffix='.yaml', delete=False)
-    timings.close()
-    self.__run(stdin, stdout, stderr, timeout, '--timings='+timings.name, *args)
-    t = yaml.load(open(timings.name).read())
-    os.unlink(timings.name)
-    self.result = [self.result, t]
+      # Filter the output to see whether we exceeded time or memory:
+      TIMEOUT_RE = 'TIMEOUT CPU (?P<cpu>\d+[.]\d*) MEM (?P<mem>\d+) MAXMEM (?P<maxmem>\d+) STALE (?P<stale>\d+)'
+      m = re.search(TIMEOUT_RE, self.result['err'], re.DOTALL)
+      if m is not None:
+        self.result['times'] = 'timeout'
+        raise Timeout(cmdline, self.result)
+      
+      MEMLIMIT_RE = 'MEM CPU (?P<cpu>\d+[.]\d*) MEM (?P<mem>\d+) MAXMEM (?P<maxmem>\d+) STALE (?P<stale>\d+)'
+      m = re.search(MEMLIMIT_RE, self.result['err'], re.DOTALL)
+      if m is not None:
+        self.result['memory'] = 'outofmemory'
+        raise OutOfMemory(cmdline, self.result)
+      
+      raise ToolException(cmdline, p.returncode, self.result)
+            
+  def __run_timed(self, stdin, stdout, stderr, timeout, memlimit, *args):
+    if self.__hastimings:
+      timings = tempfile.NamedTemporaryFile(suffix='.yaml', delete=False)
+      timings.close()
+      self.__run(stdin, stdout, stderr, timeout, memlimit, '--timings='+timings.name, *args)
+      t = yaml.load(open(timings.name).read())
+      os.unlink(timings.name)
+      self.result['times'] = t[0]['timing']
+    else:
+      timings = tempfile.NamedTemporaryFile(suffix='.yaml', delete=False)
+      timings.close()
+      cmdline=['/usr/bin/time', '--format', '{user: %U, sys: %S}', '-o', timings.name]
+      self.__run(stdin, stdout, stderr, timeout, memlimit, *args, prependcmdline=cmdline)
+      t = yaml.load(open(timings.name).read())
+      os.unlink(timings.name)
+      self.result['times'] = {}
+      self.result['times']['total'] = t['sys'] + t['user']
   
   def __apply_filter(self, filter_):
     m = re.search(filter_, self.error, re.DOTALL)
     if m is not None:
-      if isinstance(self.result, list):
-        self.result.append(m.groupdict())
-      else:
-        self.result = [self.result, m.groupdict()]
+      self.result['filter'] = m.groupdict()
     else:
       self.__log.error('No match!')
       self.__log.error(filter_)
-      self.__log.error(self.error)
-      if isinstance(self.result, list):
-        self.result.append({})
-      else:
-        self.result = [self.result, {}]
+      self.__log.error(self.result['err'])
+      self.result['filter'] = {}
   
   def __str__(self):
     return self.__name
@@ -87,16 +137,17 @@ class Tool(object):
     stderr = kwargs.pop('stderr', subprocess.PIPE)
     filter_ = kwargs.pop('filter', self.__filter)
     timeout = kwargs.pop('timeout', self.__timeout)
+    memlimit = kwargs.pop('memlimit', self.__memlimit)
     timed = kwargs.pop('timed', self.__timed)
     if kwargs:
       raise TypeError('Unknown parameter(s) for Tool instance: ' + 
                       ', '.join(['{0}={1}'.format(k, v) 
                                  for k, v in kwargs.items()]))
     if timed:
-      self.__run_timed(stdin, stdout, stderr, timeout, *args)
+      self.__run_timed(stdin, stdout, stderr, timeout, memlimit, *args)
     else:
-      self.__run(stdin, stdout, stderr, timeout, *args)
-    self.__log.debug(self.error)
+      self.__run(stdin, stdout, stderr, timeout, memlimit, *args)
+    self.__log.debug(self.result['err'])
     if filter_:
       self.__apply_filter(filter_)
     return self.result

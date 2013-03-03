@@ -6,7 +6,7 @@ import os
 from cases import modelchecking, equivchecking
 from cases.pool import TaskPool 
 
-def run(poolsize, resultsfile):
+def run(poolsize, resultsfile, debug):
   log = logging.getLogger('experiments')
 
   casesdone = []
@@ -27,7 +27,7 @@ def run(poolsize, resultsfile):
   pool = TaskPool(poolsize)
   try:
     tasks = []
-    for task in modelchecking.getcases(): #+ equivchecking.getcases():
+    for task in modelchecking.getcases(debug) + equivchecking.getcases(debug):
       log.info('Adding task {0}'.format(task))
       if str(task) in casesdone:
         log.info('- ' + str(task))
@@ -35,9 +35,9 @@ def run(poolsize, resultsfile):
         tasks.append(task)
     log.info('Submitting cases and waiting for results.')
     for case in pool.run(*tasks):
-      if isinstance(case, (modelchecking.Case)):#, equivchecking.Case)):
+      if isinstance(case, (modelchecking.Case, equivchecking.Case)):
         log.info('Got result for {0}'.format(case))
-        resultsfile.write(yaml.dump({str(case): {'sizes': case.sizes, 'times': case.times, 'solutions': case.solutions}}))
+        resultsfile.write(yaml.dump({str(case): case.result}))
         resultsfile.flush()
     log.info('Done.')
 
@@ -53,6 +53,8 @@ def runCmdLine():
                     help='Run N jobs simultaneously.', metavar='N', default=4)
   parser.add_option('-v', action='count', dest='verbosity',
                     help='Be more verbose. Use more than once to increase verbosity even more.')
+  parser.add_option('-d', action='store_true', dest='debug',
+                    help='Only run a few cases for debugging purposes.')
   options, args = parser.parse_args()
   if not args:
     args = (None,)
@@ -67,7 +69,7 @@ def runCmdLine():
     logging.getLogger('experiments').setLevel(logging.DEBUG)
     logging.getLogger('tools').setLevel(logging.INFO)
 
-  run(options.poolsize, args[0])
+  run(options.poolsize, args[0], options.debug)
 
 if __name__ == '__main__':
   runCmdLine()

@@ -19,8 +19,8 @@ class EquivCase(PBESCase):
     return self.equiv
   
   def _makePBES(self):
-    pbes = tools.lpsbisim2pbes('-b' + self.equiv, self.lpsfile1, self.lpsfile2)
-    return tools.pbesconstelm(stdin=pbes)
+    pbes = tools.lpsbisim2pbes('-b' + self.equiv, self.lpsfile1, self.lpsfile2)['out']
+    return tools.pbesconstelm(stdin=pbes)['out']
   
 class Case(TempObj):
   def __init__(self, description, spec1, spec2):
@@ -31,9 +31,7 @@ class Case(TempObj):
     self._prefix = self.__desc
     self.spec1 = spec1
     self.spec2 = spec2
-    self.sizes = {}
-    self.times = {}
-    self.solutions = {}
+    self.result = {}
   
   def __str__(self):
     return self.__desc
@@ -42,11 +40,11 @@ class Case(TempObj):
     '''Linearises self.spec1 and self.spec2 and applies lpssuminst to the 
        resulting LPSs.'''
     log.info('Linearising LPSs for {0}'.format(self))
-    lps1 = tools.mcrl22lps('-fnD', stdin=self.spec1)
-    lps2 = tools.mcrl22lps('-fnD', stdin=self.spec2)
+    lps1 = tools.mcrl22lps('-fnD', stdin=self.spec1)['out']
+    lps2 = tools.mcrl22lps('-fnD', stdin=self.spec2)['out']
     log.info('Applying lpssuminst to LPSs for {0}'.format(self))
-    lps1 = tools.lpssuminst('-f', stdin=lps1)
-    lps2 = tools.lpssuminst('-f', stdin=lps2)
+    lps1 = tools.lpssuminst('-f', stdin=lps1)['out']
+    lps2 = tools.lpssuminst('-f', stdin=lps2)['out']
     lpsfile1 = self._newTempFile('lps')
     lpsfile1.write(lps1)
     lpsfile1.close()
@@ -64,16 +62,20 @@ class Case(TempObj):
   def phase1(self, log):
     log.info('Finalising {0}'.format(self))
     for case in self.results:
-      self.sizes[str(case)] = case.sizes
-      self.times[str(case)] = case.times
-      self.solutions[str(case)] = case.solutions
+      self.result[str(case)] = case.result
     for filename in self.__files:
       os.unlink(filename)
   
-def getcases():
+def getcases(debug):
   import specs
   buf = specs.get('Buffer')
+  #abp = specs.get('ABP')
   swp = specs.get('SWP')
-  return \
-    [Case('Buffer/SWP (w={0}, d={1})'.format(w, d), swp.mcrl2(w, d), buf.mcrl2(2 * w, d))
-     for w, d in [(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (2, 2), (2, 3)]]
+  if debug:
+    return \
+      [Case('Buffer/SWP (w={0}, d={1})'.format(w, d), swp.mcrl2(w, d), buf.mcrl2(2 * w, d))
+       for w, d in [(1, 2)]]
+  else:
+    return \
+      [Case('Buffer/SWP (w={0}, d={1})'.format(w, d), swp.mcrl2(w, d), buf.mcrl2(2 * w, d))
+       for w, d in [(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (2, 2), (2, 3)]]
