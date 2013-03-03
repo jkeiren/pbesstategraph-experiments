@@ -17,10 +17,10 @@
 map  n: Pos;
 eqn  n=${windowsize};
 
-sort %D = Nat;
-     D = struct ${data};
+sort D = struct ${data};
      DBuf = List(D);
      BBuf = List(Bool);
+     Error = struct e; % To allow comparison with ABP
 map  empty: BBuf;
      insert: D#Nat#DBuf -> DBuf;
      insert: Bool#Nat#BBuf -> BBuf;

@@ -57,7 +57,7 @@ class ReduceAndSolveTask(TempObj):
   def __reduce(self, log):
     log.debug('Creating temp files')
     if self.name.startswith('pbesparelm'):
-      tmpfile = self._newTempFilename('pbes','.parelm')
+      tmpfile = self._newTempFilename('pbes', '.parelm')
     else:
       tmpfile = self._newTempFilename('pbes', '.stategraph')
     
