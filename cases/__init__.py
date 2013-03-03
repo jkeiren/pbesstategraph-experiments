@@ -11,7 +11,7 @@ import sys
 SOLVE_TIMEOUT = 3600
 REDUCTION_TIMEOUT = 900
 # Memlimit in KBytes
-MEMLIMIT = 1*1024*1024
+MEMLIMIT = 16*1024*1024
 
 class TempObj(pool.Task):
   def __init__(self, temppath='temp', prefix=""):

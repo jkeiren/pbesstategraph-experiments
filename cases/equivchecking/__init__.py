@@ -3,7 +3,7 @@ import logging
 import traceback
 import multiprocessing
 import os
-from cases import tools, PBESCase, TempObj
+from cases import tools, PBESCase, TempObj, MEMLIMIT
 
 class EquivCase(PBESCase):
   def __init__(self, description, lpsfile1, lpsfile2, equiv, temppath):
@@ -19,8 +19,8 @@ class EquivCase(PBESCase):
     return self.equiv
   
   def _makePBES(self):
-    pbes = tools.lpsbisim2pbes('-b' + self.equiv, self.lpsfile1, self.lpsfile2)['out']
-    return tools.pbesconstelm(stdin=pbes)['out']
+    pbes = tools.lpsbisim2pbes('-b' + self.equiv, self.lpsfile1, self.lpsfile2, memlimit=MEMLIMIT)['out']
+    return tools.pbesconstelm(stdin=pbes, memlimit=MEMLIMIT)['out']
   
 class Case(TempObj):
   def __init__(self, description, spec1, spec2):
@@ -40,11 +40,11 @@ class Case(TempObj):
     '''Linearises self.spec1 and self.spec2 and applies lpssuminst to the 
        resulting LPSs.'''
     log.info('Linearising LPSs for {0}'.format(self))
-    lps1 = tools.mcrl22lps('-fnD', stdin=self.spec1)['out']
-    lps2 = tools.mcrl22lps('-fnD', stdin=self.spec2)['out']
-    log.info('Applying lpssuminst to LPSs for {0}'.format(self))
-    lps1 = tools.lpssuminst('-f', stdin=lps1)['out']
-    lps2 = tools.lpssuminst('-f', stdin=lps2)['out']
+    lps1 = tools.mcrl22lps('-fn', stdin=self.spec1, memlimit=MEMLIMIT)['out']
+    lps2 = tools.mcrl22lps('-fn', stdin=self.spec2, memlimit=MEMLIMIT)['out']
+    #log.info('Applying lpssuminst to LPSs for {0}'.format(self))
+    #lps1 = tools.lpssuminst('-f', stdin=lps1, memlimit=MEMLIMIT)['out']
+    #lps2 = tools.lpssuminst('-f', stdin=lps2, memlimit=MEMLIMIT)['out']
     lpsfile1 = self._newTempFile('lps')
     lpsfile1.write(lps1)
     lpsfile1.close()
@@ -55,7 +55,8 @@ class Case(TempObj):
   
   def phase0(self, log):
     lpsfile1, lpsfile2 = self.__linearise(log)
-    for equiv in ['strong-bisim', 'weak-bisim', 'branching-bisim', 'branching-sim']:
+    #for equiv in ['strong-bisim', 'weak-bisim', 'branching-bisim', 'branching-sim']:
+    for equiv in ['strong-bisim']:
       self.subtasks.append(EquivCase(self.__desc, lpsfile1, lpsfile2, equiv, self._temppath))
     self.__files = [lpsfile1, lpsfile2]
   

@@ -55,7 +55,7 @@ class Case(TempObj):
   def _makeLPS(self, log):
     '''Linearises the specification in self._mcrl2.'''
     log.debug('Linearising {0}'.format(self))
-    return tools.mcrl22lps('-nfv', stdin=self._mcrl2, memlimit=MEMLIMIT)['out']
+    return tools.mcrl22lps('-nf', stdin=self._mcrl2, memlimit=MEMLIMIT)['out']
 
   def phase0(self, log):
     '''Generates an LPS and creates subtasks for every property that should be
