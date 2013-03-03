@@ -38,10 +38,9 @@ class TempObj(pool.Task):
     return fn.name
 
 class ReduceAndSolveTask(TempObj):
-  def __init__(self, name, prefix, filename, *args):
+  def __init__(self, name, prefix, filename):
     super(ReduceAndSolveTask, self).__init__()
     self.__pbesfile = filename
-    self.__opts = list(args)
     self._prefix = prefix
     if name.startswith('pbesparelm'):
       self.__reducedPbesfile = self._newTempFilename('pbes', 'parelm.constelm')

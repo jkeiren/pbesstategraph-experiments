@@ -14,6 +14,12 @@ class BufferSpec(Spec):
       buffersize=buffersize, 
       data='|'.join(['d' + str(i) for i in range(0, datasize)]))
 
+class ABPSpec(Spec):
+  TEMPLATE = 'abp'
+  def mcrl2(self, datasize):
+    return self._template.substitute(
+      data='|'.join(['d' + str(i) for i in range(0, datasize)]))
+
 class SWPListsSpec(Spec):
   TEMPLATE = 'swp_lists'
   def mcrl2(self, windowsize, datasize):
@@ -26,6 +32,7 @@ class SWPListsSpec(Spec):
 
 __SPECS = {
     'SWP': SWPListsSpec(),
+    'ABP': ABPSpec(),
     'Buffer': BufferSpec()    
   }
 
