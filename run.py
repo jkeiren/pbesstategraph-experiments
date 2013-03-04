@@ -28,10 +28,10 @@ def run(poolsize, resultsfile, debug):
   try:
     tasks = []
     for task in modelchecking.getcases(debug) + equivchecking.getcases(debug):
-      log.info('Adding task {0}'.format(task))
       if str(task) in casesdone:
         log.info('- ' + str(task))
       else:
+        log.info('Adding task {0}'.format(task))
         tasks.append(task)
     log.info('Submitting cases and waiting for results.')
     for case in pool.run(*tasks):
