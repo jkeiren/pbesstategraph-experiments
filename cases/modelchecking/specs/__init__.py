@@ -27,6 +27,10 @@ class DataSpec(Spec):
     return self._template.substitute(
       data='|'.join(['d' + str(i + 1) for i in range(0, datasize)])
     )
+    
+class ElevatorSpec(Spec):
+  def mcrl2(self, policy, storeys):
+    return self._template.substitute(policy=policy, storeys=storeys)
 
 class SWPSpec(Spec):
   TEMPLATE = 'swp'
@@ -51,7 +55,7 @@ __SPECS = {
     'Lift (Incorrect)': LiftSpec('lift-incorrect'),
     'Lift (Correct)': LiftSpec('lift-correct'),
     'Hanoi': Spec('hanoi'),
-    'Elevator': Spec('elevator'),
+    'Elevator': ElevatorSpec('elevator'),
     'Snake': Spec('snake'),
     'Clobber': Spec('clobber'),
     'Hex': Spec('hex'),

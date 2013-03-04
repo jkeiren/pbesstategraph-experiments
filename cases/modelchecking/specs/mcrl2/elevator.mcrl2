@@ -8,15 +8,14 @@
 % Scheduling policy
 sort Policy = struct FIFO | LIFO;
 map policy: Policy;
-%eqn policy = FIFO;
-eqn policy = LIFO;
+eqn policy = ${policy};
 
 sort Floor = Pos;
      Requests = List(Floor);
 
 % The number of floors in the building
 map storeys: Floor;
-eqn storeys = 4;
+eqn storeys = ${storeys};
 
 % Add request in the appropriate place, according to the queueing behaviour
 % FIFO use queueing

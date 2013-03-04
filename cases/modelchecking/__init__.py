@@ -86,12 +86,12 @@ def getcases(debug):
       [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \
       [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
       [Case('BRP', datasize=i) for i in [3]] + \
+      [Case('Elevator', policy=p, storeys=n) for p in ['FIFO', 'LIFO'] for n in range(3,6)] + \
       [Case('Othello'),
        Case('Clobber'),
        Case('Snake'),
        Case('Hex'),
        Case('Domineering'),
-       Case('Elevator'),
        Case('Hanoi'),
        Case('IEEE1394')] + \
       [Case('Lift (Correct)', nlifts=n) for n in range(2, 5)] + \
