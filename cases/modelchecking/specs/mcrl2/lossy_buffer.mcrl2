@@ -1,0 +1,20 @@
+% This example is a lossy buffer at it is used in the paper
+% "Jeroen J. A. Keiren, Wieger Wesselink, and Tim A. C. Willemse.
+% Improved Static Analysis of Parameterised Boolean Equation
+% Systems using Control Flow Reconstruction"
+%
+
+sort D = struct ${data};
+
+act r, s: D;
+    l;
+
+proc P(s:Nat, d:D) =
+sum e:D. (s == 1) -> r(e).P(2,e)
+       + (s == 2) -> tau. P(3,d)
+       + (s == 2) -> tau. P(4,d)
+       + (s == 3) -> l. P(1,d)
+       + (s == 4) -> s(d). P(1,d1);
+
+init P(1,d1);
+

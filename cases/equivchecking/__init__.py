@@ -75,24 +75,8 @@ def getcases(debug):
   hesselink = specs.get('Hesselink (Implementation)')
   if debug:
     return \
-      [Case('Hesselink (Implementation)/Hesselink (Specification) (d={0})'.format(d), hesselink_spec.mcrl2(d), hesselink.mcrl2(d))
-         for d in range(2,3)] + \
       [Case('Buffer/ABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
-      [Case('Buffer/ABP(BW) (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
-      [Case('Buffer/CABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
-      [Case('Buffer/Par (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
-      [Case('Buffer/Onebit (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,2)]] + \
-      [Case('Buffer/SWP (w={0}, c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,2)]] + \
-      [Case('ABP/ABP (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,2)]] + \
-      [Case('ABP/SWP (w={0}, d={2})'.format(w,c,d), abp.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,2)]]
+         for (w,c,d) in [(1,1,2)]]
   else:
     return \
       [Case('Buffer/ABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp.mcrl2(w,c,d))

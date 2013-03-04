@@ -75,12 +75,11 @@ class Case(TempObj):
 def getcases(debug):
   if debug:
     return [Case('Debug spec'),
-     Case('Small')]
+     Case('Lossy buffer', datasize=8)]
   else:
     return \
-      [Case('Debug spec'),
-       Case('Small')] +\
-      [Case('Smaller', datasize=i) for i in [2,4,8,16,32]] + \
+      [Case('Debug spec')] + \
+      [Case('Lossy buffer', datasize=i) for i in [2,3,4,5,6,7,8,16,32,64,128]] + \
       [Case('ABP', datasize=i) for i in [2,4,8,16,32]] + \
       [Case('Hesselink', datasize=i) for i in [2]] + \
       [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \

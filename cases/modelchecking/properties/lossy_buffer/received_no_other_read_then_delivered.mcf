@@ -1,0 +1,6 @@
+% if a message v is received through receive, then, as long as
+% no other message is read through receive, all messages delivered
+%  must match message v.
+
+[true*](forall v:D. [r(v). (!exists w:D. r(w))*]forall w:D. [s(w)]val(w == v) )
+

@@ -44,6 +44,7 @@ class SWPSpec(Spec):
 
 __SPECS = {
     'Debug spec': Spec('debugging'),
+    'Lossy buffer': DataSpec('lossy_buffer'),
     'Smaller': DataSpec('smaller'),
     'Small': Spec('small'),
     'ABP':DataSpec('abp'),
