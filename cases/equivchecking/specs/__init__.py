@@ -12,6 +12,15 @@ class Spec(object):
   def mcrl2(self):
     return self._template.substitute()
 
+class DataSpec(Spec):
+  def __init__(self, template):
+    super(DataSpec, self).__init__(template)
+  
+  def mcrl2(self, datasize):
+    return self._template.substitute(
+      data='|'.join(['d' + str(i) for i in range(0, datasize)])
+    )
+
 # Class to denote a mix of buffer implementations. We combine all of these,
 # because lpsbisim2pbes requires shared data specifications, hence we always
 # need to initialise all relevant data
@@ -35,7 +44,9 @@ __SPECS = {
     'CABP': GeneralBufferSpec('cabp'),
     'Onebit': GeneralBufferSpec('onebit'),
     'Par': GeneralBufferSpec('par'),    
-    'SWP': GeneralBufferSpec('swp_lists')
+    'SWP': GeneralBufferSpec('swp_lists'),
+    'Hesselink (Specification)': DataSpec('hesselink_spec'),
+    'Hesselink (Implementation)': DataSpec('hesselink')
   }
 
 def get(name):
