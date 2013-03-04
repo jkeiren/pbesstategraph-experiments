@@ -131,8 +131,8 @@ class PBESCase(TempObj):
   def _writePBESfile(self, log):
     pbes = self._makePBES()
     tmp = tools.pbesrewr('-psimplify', stdin=pbes, memlimit=MEMLIMIT)
-    tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
-    tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
+    #tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
+    #tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
     tmp = tools.pbesconstelm(stdin=tmp['out'], memlimit=MEMLIMIT)
 
     log.debug("Writing PBES")
