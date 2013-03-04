@@ -11,7 +11,7 @@ import sys
 SOLVE_TIMEOUT = 3600
 REDUCTION_TIMEOUT = 900
 # Memlimit in KBytes
-MEMLIMIT = 16*1024*1024
+MEMLIMIT = 64*1024*1024
 
 class TempObj(pool.Task):
   def __init__(self, temppath='temp', prefix=""):
@@ -75,7 +75,7 @@ class ReduceAndSolveTask(TempObj):
        
     except (tools.Timeout):
       log.info('Timeout')
-      self.times['reduction'] = 'timeout'
+      self.result['times']['reduction'] = 'timeout'
       raise tools.Timeout()
 
     
