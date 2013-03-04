@@ -43,7 +43,7 @@ class ReduceAndSolveTask(TempObj):
     self.__pbesfile = filename
     self._prefix = prefix
     if name.startswith('pbesparelm'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', 'parelm.constelm')
+      self.__reducedPbesfile = self._newTempFilename('pbes', '.parelm.constelm')
       self.__besfile = self._newTempFilename('bes', '.parelm.constelm')
     else:
       self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')

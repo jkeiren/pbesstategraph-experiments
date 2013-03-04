@@ -7,10 +7,8 @@ from cases import tools, PBESCase, TempObj, MEMLIMIT
 
 class EquivCase(PBESCase):
   def __init__(self, description, lpsfile1, lpsfile2, equiv, temppath):
-    super(EquivCase, self).__init__()
+    super(EquivCase, self).__init__(temppath = temppath, prefix = description + "eq={0}".format(equiv))
     self.__desc = description
-    self._temppath = temppath
-    self._prefix = self.__desc + "eq=%s" % (equiv)
     self.lpsfile1 = lpsfile1
     self.lpsfile2 = lpsfile2
     self.equiv = equiv
@@ -42,9 +40,6 @@ class Case(TempObj):
     log.info('Linearising LPSs for {0}'.format(self))
     lps1 = tools.mcrl22lps('-fn', stdin=self.spec1, memlimit=MEMLIMIT)['out']
     lps2 = tools.mcrl22lps('-fn', stdin=self.spec2, memlimit=MEMLIMIT)['out']
-    #log.info('Applying lpssuminst to LPSs for {0}'.format(self))
-    #lps1 = tools.lpssuminst('-f', stdin=lps1, memlimit=MEMLIMIT)['out']
-    #lps2 = tools.lpssuminst('-f', stdin=lps2, memlimit=MEMLIMIT)['out']
     lpsfile1 = self._newTempFile('lps')
     lpsfile1.write(lps1)
     lpsfile1.close()
@@ -55,8 +50,8 @@ class Case(TempObj):
   
   def phase0(self, log):
     lpsfile1, lpsfile2 = self.__linearise(log)
-    #for equiv in ['strong-bisim', 'weak-bisim', 'branching-bisim', 'branching-sim']:
-    for equiv in ['strong-bisim']:
+    for equiv in ['strong-bisim', 'weak-bisim', 'branching-bisim', 'branching-sim']:
+    #for equiv in ['strong-bisim']:
       self.subtasks.append(EquivCase(self.__desc, lpsfile1, lpsfile2, equiv, self._temppath))
     self.__files = [lpsfile1, lpsfile2]
   
@@ -64,8 +59,8 @@ class Case(TempObj):
     log.info('Finalising {0}'.format(self))
     for case in self.results:
       self.result[str(case)] = case.result
-    for filename in self.__files:
-      os.unlink(filename)
+    #for filename in self.__files:
+    #  os.unlink(filename)
   
 def getcases(debug):
   import specs
