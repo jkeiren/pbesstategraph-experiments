@@ -66,12 +66,29 @@ def getcases(debug):
   import specs
   buf = specs.get('Buffer')
   abp = specs.get('ABP')
+  abp_bw = specs.get('ABP(BW)')
+  cabp = specs.get('CABP')
+  par = specs.get('Par')
+  onebit = specs.get('Onebit')
   swp = specs.get('SWP')
   if debug:
     return \
-      [Case('SWP/Buffer (w={0}, d={1})'.format(1, 2), swp.mcrl2(1, 2), buf.mcrl2(2 * 1, 2))] +\
-      [Case('ABP/ABP (d={0})'.format(2), abp.mcrl2(2), abp.mcrl2(2))] +\
-      [Case('SWP/ABP (w={0}, d={1})'.format(1, 2), swp.mcrl2(1, 2), abp.mcrl2(2))]
+      [Case('Buffer/ABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,2)]] + \
+      [Case('Buffer/ABP(BW) (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,2)]] + \
+      [Case('Buffer/CABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,2)]] + \
+      [Case('Buffer/Par (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), par.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,2)]] + \
+      [Case('Buffer/Onebit (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
+         for (w,c,d) in [(1,2,2)]] + \
+      [Case('Buffer/SWP (w={0}, c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,2,2)]] + \
+      [Case('ABP/ABP (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), abp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,2,2)]] + \
+      [Case('ABP/SWP (w={0}, d={2})'.format(w,c,d), abp.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,2,2)]]
   else:
     return \
       [Case('SWP/Buffer (w={0}, d={1})'.format(w, d), swp.mcrl2(w, d), buf.mcrl2(2 * w, d))
