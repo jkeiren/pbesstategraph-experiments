@@ -58,6 +58,31 @@ class IEEE1394Spec(Spec):
       links=' || '.join(['LINK(N,{0})'.format(n) for n in range(0,nparties)])
     )
 
+class BoardSpec(Spec):
+  def __init__(self, template=None):
+    super(BoardSpec,self).__init__(template)
+  
+  def mcrl2(self, width, height):
+    return self._template.substitute(
+      width=width,
+      height=height
+    )
+
+class OthelloSpec(BoardSpec):
+  def __init__(self, template=None):
+    super(OthelloSpec,self).__init__(template)
+  
+  def mcrl2(self, width, height):
+    assert(width % 2 == 0)
+    assert(width >= 4)
+    assert(height % 2 == 0)
+    assert(height >= 4)
+    
+    return self._template.substitute(
+      extrarows = int((height-2/2)),
+      extracolumns = int((width-2/2))
+    )
+
 __SPECS = {
     'Debug spec': Spec('debugging'),
     'Lossy buffer': DataSpec('lossy_buffer'),
@@ -73,12 +98,12 @@ __SPECS = {
     'Lift (Correct)': LiftSpec('lift-correct'),
     'Hanoi': HanoiSpec('hanoi'),
     'Elevator': ElevatorSpec('elevator'),
-    'Snake': Spec('snake'),
-    'Clobber': Spec('clobber'),
-    'Hex': Spec('hex'),
-    'Othello': Spec('othello'),
     'Leader': LeaderSpec('leader'),
-    'Domineering': Spec('domineering')
+    'Snake': BoardSpec('snake'),
+    'Clobber': BoardSpec('clobber'),
+    'Hex': BoardSpec('hex'),
+    'Domineering': BoardSpec('domineering'),
+    'Othello': OthelloSpec('othello')
   }
 
 def get(name):

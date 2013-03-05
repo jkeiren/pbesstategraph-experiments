@@ -72,6 +72,28 @@ class Case(TempObj):
     for prop in self.results:
       self.result[str(prop)] = prop.result
 
+class GameCase(Case):
+  def __init__(self, name, use_compiled_constelm=False, **kwargs):
+    super(GameCase, self).__init__(name, **kwargs)
+    self.__boardwidth = kwargs.get('width')
+    self.__boardheight = kwargs.get('height')
+    self.__use_compiled_constelm = use_compiled_constelm
+    
+  def _makeLPS(self, log):
+    '''Linearises the specification in self._mcrl2 and applies lpssuminst,
+    lpsparunfold and lpsconstelm to the result.'''
+    log.debug('Linearising {0}'.format(self))
+    result = tools.mcrl22lps('-vnf', stdin=self._mcrl2, memlimit=MEMLIMIT)
+    log.debug('Applying suminst on LPS of {0}'.format(self))
+    result = tools.lpssuminst(stdin=result['out'], memlimit=MEMLIMIT)
+    log.debug('Applying parunfold (for Board) on LPS of {0}'.format(self))
+    result = tools.lpsparunfold('-lv', '-n{0}'.format(self.__boardheight), '-sBoard', stdin=result['out'], memlimit=MEMLIMIT)
+    log.debug('Applying parunfold (for Row) on LPS of {0}'.format(self))
+    result = tools.lpsparunfold('-lv', '-n{0}'.format(self.__boardwidth), '-sRow', stdin=result['out'], memlimit=MEMLIMIT)
+    log.debug('Applying constelm on LPS of {0}'.format(self))
+    result = tools.lpsconstelm('-ctvrjittyc' if self.__use_compiled_constelm else '-ctv', stdin=result['out'], memlimit=MEMLIMIT)
+    return result['out']
+
 def getcases(debug):
   if debug:
     return [Case('Debug spec'),
@@ -86,11 +108,11 @@ def getcases(debug):
       [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
       [Case('BRP', datasize=i) for i in [3]] + \
       [Case('Elevator', policy=p, storeys=n) for p in ['FIFO', 'LIFO'] for n in range(3,6)] + \
-      [Case('Othello'),
-       Case('Clobber'),
-       Case('Snake'),
-       Case('Hex'),
-       Case('Domineering')] + \
+      [GameCase('Othello', width=4, height=4)] + \
+      [GameCase('Clobber', width=4, height=4)] + \
+      [GameCase('Snake', width=4, height=4)] + \
+      [GameCase('Hex', width=4, height=4)] + \
+      [GameCase('Domineering', width=4, height=4)] + \
       [Case('IEEE1394', nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
       [Case('Hanoi', ndisks=n) for n in range(10,18)] + \
       [Case('Lift (Correct)', nlifts=n) for n in range(2, 5)] + \
