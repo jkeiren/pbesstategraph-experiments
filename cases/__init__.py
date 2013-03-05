@@ -8,8 +8,9 @@ import tools
 import pool
 import sys
 
-SOLVE_TIMEOUT = 3600
-REDUCTION_TIMEOUT = 900
+GENERATE_TIMEOUT = 2*60*60
+SOLVE_TIMEOUT = 60*60
+REDUCTION_TIMEOUT = 15*60
 # Memlimit in KBytes
 MEMLIMIT = 64*1024*1024
 
@@ -52,7 +53,12 @@ class ReduceAndSolveTask(TempObj):
     self.result = {}
     self.result['name'] = self.name
     self.result['times'] = {}
+    self.result['times']['instantiation'] = 'unknown'
+    self.result['times']['reduction'] = 'unknown'
+    self.result['times']['solving'] = 'unknown'
+    self.result['memory'] = {}
     self.result['sizes'] = 'unknown'
+    self.result['solution'] = 'unknown'
   
   def __reduce(self, log):
     log.debug('Creating temp files')
@@ -72,52 +78,61 @@ class ReduceAndSolveTask(TempObj):
       self.result['times']['reduction'] = result['times']
 
       result = tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
-       
-    except (tools.Timeout):
-      log.info('Timeout')
+    
+    except (tools.Timeout) as e:
+      log.info('Timeout (reducing)')
       self.result['times']['reduction'] = 'timeout'
-      raise tools.Timeout()
+      raise e   
+    except (tools.OutOfMemory) as e:
+      log.info('Out of memory (reducing)')
+      self.result['memory']['reduction'] = 'outofmemory'
+      raise e
 
     
   def __instantiate(self, log):
-    result = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timed=True)
-    self.result['times']['instantiation'] = result['times']
+    try:
+      result = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
+      self.result['times']['instantiation'] = result['times']
+      
+      info = tools.besinfo(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
+      BESINFO_RE = '.*Number of equations:\s*(?P<eqns>\d+)' \
+               '.*Number of mu.?s:\s*(?P<mueqns>\d+)' \
+               '.*Number of nu.?s:\s*(?P<nueqns>\d+)' \
+               '.*Block nesting depth:\s*(?P<bnd>\d+).*?'
+      m = re.search(BESINFO_RE, info, re.DOTALL)
+      self.result['sizes'] = m.groupdict()
+      
+    except (tools.Timeout) as e:
+      log.info('Timeout (intantiating)')
+      self.result['times']['instantiation'] = 'timeout'
+      raise e
+    except (tools.OutOfMemory) as e:
+      log.info('Out of memory (instantiating)')
+      self.result['memory']['instantiation'] = 'outofmemory'
+      raise e
     
-    info = tools.besinfo(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
-    BESINFO_RE = '.*Number of equations:\s*(?P<eqns>\d+)' \
-             '.*Number of mu.?s:\s*(?P<mueqns>\d+)' \
-             '.*Number of nu.?s:\s*(?P<nueqns>\d+)' \
-             '.*Block nesting depth:\s*(?P<bnd>\d+).*?'
-    m = re.search(BESINFO_RE, info, re.DOTALL)
-    self.result['sizes'] = m.groupdict()
-  
   def __solve(self, log):
     try:      
       result = tools.pbespgsolve(self.__besfile, timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
       self.result['times']['solving'] = result['times']      
       self.result['solution'] = result['out'].strip()
     except (tools.Timeout):
-      log.info('Timeout')
+      log.info('Timeout (solving)')
       self.result['times']['solving'] = 'timeout'
-      self.result['solution'] = 'unknown'
+    except (tools.OutOfMemory):
+      log.info('Out of memory (solving)')        
+      self.result['memory']['solving'] = 'outofmemory'
   
   def phase0(self, log):
-    log.info('Reducing PBES')
-    timeout = False
     try:
+      log.info('Reducing PBES')
       self.__reduce(log)
-    except (tools.Timeout):
-      self.result['times']['solving'] = 'timeout'
-      self.result['times']['instantiation'] = 'timeout'
-      self.result['solution'] = 'unknown'
-      self.result['sizes'] = 'unknown'
-      timeout = True
-
-    if not timeout:
       log.info('Instantiating PBES')
       self.__instantiate(log)
       log.info('Solving PBES')
       self.__solve(log)
+    except:
+      pass
   
 class PBESCase(TempObj):
   def __init__(self, temppath='temp', prefix=""):
