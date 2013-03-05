@@ -68,7 +68,7 @@ __SPECS = {
     'BRP':DataSpec('brp'),
     'SWP': SWPSpec(),
     'Onebit': DataSpec('onebit'),
-    'IEEE1394': Spec('ieee1394'),
+    'IEEE1394': IEEE1394Spec(),
     'Lift (Incorrect)': LiftSpec('lift-incorrect'),
     'Lift (Correct)': LiftSpec('lift-correct'),
     'Hanoi': HanoiSpec('hanoi'),
