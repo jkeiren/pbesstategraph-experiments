@@ -39,16 +39,18 @@ class TempObj(pool.Task):
     return fn.name
 
 class ReduceAndSolveTask(TempObj):
-  def __init__(self, name, prefix, filename):
-    super(ReduceAndSolveTask, self).__init__()
+  def __init__(self, name, prefix, filename, temppath):
+    super(ReduceAndSolveTask, self).__init__(temppath,prefix)
     self.__pbesfile = filename
-    self._prefix = prefix
     if name.startswith('pbesparelm'):
       self.__reducedPbesfile = self._newTempFilename('pbes', '.parelm.constelm')
       self.__besfile = self._newTempFilename('bes', '.parelm.constelm')
-    else:
+    elif name.startswith('pbesstategraph'):
       self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')
       self.__besfile = self._newTempFilename('bes', '.stategraph.constelm')
+    else:
+      self.__reducedPbesfile = self.__pbesfile
+      self.__besfile = self._newTempFilename('bes')
     self.name = name
     self.result = {}
     self.result['name'] = self.name
@@ -64,8 +66,11 @@ class ReduceAndSolveTask(TempObj):
     log.debug('Creating temp files')
     if self.name.startswith('pbesparelm'):
       tmpfile = self._newTempFilename('pbes', '.parelm')
-    else:
+    elif self.name.startswith('pbesstategraph'):
       tmpfile = self._newTempFilename('pbes', '.stategraph')
+    else:
+      return
+    
     
     try:
       if self.name.startswith('pbesparelm'):
@@ -77,7 +82,7 @@ class ReduceAndSolveTask(TempObj):
        
       self.result['times']['reduction'] = result['times']
 
-      result = tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
+      tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
     
     except (tools.Timeout) as e:
       log.info('Timeout (reducing)')
@@ -158,8 +163,9 @@ class PBESCase(TempObj):
   def __reduce(self, pbesfile, log):
     log.debug('Reduction...')
     self.subtasks = [ 
-      ReduceAndSolveTask('pbesparelm', self._prefix, pbesfile),
-      ReduceAndSolveTask('pbesstategraph', self._prefix, pbesfile),
+      ReduceAndSolveTask('original', self._prefix, pbesfile, self._temppath),
+      ReduceAndSolveTask('pbesparelm', self._prefix, pbesfile, self._temppath),
+      ReduceAndSolveTask('pbesstategraph', self._prefix, pbesfile, self._temppath),
     ]
     
   def phase0(self, log):
