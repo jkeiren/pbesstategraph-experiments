@@ -80,21 +80,60 @@ def getcases(debug):
   else:
     return \
       [Case('Buffer/ABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
       [Case('Buffer/ABP(BW) (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
       [Case('Buffer/CABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
       [Case('Buffer/Par (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]] + \
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
       [Case('Buffer/Onebit (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,2)]] + \
+         for (w,c,d) in [(1,2,data) for data in [4] ]] + \
       [Case('Buffer/SWP (w={0}, c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,data) for data in range(2,9)] + [(2,4,data) for data in range(2,4)]] + \
+         for (w,c,d) in [(1,2,data) for data in [4] ]] + \
       [Case('ABP/ABP (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,data) for data in [2, 3, 4, 5, 6, 7, 8, 16, 32] ]] + \
+         for (w,c,d) in [(1,2,data) for data in [4] ]] + \
+      [Case('ABP/ABP(BW) (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP/CABP (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP/Par (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), par.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP/Onebit (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
       [Case('ABP/SWP (w={0}, d={2})'.format(w,c,d), abp.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,data) for data in range(2,9)] + [(2,4,data) for data in range(2,4)]] + \
-      [Case('Hesselink (Implementation)/Hesselink (Specification) (d={0})'.format(d), hesselink_spec.mcrl2(d), hesselink.mcrl2(d))
-         for d in range(2,5)]
-      
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP(BW)/ABP(BW) (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP(BW)/CABP (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP(BW)/Par (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), par.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP(BW)/Onebit (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('ABP(BW)/SWP (w={0}, d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('CABP/CABP (d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('CABP/Par (d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), par.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('CABP/Onebit (d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('CABP/SWP (w={0}, d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('Par/Par (d={2})'.format(w,c,d), par.mcrl2(w,c,d), par.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('Par/Onebit (d={2})'.format(w,c,d), par.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('Par/SWP (w={0}, d={2})'.format(w,c,d), par.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('Onebit/Onebit (d={2})'.format(w,c,d), onebit.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('Onebit/SWP (w={0}, d={2})'.format(w,c,d), par.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('SWP/SWP (w={0}, d={2})'.format(w,c,d), par.mcrl2(w,c,d), swp.mcrl2(w,c,d))
+         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
+      [Case('Hesselink (Specification)/Hesselink (Implementation) (d={0})', hesselink.mcrl2(d), hesselink_spec.mcrl2(d))
+         for d in [2, 3, 4] ] + \
+      [Case('Hesselink (Implementation)/Hesselink (Specification) (d={0})', hesselink_spec.mcrl2(d), hesselink.mcrl2(d))
+         for d in [2, 3, 4] ]

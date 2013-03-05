@@ -41,6 +41,22 @@ class SWPSpec(Spec):
       initialwindow='[{0}]'.format(','.join(['d1'] * windowsize)),
       emptywindow='[{0}]'.format(','.join(['false'] * windowsize))
     )
+    
+class HanoiSpec(Spec):
+  TEMPLATE = 'hanoi'
+  def mcrl2(self, ndisks):
+    return self._template.substitute(ndisks=ndisks)
+  
+class IEEE1394Spec(Spec):
+  TEMPLATE = 'ieee1394'
+  def mcrl2(self, nparties, datasize, headersize, acksize):
+    return self._template.substitute(
+      nparties=nparties,
+      data='|'.join(['d' + str(i + 1) for i in range(0, datasize)]),
+      headers='|'.join(['h' + str(i + 1) for i in range(0, headersize)]),
+      acks='|'.join(['a' + str(i + 1) for i in range(0, acksize)]),
+      links=' || '.join(['LINK(N,{0})'.format(n) for n in range(0,nparties)])
+    )
 
 __SPECS = {
     'Debug spec': Spec('debugging'),
@@ -55,7 +71,7 @@ __SPECS = {
     'IEEE1394': Spec('ieee1394'),
     'Lift (Incorrect)': LiftSpec('lift-incorrect'),
     'Lift (Correct)': LiftSpec('lift-correct'),
-    'Hanoi': Spec('hanoi'),
+    'Hanoi': HanoiSpec('hanoi'),
     'Elevator': ElevatorSpec('elevator'),
     'Snake': Spec('snake'),
     'Clobber': Spec('clobber'),

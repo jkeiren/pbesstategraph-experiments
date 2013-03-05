@@ -81,7 +81,7 @@ def getcases(debug):
       [Case('Debug spec')] + \
       [Case('Lossy buffer', datasize=i) for i in [2,3,4,5,6,7,8,16,32,64,128]] + \
       [Case('ABP', datasize=i) for i in [2,4,8,16,32]] + \
-      [Case('Hesselink', datasize=i) for i in [2]] + \
+      [Case('Hesselink', datasize=i) for i in range(2,5)] + \
       [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \
       [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
       [Case('BRP', datasize=i) for i in [3]] + \
@@ -90,9 +90,9 @@ def getcases(debug):
        Case('Clobber'),
        Case('Snake'),
        Case('Hex'),
-       Case('Domineering'),
-       Case('Hanoi'),
-       Case('IEEE1394')] + \
+       Case('Domineering')] + \
+      [Case('IEEE1394', nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
+      [Case('Hanoi', ndisks=n) for n in range(10,18)] + \
       [Case('Lift (Correct)', nlifts=n) for n in range(2, 5)] + \
       [Case('Lift (Incorrect)', nlifts=n) for n in range(2, 5)] + \
       [Case('SWP', windowsize=3, datasize=i) for i in range(2, 5)] + \
