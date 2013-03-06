@@ -1,9 +1,11 @@
-import tempfile
 import logging
-import traceback
 import multiprocessing
 import os
+import tempfile
+import traceback
+
 from cases import tools, PBESCase, TempObj, MEMLIMIT
+import specs
 
 class EquivCase(PBESCase):
   def __init__(self, description, lpsfile1, lpsfile2, equiv, temppath):
@@ -61,79 +63,48 @@ class Case(TempObj):
       self.result[str(case)] = case.result
     #for filename in self.__files:
     #  os.unlink(filename)
-  
+ 
+class SameParamCase(Case):
+  def __init__(self, name1, name2, **kwargs):
+    super(SameParamCase, self).__init__(
+      '{0}/{1} ({2})'.format(name1, name2, ' '.join('{0}={1}'.format(k,v) for k,v in kwargs.items())),
+      specs.get(name1).mcrl2(**kwargs),
+      specs.get(name2).mcrl2(**kwargs)) 
+
 def getcases(debug):
-  import specs
-  buf = specs.get('Buffer')
-  abp = specs.get('ABP')
-  abp_bw = specs.get('ABP(BW)')
-  cabp = specs.get('CABP')
-  par = specs.get('Par')
-  onebit = specs.get('Onebit')
-  swp = specs.get('SWP')
-  hesselink_spec = specs.get('Hesselink (Specification)')
-  hesselink = specs.get('Hesselink (Implementation)')
   if debug:
     return \
-      [Case('Buffer/ABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,2)]]
+      [SameParamCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=2)]
+     
   else:
+    datarange = range(4,5)
     return \
-      [Case('Buffer/ABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Buffer/ABP(BW) (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Buffer/CABP (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Buffer/Par (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Buffer/Onebit (c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,data) for data in [4] ]] + \
-      [Case('Buffer/SWP (w={0}, c={1}, d={2})'.format(w,c,d), buf.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,data) for data in [4] ]] + \
-      [Case('ABP/ABP (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), abp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,2,data) for data in [4] ]] + \
-      [Case('ABP/ABP(BW) (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP/CABP (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP/Par (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP/Onebit (d={2})'.format(w,c,d), abp.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP/SWP (w={0}, d={2})'.format(w,c,d), abp.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP(BW)/ABP(BW) (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), abp_bw.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP(BW)/CABP (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP(BW)/Par (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP(BW)/Onebit (d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('ABP(BW)/SWP (w={0}, d={2})'.format(w,c,d), abp_bw.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('CABP/CABP (d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), cabp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('CABP/Par (d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('CABP/Onebit (d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('CABP/SWP (w={0}, d={2})'.format(w,c,d), cabp.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Par/Par (d={2})'.format(w,c,d), par.mcrl2(w,c,d), par.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Par/Onebit (d={2})'.format(w,c,d), par.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Par/SWP (w={0}, d={2})'.format(w,c,d), par.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Onebit/Onebit (d={2})'.format(w,c,d), onebit.mcrl2(w,c,d), onebit.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Onebit/SWP (w={0}, d={2})'.format(w,c,d), par.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('SWP/SWP (w={0}, d={2})'.format(w,c,d), par.mcrl2(w,c,d), swp.mcrl2(w,c,d))
-         for (w,c,d) in [(1,1,data) for data in [4] ]] + \
-      [Case('Hesselink (Specification)/Hesselink (Implementation) (d={0})', hesselink.mcrl2(d), hesselink_spec.mcrl2(d))
-         for d in [2, 3, 4] ] + \
-      [Case('Hesselink (Implementation)/Hesselink (Specification) (d={0})', hesselink_spec.mcrl2(d), hesselink.mcrl2(d))
-         for d in [2, 3, 4] ]
+      [SameParamCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('Buffer', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('Buffer', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('Buffer', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('Buffer', 'Onebit', windowsize=1, capacity=2, datasize=d) for d in datarange] + \
+      [SameParamCase('Buffer', 'SWP', windowsize=1, capacity=2, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP(BW)', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP(BW)', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP(BW)', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP(BW)', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('ABP(BW)', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('CABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('CABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('CABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [SameParamCase('Par', 'Par', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [SameParamCase('Par', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [SameParamCase('Par', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [SameParamCase('Onebit', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [SameParamCase('Onebit', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [SameParamCase('SWP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [SameParamCase('Hesselink (Specification)', 'Hesselink (Implementation)', datasize=d) for d in range(2,5) ] + \
+      [SameParamCase('Hesselink (Implementation)', 'Hesselink (Specification)', datasize=d) for d in range(2,5) ]
+  
