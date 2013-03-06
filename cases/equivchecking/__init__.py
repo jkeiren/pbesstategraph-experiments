@@ -77,7 +77,7 @@ def getcases(debug):
       [SameParamCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=2)]
      
   else:
-    datarange = range(4,5)
+    datarange = [2,4,8]
     return \
       [SameParamCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [SameParamCase('Buffer', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
