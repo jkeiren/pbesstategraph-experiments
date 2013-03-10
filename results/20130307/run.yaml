@@ -12911,3 +12911,4179 @@ Hesselink (Implementation)/Hesselink (Specification) (datasize=4):
         instantiation: timeout
         reduction: {total: 38.939999999999998}
         solving: unknown
+IEEE1394 [nparties=2, datasize=2, headersize=2, acksize=2]:
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '188570', mueqns: '0', nueqns: '188570'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 197.63, total: 201.72999999999999}
+        reduction: unknown
+        solving: {initialization: 1.6000000000000001, solving: 0.029999999999999999,
+          total: 3.6099999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '173100', mueqns: '0', nueqns: '173100'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 191.5, total: 194.84}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 1.7, solving: 0.02, total: 3.3999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property1: {original: failed}
+  property2:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '417015', mueqns: '0', nueqns: '417015'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 342.04000000000002, total: 352.88999999999999}
+        reduction: unknown
+        solving: {initialization: 3.46, solving: 0.040000000000000001, total: 8.3800000000000008}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '346030', mueqns: '0', nueqns: '346030'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 357.26999999999998, total: 365.75999999999999}
+        reduction: {total: 0.33000000000000002}
+        solving: {initialization: 2.77, solving: 0.040000000000000001, total: 6.5800000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property3: {original: failed}
+  property4:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '571377', mueqns: '5668', nueqns: '565709'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 543.67999999999995, total: 557.59000000000003}
+        reduction: unknown
+        solving: {initialization: 5.1100000000000003, solving: 0.96999999999999997,
+          total: 12.279999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '524967', mueqns: '5668', nueqns: '519299'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 449.29000000000002, total: 462.19}
+        reduction: {total: 0.23000000000000001}
+        solving: {initialization: 4.1699999999999999, solving: 0.98999999999999999,
+          total: 10.69}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property5:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1411274', mueqns: '0', nueqns: '1411274'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1292.3, total: 1329.03}
+        reduction: unknown
+        solving: {initialization: 15.720000000000001, solving: 0.19, total: 32.590000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1295249', mueqns: '0', nueqns: '1295249'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1993.8800000000001, total: 2036.55}
+        reduction: {total: 0.29999999999999999}
+        solving: {initialization: 12.43, solving: 0.17999999999999999, total: 25.399999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+Lift (Incorrect) [nlifts=4]:
+  liveness_1_1: {original: failed}
+  liveness_1_2: {original: failed}
+  liveness_2_1: {original: failed}
+  liveness_2_2: {original: failed}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '998789', mueqns: '0', nueqns: '998789'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 577.42999999999995, total: 632.58000000000004}
+        reduction: unknown
+        solving: {initialization: 24.23, solving: 1.9099999999999999, total: 57.490000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '998789', mueqns: '0', nueqns: '998789'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 583.55999999999995, total: 639.16999999999996}
+        reduction: {total: 0.11}
+        solving: {initialization: 23.359999999999999, solving: 1.8600000000000001,
+          total: 51.090000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  safety_1: {original: failed}
+  safety_2_1: {original: failed}
+  safety_2_2: {original: failed}
+Lift (Incorrect) [nlifts=2]:
+  liveness_1_1: {original: failed}
+  liveness_1_2: {original: failed}
+  liveness_2_1: {original: failed}
+  liveness_2_2: {original: failed}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '845', mueqns: '0', nueqns: '845'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.48999999999999999}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '845', mueqns: '0', nueqns: '845'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.35999999999999999, total: 0.44}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.050000000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  safety_1: {original: failed}
+  safety_2_1: {original: failed}
+  safety_2_2: {original: failed}
+SWP [datasize=4, windowsize=3]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: timeout, reduction: unknown, solving: unknown}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '169730', mueqns: '42432', nueqns: '127298'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 4.8300000000000001, total: 9.5500000000000007}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 2.3199999999999998, solving: 959.95000000000005,
+          total: 964.65999999999997}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '169730', mueqns: '42432', nueqns: '127298'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 5.9000000000000004, total: 10.9}
+        reduction: {total: 0.13}
+        solving: {initialization: 2.1899999999999999, solving: 765.46000000000004,
+          total: 770.08000000000004}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '19550209', mueqns: '6795264', nueqns: '12754945'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 641.48000000000002, total: 1604.6900000000001}
+        reduction: unknown
+        solving: {initialization: 362.63999999999999, solving: 16.82, total: 708.07000000000005}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '19550209', mueqns: '6795264', nueqns: '12754945'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 583.53999999999996, total: 1568.45}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 389.35000000000002, solving: 17.489999999999998,
+          total: 886.94000000000005}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '19550209', mueqns: '6795264', nueqns: '12754945'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 683.63999999999999, total: 1530.8099999999999}
+        reduction: {total: 0.17999999999999999}
+        solving: {initialization: 325.89999999999998, solving: 17.449999999999999,
+          total: 749.91999999999996}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '8835074', mueqns: '7429632', nueqns: '1405442'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 381.41000000000003, total: 757.42999999999995}
+        reduction: unknown
+        solving: {initialization: 198.37, solving: 15.35, total: 395.30000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.72999999999999998, total: 1.29}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.17999999999999999, solving: 0.01, total: 0.39000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.81000000000000005, total: 1.28}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.17000000000000001, solving: 0.01, total: 0.35999999999999999}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {instantiation: outofmemory}
+      name: original
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: unknown, solving: unknown}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '61302', mueqns: '42432', nueqns: '18870'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 3.04, total: 6.0099999999999998}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.84999999999999998, solving: 0.040000000000000001,
+          total: 2.02}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '61302', mueqns: '42432', nueqns: '18870'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 3.2200000000000002, total: 5.4100000000000001}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 1.1899999999999999, solving: 0.050000000000000003,
+          total: 2.5}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '22288897', mueqns: '7429632', nueqns: '14859265'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 892.20000000000005, total: 2452.3400000000001}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '31825', mueqns: '10608', nueqns: '21217'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.92000000000000004, total: 1.9299999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.37, solving: 19.68, total: 20.510000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '31826', mueqns: '10608', nueqns: '21218'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.53, total: 2.77}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.45000000000000001, solving: 22.02, total: 23.100000000000001}
+  no_duplication_of_messages:
+    original:
+      memory: {instantiation: outofmemory}
+      name: original
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: unknown, solving: unknown}
+    pbesparelm:
+      memory: {instantiation: outofmemory}
+      name: pbesparelm
+      sizes: unknown
+      solution: unknown
+      times:
+        instantiation: unknown
+        reduction: {total: 0.059999999999999998}
+        solving: unknown
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times:
+        instantiation: timeout
+        reduction: {total: 0.22}
+        solving: unknown
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '6690605', mueqns: '0', nueqns: '6690605'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 376.31, total: 692.46000000000004}
+        reduction: unknown
+        solving: {initialization: 230.5, solving: 2.1200000000000001, total: 476.54000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '6690605', mueqns: '0', nueqns: '6690605'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 520.63, total: 1055.9400000000001}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 118.56, solving: 1.02, total: 269.00999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '6690605', mueqns: '0', nueqns: '6690605'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 458.24000000000001, total: 871.72000000000003}
+        reduction: {total: 0.11}
+        solving: {initialization: 158.05000000000001, solving: 1.0600000000000001,
+          total: 343.33999999999997}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '7429633', mueqns: '0', nueqns: '7429633'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 401.25, total: 922.57000000000005}
+        reduction: unknown
+        solving: {initialization: 150.24000000000001, solving: 1.48, total: 337.38999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '10609', mueqns: '0', nueqns: '10609'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.81000000000000005, total: 1.46}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.14000000000000001, solving: 0.01, total: 0.34000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '10610', mueqns: '0', nueqns: '10610'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.79000000000000004, total: 1.1799999999999999}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 0.33000000000000002, solving: 0.0, total: 0.68999999999999995}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: timeout, reduction: unknown, solving: unknown}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: unknown
+      solution: unknown
+      times:
+        instantiation: timeout
+        reduction: {total: 0.029999999999999999}
+        solving: unknown
+    pbesstategraph:
+      memory: {instantiation: outofmemory}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times:
+        instantiation: unknown
+        reduction: {total: 0.10000000000000001}
+        solving: unknown
+  read_then_eventually_send_if_fair: {original: failed}
+Lift (Incorrect) [nlifts=3]:
+  liveness_1_1: {original: failed}
+  liveness_1_2: {original: failed}
+  liveness_2_1: {original: failed}
+  liveness_2_2: {original: failed}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '31953', mueqns: '0', nueqns: '31953'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 8.1199999999999992, total: 11.449999999999999}
+        reduction: unknown
+        solving: {initialization: 0.56999999999999995, solving: 0.029999999999999999,
+          total: 1.8300000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '31953', mueqns: '0', nueqns: '31953'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 11.15, total: 13.33}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.57999999999999996, solving: 0.029999999999999999,
+          total: 1.5900000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  safety_1: {original: failed}
+  safety_2_1: {original: failed}
+  safety_2_2: {original: failed}
+SWP [datasize=3, windowsize=2]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '628562', mueqns: '157140', nueqns: '471422'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 17.489999999999998, total: 38.520000000000003}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '22322', mueqns: '5580', nueqns: '16742'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.84999999999999998, total: 1.46}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.25, solving: 9.8300000000000001, total: 10.390000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '22322', mueqns: '5580', nueqns: '16742'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.87, total: 1.47}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.31, solving: 13.35, total: 13.98}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '130753', mueqns: '44532', nueqns: '86221'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 3.4500000000000002, total: 7.2800000000000002}
+        reduction: unknown
+        solving: {initialization: 1.7, solving: 0.10000000000000001, total: 4.0499999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '130753', mueqns: '44532', nueqns: '86221'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 3.5600000000000001, total: 7.5700000000000003}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 1.8100000000000001, solving: 0.070000000000000007,
+          total: 3.9900000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '130753', mueqns: '44532', nueqns: '86221'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 5.1200000000000001, total: 8.9100000000000001}
+        reduction: {total: 0.12}
+        solving: {initialization: 1.3700000000000001, solving: 0.070000000000000007,
+          total: 3.8399999999999999}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '63074', mueqns: '52380', nueqns: '10694'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 4.79, total: 8.2200000000000006}
+        reduction: unknown
+        solving: {initialization: 1.29, solving: 0.059999999999999998, total: 3.23}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.34000000000000002, total: 0.46999999999999997}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.34000000000000002, total: 0.46000000000000002}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.10000000000000001}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '189221', mueqns: '157140', nueqns: '32081'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 14.57, total: 28.890000000000001}
+        reduction: unknown
+        solving: {initialization: 2.6600000000000001, solving: 0.16, total: 7.5199999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '7637', mueqns: '5580', nueqns: '2057'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.44, total: 0.71999999999999997}
+        reduction: {total: 0.070000000000000007}
+        solving: {initialization: 0.080000000000000002, solving: 0.01, total: 0.20999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '7637', mueqns: '5580', nueqns: '2057'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.54000000000000004, total: 0.91000000000000003}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.089999999999999997, solving: 0.0, total: 0.27000000000000002}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '157141', mueqns: '52380', nueqns: '104761'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 5.25, total: 11.31}
+        reduction: unknown
+        solving: {initialization: 2.1899999999999999, solving: 711.76999999999998,
+          total: 717.41999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '5581', mueqns: '1860', nueqns: '3721'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.34000000000000002, total: 0.56999999999999995}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.070000000000000007, solving: 0.56000000000000005,
+          total: 0.75}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '5582', mueqns: '1860', nueqns: '3722'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.44, total: 0.71999999999999997}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.070000000000000007, solving: 0.56000000000000005,
+          total: 0.73999999999999999}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '263005', mueqns: '0', nueqns: '263005'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 12.06, total: 23.309999999999999}
+        reduction: unknown
+        solving: {initialization: 5.6600000000000001, solving: 0.31, total: 12.66}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '263005', mueqns: '0', nueqns: '263005'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 12.73, total: 26.149999999999999}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 3.6899999999999999, solving: 0.23999999999999999,
+          total: 8.8800000000000008}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '263005', mueqns: '0', nueqns: '263005'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 14.06, total: 25.0}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 4.0700000000000003, solving: 0.20999999999999999,
+          total: 10.609999999999999}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '43147', mueqns: '0', nueqns: '43147'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.1099999999999999, total: 3.6899999999999999}
+        reduction: unknown
+        solving: {initialization: 0.80000000000000004, solving: 0.01, total: 1.55}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '43147', mueqns: '0', nueqns: '43147'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.0600000000000001, total: 3.5299999999999998}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.89000000000000001, solving: 0.0, total: 1.8799999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '43147', mueqns: '0', nueqns: '43147'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 3.1600000000000001, total: 5.3399999999999999}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.93000000000000005, solving: 0.01, total: 2.0699999999999998}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '52381', mueqns: '0', nueqns: '52381'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.3999999999999999, total: 4.9199999999999999}
+        reduction: unknown
+        solving: {initialization: 0.69999999999999996, solving: 0.01, total: 1.6399999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.5, total: 0.68000000000000005}
+        reduction: {total: 0.070000000000000007}
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.14000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.45000000000000001}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '268309', mueqns: '157140', nueqns: '111169'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 13.34, total: 25.77}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '268309', mueqns: '157140', nueqns: '111169'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 9.9600000000000009, total: 20.809999999999999}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 3.7799999999999998, solving: 2970.9299999999998,
+          total: 2979.3099999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '268309', mueqns: '157140', nueqns: '111169'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 12.289999999999999, total: 21.609999999999999}
+        reduction: {total: 0.12}
+        solving: {initialization: 3.7799999999999998, solving: 2266.96, total: 2277.0799999999999}
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=5, windowsize=1]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '39602', mueqns: '9900', nueqns: '29702'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.3400000000000001, total: 2.75}
+        reduction: unknown
+        solving: {initialization: 0.40999999999999998, solving: 25.940000000000001,
+          total: 26.899999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '3122', mueqns: '780', nueqns: '2342'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.34999999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.040000000000000001, solving: 0.14999999999999999,
+          total: 0.23999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '3122', mueqns: '780', nueqns: '2342'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.41999999999999998}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.029999999999999999, solving: 0.16, total: 0.23999999999999999}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '4411', mueqns: '1440', nueqns: '2971'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.65000000000000002, total: 0.83999999999999997}
+        reduction: unknown
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.11}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '4411', mueqns: '1440', nueqns: '2971'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.35999999999999999, total: 0.51000000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.059999999999999998, solving: 0.0, total: 0.14000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '4411', mueqns: '1440', nueqns: '2971'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.5, total: 0.68000000000000005}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.050000000000000003, solving: 0.0, total: 0.12}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '2162', mueqns: '1980', nueqns: '182'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.01, total: 0.11}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.37}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.35999999999999999}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.029999999999999999}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '10807', mueqns: '9900', nueqns: '907'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.60999999999999999, total: 1.01}
+        reduction: unknown
+        solving: {initialization: 0.14000000000000001, solving: 0.01, total: 0.35999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '967', mueqns: '780', nueqns: '187'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.42999999999999999, total: 0.56000000000000005}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.059999999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '967', mueqns: '780', nueqns: '187'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40000000000000002}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.080000000000000002}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '5941', mueqns: '1980', nueqns: '3961'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.40000000000000002, total: 0.57999999999999996}
+        reduction: unknown
+        solving: {initialization: 0.070000000000000007, solving: 0.56999999999999995,
+          total: 0.70999999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '469', mueqns: '156', nueqns: '313'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.40999999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.01, solving: 0.01, total: 0.050000000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '470', mueqns: '156', nueqns: '314'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.26000000000000001, total: 0.33000000000000002}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.0, solving: 0.01, total: 0.050000000000000003}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '12061', mueqns: '0', nueqns: '12061'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.68999999999999995, total: 1.1299999999999999}
+        reduction: unknown
+        solving: {initialization: 0.14000000000000001, solving: 0.0, total: 0.33000000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '12061', mueqns: '0', nueqns: '12061'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.83999999999999997, total: 1.52}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.17999999999999999, solving: 0.01, total: 0.39000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '12061', mueqns: '0', nueqns: '12061'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.75, total: 1.4299999999999999}
+        reduction: {total: 0.16}
+        solving: {initialization: 0.20999999999999999, solving: 0.0, total: 0.58999999999999997}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '6761', mueqns: '0', nueqns: '6761'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.45000000000000001, total: 0.72999999999999998}
+        reduction: unknown
+        solving: {initialization: 0.10000000000000001, solving: 0.0, total: 0.33000000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '6761', mueqns: '0', nueqns: '6761'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.46000000000000002, total: 0.81000000000000005}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.31}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '6761', mueqns: '0', nueqns: '6761'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.76000000000000001, total: 1.53}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.080000000000000002, solving: 0.0, total: 0.22}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1981', mueqns: '0', nueqns: '1981'}
+      solution: 'true
+
+        timeout: WARNING: Wait(28165) failed: No child processes'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.42999999999999999}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.01, total: 0.059999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.02}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '13681', mueqns: '9900', nueqns: '3781'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.57999999999999996, total: 1.02}
+        reduction: unknown
+        solving: {initialization: 0.14999999999999999, solving: 5.0999999999999996,
+          total: 5.46}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '13681', mueqns: '9900', nueqns: '3781'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.70999999999999996, total: 1.2}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.14999999999999999, solving: 5.0899999999999999,
+          total: 5.4199999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '13681', mueqns: '9900', nueqns: '3781'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.79000000000000004, total: 1.4099999999999999}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.16, solving: 5.3499999999999996, total: 5.7699999999999996}
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=3, windowsize=3]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '19832690', mueqns: '4958172', nueqns: '14874518'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 684.82000000000005, total: 1795.8499999999999}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '127298', mueqns: '31824', nueqns: '95474'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 3.9100000000000001, total: 7.7999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 1.74, solving: 482.38999999999999, total: 486.17000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '127298', mueqns: '31824', nueqns: '95474'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 4.7300000000000004, total: 8.6400000000000006}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 2.3399999999999999, solving: 524.85000000000002,
+          total: 529.49000000000001}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '4315519', mueqns: '1487160', nueqns: '2828359'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 134.41, total: 282.05000000000001}
+        reduction: unknown
+        solving: {initialization: 55.93, solving: 3.98, total: 128.46000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '4315519', mueqns: '1487160', nueqns: '2828359'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 144.69, total: 357.17000000000002}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 53.700000000000003, solving: 4.1900000000000004,
+          total: 128.62}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '4315519', mueqns: '1487160', nueqns: '2828359'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 176.02000000000001, total: 355.94}
+        reduction: {total: 0.13}
+        solving: {initialization: 59.130000000000003, solving: 4.2599999999999998,
+          total: 130.84}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '2047682', mueqns: '1652724', nueqns: '394958'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 226.09, total: 389.79000000000002}
+        reduction: unknown
+        solving: {initialization: 37.280000000000001, solving: 2.2799999999999998,
+          total: 77.879999999999995}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.70999999999999996, total: 1.1799999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.17999999999999999, solving: 0.01, total: 0.42999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.93000000000000005, total: 1.45}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.20999999999999999, solving: 0.01, total: 0.53000000000000003}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '6143045', mueqns: '4958172', nueqns: '1184873'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 382.31999999999999, total: 785.48000000000002}
+        reduction: unknown
+        solving: {initialization: 157.71000000000001, solving: 8.1799999999999997,
+          total: 337.02999999999997}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '45977', mueqns: '31824', nueqns: '14153'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.79, total: 3.46}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 0.71999999999999997, solving: 0.029999999999999999,
+          total: 1.5700000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '45977', mueqns: '31824', nueqns: '14153'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.1099999999999999, total: 3.4300000000000002}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.78000000000000003, solving: 0.029999999999999999,
+          total: 1.55}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '4958173', mueqns: '1652724', nueqns: '3305449'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 184.59999999999999, total: 447.44}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '31825', mueqns: '10608', nueqns: '21217'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.03, total: 2.3500000000000001}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.45000000000000001, solving: 19.690000000000001,
+          total: 20.859999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '31826', mueqns: '10608', nueqns: '21218'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.9099999999999999, total: 4.6699999999999999}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.46000000000000002, solving: 20.07, total: 21.370000000000001}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '9206767', mueqns: '0', nueqns: '9206767'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 564.85000000000002, total: 1094.28}
+        reduction: unknown
+        solving: {initialization: 223.44, solving: 14.24, total: 504.75}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '9206767', mueqns: '0', nueqns: '9206767'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 760.88, total: 1506.6400000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 198.34999999999999, solving: 13.57, total: 467.93000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '9206767', mueqns: '0', nueqns: '9206767'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 705.73000000000002, total: 1559.29}
+        reduction: {total: 0.17000000000000001}
+        solving: {initialization: 178.81999999999999, solving: 13.619999999999999,
+          total: 389.75}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '687235', mueqns: '0', nueqns: '687235'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 44.039999999999999, total: 73.959999999999994}
+        reduction: unknown
+        solving: {initialization: 12.07, solving: 0.080000000000000002, total: 27.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '687235', mueqns: '0', nueqns: '687235'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 44.920000000000002, total: 74.0}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 12.6, solving: 0.080000000000000002, total: 31.02}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '687235', mueqns: '0', nueqns: '687235'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 55.469999999999999, total: 88.689999999999998}
+        reduction: {total: 0.13}
+        solving: {initialization: 12.19, solving: 0.080000000000000002, total: 28.02}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1652725', mueqns: '0', nueqns: '1652725'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 88.230000000000004, total: 165.53}
+        reduction: unknown
+        solving: {initialization: 33.18, solving: 0.28999999999999998, total: 77.510000000000005}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '10609', mueqns: '0', nueqns: '10609'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.63, total: 0.97999999999999998}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.16, solving: 0.0, total: 0.33000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '10610', mueqns: '0', nueqns: '10610'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.72999999999999998, total: 1.1000000000000001}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.14000000000000001, solving: 0.01, total: 0.34999999999999998}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '8680285', mueqns: '4958172', nueqns: '3722113'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 623.25, total: 1278.8399999999999}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '8680285', mueqns: '4958172', nueqns: '3722113'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 423.76999999999998, total: 850.63999999999999}
+        reduction: {total: 0.050000000000000003}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '8680285', mueqns: '4958172', nueqns: '3722113'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 727.26999999999998, total: 1188.79}
+        reduction: {total: 0.17999999999999999}
+        solving: timeout
+  read_then_eventually_send_if_fair: {original: failed}
+IEEE1394 [nparties=4, datasize=2, headersize=2, acksize=2]:
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '188570', mueqns: '0', nueqns: '188570'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 205.31999999999999, total: 209.81}
+        reduction: unknown
+        solving: {initialization: 1.78, solving: 0.02, total: 3.96}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '173100', mueqns: '0', nueqns: '173100'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 187.44999999999999, total: 190.72}
+        reduction: {total: 0.17000000000000001}
+        solving: {initialization: 1.4399999999999999, solving: 0.02, total: 2.9500000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property1: {original: failed}
+  property2:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '417015', mueqns: '0', nueqns: '417015'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 384.86000000000001, total: 396.39999999999998}
+        reduction: unknown
+        solving: {initialization: 3.6299999999999999, solving: 0.040000000000000001,
+          total: 8.0199999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '346030', mueqns: '0', nueqns: '346030'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 296.11000000000001, total: 309.04000000000002}
+        reduction: {total: 0.27000000000000002}
+        solving: {initialization: 3.0299999999999998, solving: 0.029999999999999999,
+          total: 10.41}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property3: {original: failed}
+  property4:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '571377', mueqns: '5668', nueqns: '565709'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1102.28, total: 1130.76}
+        reduction: unknown
+        solving: {initialization: 5.3499999999999996, solving: 1.1000000000000001,
+          total: 12.69}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '524967', mueqns: '5668', nueqns: '519299'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 489.25999999999999, total: 503.56}
+        reduction: {total: 0.23000000000000001}
+        solving: {initialization: 4.2300000000000004, solving: 0.90000000000000002,
+          total: 10.24}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property5:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1411274', mueqns: '0', nueqns: '1411274'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1330.4400000000001, total: 1364.02}
+        reduction: unknown
+        solving: {initialization: 13.529999999999999, solving: 0.17999999999999999,
+          total: 26.079999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1295249', mueqns: '0', nueqns: '1295249'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1101.9300000000001, total: 1130.4200000000001}
+        reduction: {total: 0.29999999999999999}
+        solving: {initialization: 14.300000000000001, solving: 0.25, total: 30.010000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+SWP [datasize=3, windowsize=1]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '9938', mueqns: '2484', nueqns: '7454'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.47999999999999998, total: 0.78000000000000003}
+        reduction: unknown
+        solving: {initialization: 0.10000000000000001, solving: 1.6000000000000001,
+          total: 1.8200000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '1874', mueqns: '468', nueqns: '1406'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.28000000000000003, total: 0.39000000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.02, solving: 0.050000000000000003, total: 0.11}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '1874', mueqns: '468', nueqns: '1406'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40999999999999998}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.02, solving: 0.059999999999999998, total: 0.12}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '1819', mueqns: '576', nueqns: '1243'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28000000000000003, total: 0.37}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.059999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '1819', mueqns: '576', nueqns: '1243'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.37}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.059999999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '1819', mueqns: '576', nueqns: '1243'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.39000000000000001}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '938', mueqns: '828', nueqns: '110'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.40000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.01, total: 0.050000000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23000000000000001, total: 0.28999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.20999999999999999, total: 0.27000000000000002}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '2813', mueqns: '2484', nueqns: '329'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.40999999999999998}
+        reduction: unknown
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.089999999999999997}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '581', mueqns: '468', nueqns: '113'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.32000000000000001}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '581', mueqns: '468', nueqns: '113'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.32000000000000001}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '2485', mueqns: '828', nueqns: '1657'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.35999999999999999}
+        reduction: unknown
+        solving: {initialization: 0.029999999999999999, solving: 0.10000000000000001,
+          total: 0.17999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '469', mueqns: '156', nueqns: '313'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '470', mueqns: '156', nueqns: '314'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.29999999999999999}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '3421', mueqns: '0', nueqns: '3421'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.37, total: 0.51000000000000001}
+        reduction: unknown
+        solving: {initialization: 0.050000000000000003, solving: 0.0, total: 0.13}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '3421', mueqns: '0', nueqns: '3421'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.57999999999999996}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.080000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '3421', mueqns: '0', nueqns: '3421'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.34999999999999998, total: 0.5}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.089999999999999997}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1319', mueqns: '0', nueqns: '1319'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.39000000000000001}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1319', mueqns: '0', nueqns: '1319'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.38}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.080000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1319', mueqns: '0', nueqns: '1319'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28000000000000003, total: 0.37}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '829', mueqns: '0', nueqns: '829'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28000000000000003, total: 0.37}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.26000000000000001, total: 0.33000000000000002}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.31, total: 0.38}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '3997', mueqns: '2484', nueqns: '1513'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.35999999999999999, total: 0.54000000000000004}
+        reduction: unknown
+        solving: {initialization: 0.050000000000000003, solving: 0.33000000000000002,
+          total: 0.47999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '3997', mueqns: '2484', nueqns: '1513'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.58999999999999997}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.040000000000000001, solving: 0.33000000000000002,
+          total: 0.44}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '3997', mueqns: '2484', nueqns: '1513'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.35999999999999999, total: 0.51000000000000001}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.040000000000000001, solving: 0.33000000000000002,
+          total: 0.42999999999999999}
+  read_then_eventually_send_if_fair: {original: failed}
+Lift (Correct) [nlifts=4]:
+  liveness_1_1: {original: failed}
+  liveness_1_2: {original: failed}
+  liveness_2_1: {original: failed}
+  liveness_2_2: {original: failed}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '53638', mueqns: '0', nueqns: '53638'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 88.25, total: 90.129999999999995}
+        reduction: unknown
+        solving: {initialization: 0.66000000000000003, solving: 0.01, total: 1.3700000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '53638', mueqns: '0', nueqns: '53638'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 64.609999999999999, total: 65.959999999999994}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.66000000000000003, solving: 0.0, total: 1.3400000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  safety_1: {original: failed}
+  safety_2_1: {original: failed}
+  safety_2_2: {original: failed}
+Lift (Correct) [nlifts=3]:
+  liveness_1_1: {original: failed}
+  liveness_1_2: {original: failed}
+  liveness_2_1: {original: failed}
+  liveness_2_2: {original: failed}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '4313', mueqns: '0', nueqns: '4313'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.8300000000000001, total: 2.9900000000000002}
+        reduction: unknown
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.10000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '4313', mueqns: '0', nueqns: '4313'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.7200000000000002, total: 2.8700000000000001}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.089999999999999997}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  safety_1: {original: failed}
+  safety_2_1: {original: failed}
+  safety_2_2: {original: failed}
+SWP [datasize=4, windowsize=1]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '21506', mueqns: '5376', nueqns: '16130'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.57999999999999996, total: 1.1200000000000001}
+        reduction: unknown
+        solving: {initialization: 0.26000000000000001, solving: 9.9499999999999993,
+          total: 10.539999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '2498', mueqns: '624', nueqns: '1874'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.34000000000000002, total: 0.46000000000000002}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 0.02, solving: 0.10000000000000001, total: 0.14999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '2498', mueqns: '624', nueqns: '1874'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.31, total: 0.42999999999999999}
+        reduction: {total: 0.14000000000000001}
+        solving: {initialization: 0.02, solving: 0.089999999999999997, total: 0.16}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '2977', mueqns: '960', nueqns: '2017'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.42999999999999999}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.059999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '2977', mueqns: '960', nueqns: '2017'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28000000000000003, total: 0.39000000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.070000000000000007}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '2977', mueqns: '960', nueqns: '2017'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.53000000000000003}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '1490', mueqns: '1344', nueqns: '146'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.32000000000000001}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.059999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '5958', mueqns: '5376', nueqns: '582'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.41999999999999998, total: 0.63}
+        reduction: unknown
+        solving: {initialization: 0.080000000000000002, solving: 0.01, total: 0.16}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '774', mueqns: '624', nueqns: '150'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.26000000000000001, total: 0.34999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '774', mueqns: '624', nueqns: '150'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.38}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.050000000000000003}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '4033', mueqns: '1344', nueqns: '2689'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.33000000000000002, total: 0.47999999999999998}
+        reduction: unknown
+        solving: {initialization: 0.040000000000000001, solving: 0.26000000000000001,
+          total: 0.35999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '469', mueqns: '156', nueqns: '313'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.20999999999999999, total: 0.27000000000000002}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.0, solving: 0.01, total: 0.040000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '470', mueqns: '156', nueqns: '314'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.28999999999999998}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '6865', mueqns: '0', nueqns: '6865'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.41999999999999998, total: 0.78000000000000003}
+        reduction: unknown
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.20000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '6865', mueqns: '0', nueqns: '6865'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.70999999999999996}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.19}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '6865', mueqns: '0', nueqns: '6865'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.5, total: 0.71999999999999997}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.17999999999999999}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '3344', mueqns: '0', nueqns: '3344'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.37, total: 0.5}
+        reduction: unknown
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.10000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '3344', mueqns: '0', nueqns: '3344'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.33000000000000002, total: 0.46999999999999997}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.089999999999999997}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '3344', mueqns: '0', nueqns: '3344'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.45000000000000001}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.10000000000000001}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1345', mueqns: '0', nueqns: '1345'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.33000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.059999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23000000000000001, total: 0.29999999999999999}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.0, solving: 0.01, total: 0.040000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.28000000000000003}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.0, solving: 0.01, total: 0.040000000000000001}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '7897', mueqns: '5376', nueqns: '2521'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.44, total: 0.81999999999999995}
+        reduction: unknown
+        solving: {initialization: 0.080000000000000002, solving: 1.71, total: 1.8999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '7897', mueqns: '5376', nueqns: '2521'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.66000000000000003}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.080000000000000002, solving: 1.54, total: 1.77}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '7897', mueqns: '5376', nueqns: '2521'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.54000000000000004, total: 0.81000000000000005}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.080000000000000002, solving: 1.51, total: 1.6799999999999999}
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=2, windowsize=4]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '20712450', mueqns: '5178112', nueqns: '15534338'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 809.38999999999999, total: 1755.25}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '346562', mueqns: '86640', nueqns: '259922'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 9.5199999999999996, total: 20.469999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '346562', mueqns: '86640', nueqns: '259922'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 13.119999999999999, total: 24.670000000000002}
+        reduction: {total: 0.13}
+        solving: timeout
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '6823297', mueqns: '2322944', nueqns: '4500353'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 252.31999999999999, total: 752.52999999999997}
+        reduction: unknown
+        solving: {initialization: 97.430000000000007, solving: 9.9199999999999999,
+          total: 259.33999999999997}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '6823297', mueqns: '2322944', nueqns: '4500353'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 220.61000000000001, total: 530.95000000000005}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 95.560000000000002, solving: 9.1600000000000001,
+          total: 241.81999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '6823297', mueqns: '2322944', nueqns: '4500353'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 291.32999999999998, total: 564.08000000000004}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 104.83, solving: 9.4700000000000006, total: 249.63999999999999}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '3487362', mueqns: '2589056', nueqns: '898306'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 165.34, total: 335.16000000000003}
+        reduction: unknown
+        solving: {initialization: 71.180000000000007, solving: 4.4199999999999999,
+          total: 149.58000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '64610', mueqns: '43320', nueqns: '21290'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.1600000000000001, total: 4.6200000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.82999999999999996, solving: 0.029999999999999999,
+          total: 1.9399999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '64610', mueqns: '43320', nueqns: '21290'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.8599999999999999, total: 4.9800000000000004}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.87, solving: 0.029999999999999999, total: 1.8799999999999999}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '6974724', mueqns: '5178112', nueqns: '1796612'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 425.55000000000001, total: 784.01999999999998}
+        reduction: unknown
+        solving: {initialization: 221.55000000000001, solving: 10.77, total: 392.57999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '129220', mueqns: '86640', nueqns: '42580'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 5.1200000000000001, total: 11.199999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 1.99, solving: 0.080000000000000002, total: 4.8200000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '129220', mueqns: '86640', nueqns: '42580'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 6.1799999999999997, total: 10.380000000000001}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 1.77, solving: 0.080000000000000002, total: 3.7999999999999998}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '7767169', mueqns: '2589056', nueqns: '5178113'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 322.5, total: 1174.79}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '129961', mueqns: '43320', nueqns: '86641'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 5.5300000000000002, total: 11.43}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 2.1400000000000001, solving: 493.19, total: 499.81999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '129962', mueqns: '43320', nueqns: '86642'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 4.8099999999999996, total: 9.0500000000000007}
+        reduction: {total: 0.12}
+        solving: {initialization: 1.8300000000000001, solving: 483.67000000000002,
+          total: 487.76999999999998}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '11488273', mueqns: '0', nueqns: '11488273'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1050.8099999999999, total: 2582.5900000000001}
+        reduction: unknown
+        solving: {initialization: 278.29000000000002, solving: 27.350000000000001,
+          total: 548.84000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '11488273', mueqns: '0', nueqns: '11488273'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 704.03999999999996, total: 2042.8099999999999}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 306.39999999999998, solving: 22.059999999999999,
+          total: 766.19000000000005}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '11488273', mueqns: '0', nueqns: '11488273'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 691.53999999999996, total: 1343.47}
+        reduction: {total: 0.14000000000000001}
+        solving: {initialization: 464.26999999999998, solving: 40.0, total: 1064.6099999999999}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '94710', mueqns: '0', nueqns: '94710'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 5.1799999999999997, total: 8.5}
+        reduction: unknown
+        solving: {initialization: 1.3700000000000001, solving: 0.01, total: 3.6200000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '94710', mueqns: '0', nueqns: '94710'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 5.04, total: 8.5700000000000003}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 1.4099999999999999, solving: 0.01, total: 3.3399999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '94710', mueqns: '0', nueqns: '94710'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 5.5300000000000002, total: 8.7400000000000002}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 1.3300000000000001, solving: 0.01, total: 3.1299999999999999}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '2589057', mueqns: '0', nueqns: '2589057'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 135.18000000000001, total: 251.11000000000001}
+        reduction: unknown
+        solving: {initialization: 52.130000000000003, solving: 0.45000000000000001,
+          total: 102.31}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '43321', mueqns: '0', nueqns: '43321'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.8700000000000001, total: 3.48}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 0.69999999999999996, solving: 0.0, total: 1.4399999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '43322', mueqns: '0', nueqns: '43322'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.1299999999999999, total: 3.6099999999999999}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.65000000000000002, solving: 0.01, total: 1.3400000000000001}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '10782593', mueqns: '5178112', nueqns: '5604481'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 530.67999999999995, total: 1314.74}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '10782593', mueqns: '5178112', nueqns: '5604481'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 601.76999999999998, total: 1338.0599999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '10782593', mueqns: '5178112', nueqns: '5604481'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 722.40999999999997, total: 1500.98}
+        reduction: {total: 0.11}
+        solving: timeout
+  read_then_eventually_send_if_fair: {original: failed}
+Lift (Correct) [nlifts=2]:
+  liveness_1_1: {original: failed}
+  liveness_1_2: {original: failed}
+  liveness_2_1: {original: failed}
+  liveness_2_2: {original: failed}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '328', mueqns: '0', nueqns: '328'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.31, total: 0.38}
+        reduction: unknown
+        solving: {initialization: 0.0, solving: 0.0, total: 0.029999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '328', mueqns: '0', nueqns: '328'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.33000000000000002, total: 0.40999999999999998}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  safety_1: {original: failed}
+  safety_2_1: {original: failed}
+  safety_2_2: {original: failed}
+SWP [datasize=4, windowsize=2]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '2245634', mueqns: '561408', nueqns: '1684226'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 79.230000000000004, total: 183.63}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '29762', mueqns: '7440', nueqns: '22322'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.93999999999999995, total: 2.2999999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.29999999999999999, solving: 18.109999999999999,
+          total: 18.829999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '29762', mueqns: '7440', nueqns: '22322'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.02, total: 1.9099999999999999}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 0.59999999999999998, solving: 31.219999999999999,
+          total: 32.469999999999999}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '353089', mueqns: '121728', nueqns: '231361'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 10.0, total: 19.149999999999999}
+        reduction: unknown
+        solving: {initialization: 3.5299999999999998, solving: 0.14999999999999999,
+          total: 7.6200000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '353089', mueqns: '121728', nueqns: '231361'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 9.5700000000000003, total: 19.170000000000002}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 3.73, solving: 0.16, total: 8.2400000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '353089', mueqns: '121728', nueqns: '231361'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 11.460000000000001, total: 20.329999999999998}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 3.8199999999999998, solving: 0.17000000000000001,
+          total: 8.7699999999999996}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '163394', mueqns: '140352', nueqns: '23042'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 5.9100000000000001, total: 11.529999999999999}
+        reduction: unknown
+        solving: {initialization: 2.4100000000000001, solving: 0.14999999999999999,
+          total: 5.1100000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.37}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40000000000000002}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.029999999999999999, solving: 0.01, total: 0.089999999999999997}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '653574', mueqns: '561408', nueqns: '92166'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 37.68, total: 68.769999999999996}
+        reduction: unknown
+        solving: {initialization: 9.7799999999999994, solving: 0.68000000000000005,
+          total: 21.809999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '10182', mueqns: '7440', nueqns: '2742'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.56999999999999995, total: 0.95999999999999996}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.10000000000000001, solving: 0.0, total: 0.23000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '10182', mueqns: '7440', nueqns: '2742'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.64000000000000001, total: 0.96999999999999997}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.11, solving: 0.01, total: 0.23999999999999999}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '421057', mueqns: '140352', nueqns: '280705'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 11.67, total: 25.460000000000001}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '5581', mueqns: '1860', nueqns: '3721'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.33000000000000002, total: 0.5}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.059999999999999998, solving: 0.56000000000000005,
+          total: 0.70999999999999996}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '5582', mueqns: '1860', nueqns: '3722'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.34999999999999998, total: 0.53000000000000003}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.070000000000000007, solving: 0.71999999999999997,
+          total: 0.85999999999999999}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '858113', mueqns: '0', nueqns: '858113'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 36.530000000000001, total: 67.390000000000001}
+        reduction: unknown
+        solving: {initialization: 12.82, solving: 0.66000000000000003, total: 27.149999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '858113', mueqns: '0', nueqns: '858113'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 36.740000000000002, total: 67.340000000000003}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 12.91, solving: 0.68000000000000005, total: 29.84}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '858113', mueqns: '0', nueqns: '858113'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 41.030000000000001, total: 70.560000000000002}
+        reduction: {total: 0.13}
+        solving: {initialization: 16.329999999999998, solving: 0.84999999999999998,
+          total: 33.350000000000001}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '211955', mueqns: '0', nueqns: '211955'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 8.7799999999999994, total: 16.050000000000001}
+        reduction: unknown
+        solving: {initialization: 3.75, solving: 0.040000000000000001, total: 7.71}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '211955', mueqns: '0', nueqns: '211955'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 9.1600000000000001, total: 17.010000000000002}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 3.1600000000000001, solving: 0.02, total: 6.7999999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '211955', mueqns: '0', nueqns: '211955'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 9.8499999999999996, total: 17.030000000000001}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 2.9500000000000002, solving: 0.02, total: 7.4400000000000004}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '140353', mueqns: '0', nueqns: '140353'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 6.1699999999999999, total: 11.68}
+        reduction: unknown
+        solving: {initialization: 1.96, solving: 0.01, total: 4.2400000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.34999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.070000000000000007}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.40999999999999998}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.070000000000000007}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '869569', mueqns: '561408', nueqns: '308161'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 33.140000000000001, total: 65.390000000000001}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '869569', mueqns: '561408', nueqns: '308161'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 33.759999999999998, total: 69.650000000000006}
+        reduction: {total: 0.040000000000000001}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '869569', mueqns: '561408', nueqns: '308161'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 38.630000000000003, total: 70.219999999999999}
+        reduction: {total: 0.11}
+        solving: timeout
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=6, windowsize=1]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '65666', mueqns: '16416', nueqns: '49250'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.98, total: 3.96}
+        reduction: unknown
+        solving: {initialization: 0.66000000000000003, solving: 81.560000000000002,
+          total: 83.090000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '3746', mueqns: '936', nueqns: '2810'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.34999999999999998, total: 0.53000000000000003}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.029999999999999999, solving: 0.22, total: 0.29999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '3746', mueqns: '936', nueqns: '2810'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.45000000000000001}
+        reduction: {total: 0.14000000000000001}
+        solving: {initialization: 0.040000000000000001, solving: 0.22, total: 0.31}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '6121', mueqns: '2016', nueqns: '4105'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.35999999999999999, total: 0.53000000000000003}
+        reduction: unknown
+        solving: {initialization: 0.070000000000000007, solving: 0.01, total: 0.19}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '6121', mueqns: '2016', nueqns: '4105'}
+      solution: 'true
+
+        timeout: WARNING: Wait(21559) failed: No child processes'
+      times:
+        instantiation: {instantiation: 0.41999999999999998, total: 0.57999999999999996}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.050000000000000003, solving: 0.0, total: 0.11}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '6121', mueqns: '2016', nueqns: '4105'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.39000000000000001, total: 0.53000000000000003}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.050000000000000003, solving: 0.0, total: 0.12}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '2954', mueqns: '2736', nueqns: '218'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.41999999999999998}
+        reduction: unknown
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.10000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.28000000000000003}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.02}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.29999999999999999}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '17720', mueqns: '16416', nueqns: '1304'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.76000000000000001, total: 1.3}
+        reduction: unknown
+        solving: {initialization: 0.22, solving: 0.02, total: 0.5}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '1160', mueqns: '936', nueqns: '224'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.32000000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '1160', mueqns: '936', nueqns: '224'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.26000000000000001, total: 0.34000000000000002}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.050000000000000003}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '8209', mueqns: '2736', nueqns: '5473'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.37, total: 0.60999999999999999}
+        reduction: unknown
+        solving: {initialization: 0.070000000000000007, solving: 1.05, total: 1.22}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '469', mueqns: '156', nueqns: '313'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.28000000000000003}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.070000000000000007}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '470', mueqns: '156', nueqns: '314'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.34999999999999998}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '19369', mueqns: '0', nueqns: '19369'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.82999999999999996, total: 1.4299999999999999}
+        reduction: unknown
+        solving: {initialization: 0.29999999999999999, solving: 0.0, total: 0.64000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '19369', mueqns: '0', nueqns: '19369'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.77000000000000002, total: 1.3}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.22, solving: 0.01, total: 0.47999999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '19369', mueqns: '0', nueqns: '19369'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.05, total: 1.6100000000000001}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.22, solving: 0.01, total: 0.47999999999999998}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '11930', mueqns: '0', nueqns: '11930'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.65000000000000002, total: 1.0}
+        reduction: unknown
+        solving: {initialization: 0.13, solving: 0.01, total: 0.31}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '11930', mueqns: '0', nueqns: '11930'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.62, total: 1.05}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.14000000000000001, solving: 0.0, total: 0.32000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '11930', mueqns: '0', nueqns: '11930'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.77000000000000002, total: 1.1200000000000001}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.14000000000000001, solving: 0.0, total: 0.32000000000000001}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '2737', mueqns: '0', nueqns: '2737'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.33000000000000002, total: 0.48999999999999999}
+        reduction: unknown
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.070000000000000007}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.28999999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.02}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.02}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '21709', mueqns: '16416', nueqns: '5293'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.87, total: 1.5700000000000001}
+        reduction: unknown
+        solving: {initialization: 0.28999999999999998, solving: 15.949999999999999,
+          total: 16.629999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '21709', mueqns: '16416', nueqns: '5293'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.84999999999999998, total: 1.5800000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.23000000000000001, solving: 13.59, total: 14.07}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '21709', mueqns: '16416', nueqns: '5293'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.94999999999999996, total: 1.5900000000000001}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.25, solving: 13.48, total: 13.98}
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=2, windowsize=1]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '3458', mueqns: '864', nueqns: '2594'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.46999999999999997}
+        reduction: unknown
+        solving: {initialization: 0.029999999999999999, solving: 0.19, total: 0.26000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '1250', mueqns: '312', nueqns: '938'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.38}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.02, solving: 0.029999999999999999, total: 0.10000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '1250', mueqns: '312', nueqns: '938'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.28000000000000003, total: 0.37}
+        reduction: {total: 0.12}
+        solving: {initialization: 0.02, solving: 0.029999999999999999, total: 0.12}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '937', mueqns: '288', nueqns: '649'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.37}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '937', mueqns: '288', nueqns: '649'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.27000000000000002, total: 0.34999999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.070000000000000007}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '937', mueqns: '288', nueqns: '649'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.28999999999999998}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '506', mueqns: '432', nueqns: '74'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.28999999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '194', mueqns: '156', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.31}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.029999999999999999}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '1012', mueqns: '864', nueqns: '148'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.34000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '388', mueqns: '312', nueqns: '76'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.31}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.040000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '388', mueqns: '312', nueqns: '76'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.26000000000000001, total: 0.33000000000000002}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.050000000000000003}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '1297', mueqns: '432', nueqns: '865'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.26000000000000001, total: 0.34999999999999998}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.029999999999999999, total: 0.080000000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '469', mueqns: '156', nueqns: '313'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.32000000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '470', mueqns: '156', nueqns: '314'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.23000000000000001, total: 0.29999999999999999}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.0, solving: 0.01, total: 0.040000000000000001}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1369', mueqns: '0', nueqns: '1369'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.33000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1369', mueqns: '0', nueqns: '1369'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.33000000000000002}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.01, total: 0.059999999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1369', mueqns: '0', nueqns: '1369'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.38}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '326', mueqns: '0', nueqns: '326'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.32000000000000001}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '326', mueqns: '0', nueqns: '326'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.20000000000000001, total: 0.25}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.0, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '326', mueqns: '0', nueqns: '326'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.20000000000000001, total: 0.27000000000000002}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.040000000000000001}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '433', mueqns: '0', nueqns: '433'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.27000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '157', mueqns: '0', nueqns: '157'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.20999999999999999, total: 0.27000000000000002}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '158', mueqns: '0', nueqns: '158'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.31}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.01, solving: 0.0, total: 0.029999999999999999}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '1621', mueqns: '864', nueqns: '757'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.23999999999999999, total: 0.33000000000000002}
+        reduction: unknown
+        solving: {initialization: 0.02, solving: 0.040000000000000001, total: 0.089999999999999997}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '1621', mueqns: '864', nueqns: '757'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.33000000000000002}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.02, solving: 0.040000000000000001, total: 0.10000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '1621', mueqns: '864', nueqns: '757'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.34000000000000002}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.02, solving: 0.040000000000000001, total: 0.089999999999999997}
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=2, windowsize=3]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '1787138', mueqns: '446784', nueqns: '1340354'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 54.399999999999999, total: 120.94}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '84866', mueqns: '21216', nueqns: '63650'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.1899999999999999, total: 4.6600000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 1.1299999999999999, solving: 212.84999999999999,
+          total: 215.61000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '84866', mueqns: '21216', nueqns: '63650'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.7599999999999998, total: 5.1500000000000004}
+        reduction: {total: 0.11}
+        solving: {initialization: 1.1599999999999999, solving: 219.00999999999999,
+          total: 221.41999999999999}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '576385', mueqns: '195264', nueqns: '381121'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 16.350000000000001, total: 32.649999999999999}
+        reduction: unknown
+        solving: {initialization: 6.5700000000000003, solving: 0.53000000000000003,
+          total: 14.640000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '576385', mueqns: '195264', nueqns: '381121'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 15.960000000000001, total: 31.879999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 6.2300000000000004, solving: 0.46999999999999997,
+          total: 13.25}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '576385', mueqns: '195264', nueqns: '381121'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 20.129999999999999, total: 37.0}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 6.5800000000000001, solving: 0.5, total: 14.9}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '294434', mueqns: '223392', nueqns: '71042'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 11.48, total: 22.48}
+        reduction: unknown
+        solving: {initialization: 4.3700000000000001, solving: 0.26000000000000001,
+          total: 9.2400000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.72999999999999998, total: 1.1499999999999999}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.20000000000000001, solving: 0.01, total: 0.51000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '15326', mueqns: '10608', nueqns: '4718'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.94999999999999996, total: 1.5}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.19, solving: 0.01, total: 0.40000000000000002}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '588868', mueqns: '446784', nueqns: '142084'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 23.16, total: 41.93}
+        reduction: unknown
+        solving: {initialization: 8.3200000000000003, solving: 0.5, total: 18.489999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '30652', mueqns: '21216', nueqns: '9436'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.1499999999999999, total: 2.1600000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.37, solving: 0.02, total: 0.81000000000000005}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '30652', mueqns: '21216', nueqns: '9436'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.3899999999999999, total: 2.4500000000000002}
+        reduction: {total: 0.14000000000000001}
+        solving: {initialization: 0.47999999999999998, solving: 0.02, total: 1.1899999999999999}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '670177', mueqns: '223392', nueqns: '446785'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 22.329999999999998, total: 46.170000000000002}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '31825', mueqns: '10608', nueqns: '21217'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.93999999999999995, total: 1.99}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.40999999999999998, solving: 19.890000000000001,
+          total: 20.760000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '31826', mueqns: '10608', nueqns: '21218'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.25, total: 2.27}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.52000000000000002, solving: 24.77, total: 25.789999999999999}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '944089', mueqns: '0', nueqns: '944089'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 43.590000000000003, total: 77.269999999999996}
+        reduction: unknown
+        solving: {initialization: 15.83, solving: 1.3799999999999999, total: 38.100000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '944089', mueqns: '0', nueqns: '944089'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 45.979999999999997, total: 81.930000000000007}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 14.779999999999999, solving: 1.3500000000000001,
+          total: 32.149999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '944089', mueqns: '0', nueqns: '944089'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 56.579999999999998, total: 92.019999999999996}
+        reduction: {total: 0.12}
+        solving: {initialization: 14.9, solving: 1.28, total: 31.739999999999998}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '22873', mueqns: '0', nueqns: '22873'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.23, total: 2.1499999999999999}
+        reduction: unknown
+        solving: {initialization: 0.29999999999999999, solving: 0.0, total: 0.75}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '22873', mueqns: '0', nueqns: '22873'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.46, total: 2.2999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.31, solving: 0.01, total: 0.75}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '22873', mueqns: '0', nueqns: '22873'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.4099999999999999, total: 2.2200000000000002}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.31, solving: 0.0, total: 0.83999999999999997}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '223393', mueqns: '0', nueqns: '223393'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 13.34, total: 22.629999999999999}
+        reduction: unknown
+        solving: {initialization: 3.4399999999999999, solving: 0.029999999999999999,
+          total: 7.7999999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '10609', mueqns: '0', nueqns: '10609'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.70999999999999996, total: 1.1399999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.13, solving: 0.0, total: 0.31}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '10610', mueqns: '0', nueqns: '10610'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.81999999999999995, total: 1.1899999999999999}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.16, solving: 0.0, total: 0.32000000000000001}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '917713', mueqns: '446784', nueqns: '470929'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 41.5, total: 73.920000000000002}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '917713', mueqns: '446784', nueqns: '470929'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 42.130000000000003, total: 75.840000000000003}
+        reduction: {total: 0.040000000000000001}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '917713', mueqns: '446784', nueqns: '470929'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 48.049999999999997, total: 80.879999999999995}
+        reduction: {total: 0.10000000000000001}
+        solving: timeout
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=2, windowsize=2]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '112514', mueqns: '28128', nueqns: '84386'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.9399999999999999, total: 6.25}
+        reduction: unknown
+        solving: {initialization: 1.4099999999999999, solving: 307.08999999999997,
+          total: 310.16000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '14882', mueqns: '3720', nueqns: '11162'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.57999999999999996, total: 1.3999999999999999}
+        reduction: {total: 0.059999999999999998}
+        solving: {initialization: 0.17000000000000001, solving: 4.3499999999999996,
+          total: 4.7699999999999996}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '14882', mueqns: '3720', nueqns: '11162'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.82999999999999996, total: 1.3999999999999999}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 0.17999999999999999, solving: 4.29, total: 4.75}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '34673', mueqns: '11552', nueqns: '23121'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.02, total: 2.0499999999999998}
+        reduction: unknown
+        solving: {initialization: 0.33000000000000002, solving: 0.01, total: 0.78000000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '34673', mueqns: '11552', nueqns: '23121'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.0900000000000001, total: 2.0699999999999998}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.37, solving: 0.01, total: 1.02}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '34673', mueqns: '11552', nueqns: '23121'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.54, total: 2.5899999999999999}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.34999999999999998, solving: 0.01, total: 0.91000000000000003}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '17810', mueqns: '14064', nueqns: '3746'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.76000000000000001, total: 1.25}
+        reduction: unknown
+        solving: {initialization: 0.17999999999999999, solving: 0.01, total: 0.40000000000000002}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.39000000000000001}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.40999999999999998, total: 0.53000000000000003}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.10000000000000001}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '35620', mueqns: '28128', nueqns: '7492'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.46, total: 2.6899999999999999}
+        reduction: unknown
+        solving: {initialization: 0.42999999999999999, solving: 0.02, total: 0.91000000000000003}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '5092', mueqns: '3720', nueqns: '1372'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.40000000000000002, total: 0.57999999999999996}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.14000000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '5092', mueqns: '3720', nueqns: '1372'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.56000000000000005, total: 0.82999999999999996}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.070000000000000007, solving: 0.0, total: 0.14999999999999999}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '42193', mueqns: '14064', nueqns: '28129'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.1599999999999999, total: 2.5}
+        reduction: unknown
+        solving: {initialization: 0.45000000000000001, solving: 35.5, total: 36.469999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '5581', mueqns: '1860', nueqns: '3721'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.34000000000000002, total: 0.56999999999999995}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.050000000000000003, solving: 0.54000000000000004,
+          total: 0.66000000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '5582', mueqns: '1860', nueqns: '3722'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.40000000000000002, total: 0.59999999999999998}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.050000000000000003, solving: 0.55000000000000004,
+          total: 0.67000000000000004}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '54321', mueqns: '0', nueqns: '54321'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.46, total: 4.3700000000000001}
+        reduction: unknown
+        solving: {initialization: 0.66000000000000003, solving: 0.050000000000000003,
+          total: 1.45}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '54321', mueqns: '0', nueqns: '54321'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.8100000000000001, total: 4.9100000000000001}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.80000000000000004, solving: 0.050000000000000003,
+          total: 1.72}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '54321', mueqns: '0', nueqns: '54321'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 3.25, total: 5.3899999999999997}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.67000000000000004, solving: 0.040000000000000001,
+          total: 1.48}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '3949', mueqns: '0', nueqns: '3949'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.35999999999999999, total: 0.51000000000000001}
+        reduction: unknown
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.089999999999999997}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '3949', mueqns: '0', nueqns: '3949'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.52000000000000002, total: 0.68999999999999995}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.059999999999999998, solving: 0.0, total: 0.13}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '3949', mueqns: '0', nueqns: '3949'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.46000000000000002, total: 0.67000000000000004}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.089999999999999997}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '14065', mueqns: '0', nueqns: '14065'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.78000000000000003, total: 1.26}
+        reduction: unknown
+        solving: {initialization: 0.20000000000000001, solving: 0.0, total: 0.5}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.050000000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.40000000000000002}
+        reduction: {total: 0.080000000000000002}
+        solving: {initialization: 0.040000000000000001, solving: 0.0, total: 0.10000000000000001}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '56241', mueqns: '28128', nueqns: '28113'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.8600000000000001, total: 3.3300000000000001}
+        reduction: unknown
+        solving: {initialization: 0.76000000000000001, solving: 83.180000000000007,
+          total: 85.019999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '56241', mueqns: '28128', nueqns: '28113'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.99, total: 3.52}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.70999999999999996, solving: 74.5, total: 76.040000000000006}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '56241', mueqns: '28128', nueqns: '28113'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.29, total: 3.7599999999999998}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.75, solving: 64.239999999999995, total: 65.730000000000004}
+  read_then_eventually_send_if_fair: {original: failed}
+SWP [datasize=6, windowsize=2]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '14359682', mueqns: '3589920', nueqns: '10769762'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 426.85000000000002, total: 1047.95}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '44642', mueqns: '11160', nueqns: '33482'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.45, total: 2.8799999999999999}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.88, solving: 73.049999999999997, total: 74.840000000000003}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '44642', mueqns: '11160', nueqns: '33482'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 2.75, total: 5.1200000000000001}
+        reduction: {total: 0.17000000000000001}
+        solving: {initialization: 0.56999999999999995, solving: 56.450000000000003,
+          total: 57.630000000000003}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '1518769', mueqns: '530208', nueqns: '988561'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 62.329999999999998, total: 124.84999999999999}
+        reduction: unknown
+        solving: {initialization: 17.199999999999999, solving: 0.82999999999999996,
+          total: 39.57}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '1518769', mueqns: '530208', nueqns: '988561'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 47.07, total: 108.23999999999999}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 18.239999999999998, solving: 0.83999999999999997,
+          total: 43.100000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '1518769', mueqns: '530208', nueqns: '988561'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 54.829999999999998, total: 99.469999999999999}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 16.550000000000001, solving: 0.82999999999999996,
+          total: 35.939999999999998}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '668306', mueqns: '598320', nueqns: '69986'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 27.989999999999998, total: 55.859999999999999}
+        reduction: unknown
+        solving: {initialization: 11.31, solving: 0.80000000000000004, total: 22.949999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.34000000000000002, total: 0.46000000000000002}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.02, solving: 0.01, total: 0.070000000000000007}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.46000000000000002, total: 0.57999999999999996}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.01, total: 0.089999999999999997}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '4009832', mueqns: '3589920', nueqns: '419912'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 174.80000000000001, total: 351.97000000000003}
+        reduction: unknown
+        solving: {initialization: 68.0, solving: 5.1600000000000001, total: 149.65000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '15272', mueqns: '11160', nueqns: '4112'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.81999999999999995, total: 1.3}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.20000000000000001, solving: 0.0, total: 0.46000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '15272', mueqns: '11160', nueqns: '4112'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.96999999999999997, total: 1.54}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.17999999999999999, solving: 0.01, total: 0.39000000000000001}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '1794961', mueqns: '598320', nueqns: '1196641'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 50.07, total: 131.00999999999999}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '5581', mueqns: '1860', nueqns: '3721'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.56000000000000005, total: 0.85999999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.050000000000000003, solving: 0.58999999999999997,
+          total: 0.71999999999999997}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '5582', mueqns: '1860', nueqns: '3722'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.47999999999999998, total: 0.78000000000000003}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.059999999999999998, solving: 0.57999999999999996,
+          total: 0.72999999999999998}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '4916209', mueqns: '0', nueqns: '4916209'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 230.52000000000001, total: 477.85000000000002}
+        reduction: unknown
+        solving: {initialization: 81.670000000000002, solving: 4.5099999999999998,
+          total: 176.53}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '4916209', mueqns: '0', nueqns: '4916209'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 215.75, total: 405.39999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 82.909999999999997, solving: 4.5700000000000003,
+          total: 163.41}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '4916209', mueqns: '0', nueqns: '4916209'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 268.38999999999999, total: 464.76999999999998}
+        reduction: {total: 0.14999999999999999}
+        solving: {initialization: 80.879999999999995, solving: 4.5300000000000002,
+          total: 167.18000000000001}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1864465', mueqns: '0', nueqns: '1864465'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 83.629999999999995, total: 160.72}
+        reduction: unknown
+        solving: {initialization: 32.890000000000001, solving: 0.28000000000000003,
+          total: 77.390000000000001}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1864465', mueqns: '0', nueqns: '1864465'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 84.780000000000001, total: 160.22}
+        reduction: {total: 0.050000000000000003}
+        solving: {initialization: 29.800000000000001, solving: 0.28000000000000003,
+          total: 63.710000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1864465', mueqns: '0', nueqns: '1864465'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 125.79000000000001, total: 222.33000000000001}
+        reduction: {total: 0.12}
+        solving: {initialization: 35.119999999999997, solving: 0.28000000000000003,
+          total: 72.829999999999998}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '598321', mueqns: '0', nueqns: '598321'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 26.16, total: 48.149999999999999}
+        reduction: unknown
+        solving: {initialization: 13.220000000000001, solving: 0.089999999999999997,
+          total: 25.41}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.34000000000000002}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.089999999999999997}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.31, total: 0.44}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.070000000000000007}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '4951729', mueqns: '3589920', nueqns: '1361809'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 232.11000000000001, total: 472.02999999999997}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '4951729', mueqns: '3589920', nueqns: '1361809'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 219.69, total: 454.85000000000002}
+        reduction: {total: 0.050000000000000003}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '4951729', mueqns: '3589920', nueqns: '1361809'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 254.13999999999999, total: 451.22000000000003}
+        reduction: {total: 0.11}
+        solving: timeout
+  read_then_eventually_send_if_fair: {original: failed}
+IEEE1394 [nparties=3, datasize=2, headersize=2, acksize=2]:
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '188570', mueqns: '0', nueqns: '188570'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 210.71000000000001, total: 217.09999999999999}
+        reduction: unknown
+        solving: {initialization: 1.6899999999999999, solving: 0.02, total: 4.2199999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '173100', mueqns: '0', nueqns: '173100'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 183.56, total: 187.91999999999999}
+        reduction: {total: 0.20999999999999999}
+        solving: {initialization: 1.73, solving: 0.02, total: 3.5600000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property1: {original: failed}
+  property2:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '417015', mueqns: '0', nueqns: '417015'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 343.93000000000001, total: 352.89999999999998}
+        reduction: unknown
+        solving: {initialization: 3.23, solving: 0.040000000000000001, total: 6.8099999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '346030', mueqns: '0', nueqns: '346030'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 280.33999999999997, total: 288.56999999999999}
+        reduction: {total: 0.27000000000000002}
+        solving: {initialization: 5.5300000000000002, solving: 0.070000000000000007,
+          total: 11.35}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property3: {original: failed}
+  property4:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '571377', mueqns: '5668', nueqns: '565709'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 529.41999999999996, total: 541.53999999999996}
+        reduction: unknown
+        solving: {initialization: 5.3700000000000001, solving: 1.0800000000000001,
+          total: 13.68}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '524967', mueqns: '5668', nueqns: '519299'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 445.91000000000003, total: 459.81}
+        reduction: {total: 0.19}
+        solving: {initialization: 4.1299999999999999, solving: 1.01, total: 9.6600000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+  property5:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1411274', mueqns: '0', nueqns: '1411274'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1214.1099999999999, total: 1247.4300000000001}
+        reduction: unknown
+        solving: {initialization: 12.93, solving: 0.17999999999999999, total: 24.34}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1295249', mueqns: '0', nueqns: '1295249'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1332.96, total: 1361.22}
+        reduction: {total: 0.26000000000000001}
+        solving: {initialization: 10.140000000000001, solving: 0.17000000000000001,
+          total: 21.469999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: unknown
+      solution: unknown
+      times: {instantiation: unknown, reduction: timeout, solving: unknown}
+SWP [datasize=5, windowsize=2]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '6186002', mueqns: '1546500', nueqns: '4639502'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 173.25999999999999, total: 416.07999999999998}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '37202', mueqns: '9300', nueqns: '27902'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.0800000000000001, total: 2.1699999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.45000000000000001, solving: 29.620000000000001,
+          total: 30.66}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '37202', mueqns: '9300', nueqns: '27902'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 1.28, total: 2.3999999999999999}
+        reduction: {total: 0.13}
+        solving: {initialization: 0.55000000000000004, solving: 45.68, total: 46.75}
+  infinitely_often_lost: {original: failed}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '782201', mueqns: '271700', nueqns: '510501'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 27.93, total: 52.380000000000003}
+        reduction: unknown
+        solving: {initialization: 9.8000000000000007, solving: 0.46999999999999997,
+          total: 19.539999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '782201', mueqns: '271700', nueqns: '510501'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 23.809999999999999, total: 49.530000000000001}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 8.4100000000000001, solving: 0.38, total: 18.809999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '2', eqns: '782201', mueqns: '271700', nueqns: '510501'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 25.129999999999999, total: 45.909999999999997}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 7.9299999999999997, solving: 0.39000000000000001,
+          total: 17.66}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '351602', mueqns: '309300', nueqns: '42302'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 15.890000000000001, total: 29.649999999999999}
+        reduction: unknown
+        solving: {initialization: 5.6399999999999997, solving: 0.37, total: 11.66}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.28999999999999998, total: 0.39000000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '2546', mueqns: '1860', nueqns: '686'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.37, total: 0.5}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '1758007', mueqns: '1546500', nueqns: '211507'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 68.299999999999997, total: 134.47}
+        reduction: unknown
+        solving: {initialization: 26.949999999999999, solving: 1.8, total: 58.579999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '12727', mueqns: '9300', nueqns: '3427'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.75, total: 1.1100000000000001}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.14999999999999999, solving: 0.01, total: 0.35999999999999999}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '12727', mueqns: '9300', nueqns: '3427'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.68999999999999995, total: 1.04}
+        reduction: {total: 0.11}
+        solving: {initialization: 0.14999999999999999, solving: 0.01, total: 0.33000000000000002}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '927901', mueqns: '309300', nueqns: '618601'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 30.0, total: 67.530000000000001}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '5581', mueqns: '1860', nueqns: '3721'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.32000000000000001, total: 0.47999999999999998}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 0.080000000000000002, solving: 0.73999999999999999,
+          total: 0.90000000000000002}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '5582', mueqns: '1860', nueqns: '3722'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.46000000000000002, total: 0.71999999999999997}
+        reduction: {total: 0.10000000000000001}
+        solving: {initialization: 0.050000000000000003, solving: 0.55000000000000004,
+          total: 0.68000000000000005}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '2219061', mueqns: '0', nueqns: '2219061'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 95.569999999999993, total: 187.75}
+        reduction: unknown
+        solving: {initialization: 34.640000000000001, solving: 1.77, total: 74.519999999999996}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '2219061', mueqns: '0', nueqns: '2219061'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 94.689999999999998, total: 183.75}
+        reduction: {total: 0.040000000000000001}
+        solving: {initialization: 33.490000000000002, solving: 1.75, total: 70.519999999999996}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '2219061', mueqns: '0', nueqns: '2219061'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 115.55, total: 203.84999999999999}
+        reduction: {total: 0.12}
+        solving: {initialization: 34.159999999999997, solving: 1.77, total: 69.799999999999997}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '706681', mueqns: '0', nueqns: '706681'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 29.649999999999999, total: 56.75}
+        reduction: unknown
+        solving: {initialization: 10.550000000000001, solving: 0.080000000000000002,
+          total: 24.079999999999998}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '706681', mueqns: '0', nueqns: '706681'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 28.27, total: 55.859999999999999}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 10.619999999999999, solving: 0.080000000000000002,
+          total: 23.530000000000001}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '706681', mueqns: '0', nueqns: '706681'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 34.350000000000001, total: 61.560000000000002}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 11.359999999999999, solving: 0.089999999999999997,
+          total: 27.719999999999999}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '309301', mueqns: '0', nueqns: '309301'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 12.31, total: 23.829999999999998}
+        reduction: unknown
+        solving: {initialization: 4.8200000000000003, solving: 0.040000000000000001,
+          total: 10.539999999999999}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1861', mueqns: '0', nueqns: '1861'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.29999999999999999, total: 0.42999999999999999}
+        reduction: {total: 0.029999999999999999}
+        solving: {initialization: 0.02, solving: 0.0, total: 0.059999999999999998}
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '0', eqns: '1862', mueqns: '0', nueqns: '1862'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.31, total: 0.42999999999999999}
+        reduction: {total: 0.089999999999999997}
+        solving: {initialization: 0.029999999999999999, solving: 0.0, total: 0.080000000000000002}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '2240301', mueqns: '1546500', nueqns: '693801'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 91.700000000000003, total: 203.28}
+        reduction: unknown
+        solving: timeout
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '2240301', mueqns: '1546500', nueqns: '693801'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 88.590000000000003, total: 179.78999999999999}
+        reduction: {total: 0.040000000000000001}
+        solving: timeout
+    pbesstategraph:
+      memory: {}
+      name: pbesstategraph
+      sizes: {bnd: '1', eqns: '2240301', mueqns: '1546500', nueqns: '693801'}
+      solution: unknown
+      times:
+        instantiation: {instantiation: 106.23999999999999, total: 209.0}
+        reduction: {total: 0.13}
+        solving: timeout
+  read_then_eventually_send_if_fair: {original: failed}
