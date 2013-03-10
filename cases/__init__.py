@@ -170,9 +170,13 @@ class PBESCase(TempObj):
     
   def phase0(self, log):
     log.debug('Generating initial PBES')
-    self._writePBESfile(log)
-    log.debug('Reducing PBES and instantiating and solving')
-    self.__reduce(self.__pbesfile, log)    
+    try:
+      self._writePBESfile(log)
+      log.debug('Reducing PBES and instantiating and solving')
+      self.__reduce(self.__pbesfile, log)
+    except tools.ToolException as e:
+      log.warning('Failed to generate PBES for {0} with exception\n{1}'.format(self, e))
+      self.result['original'] = 'failed'
     
   def phase1(self, log):
     for task in self.results:
