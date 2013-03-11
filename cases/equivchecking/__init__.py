@@ -4,7 +4,7 @@ import os
 import tempfile
 import traceback
 
-from cases import tools, PBESCase, TempObj, MEMLIMIT
+from cases import tools, PBESCase, TempObj, MEMLIMIT, CLEANUP
 import specs
 
 class EquivCase(PBESCase):
@@ -61,8 +61,10 @@ class Case(TempObj):
     log.info('Finalising {0}'.format(self))
     for case in self.results:
       self.result[str(case)] = case.result
-    #for filename in self.__files:
-    #  os.unlink(filename)
+      
+    if CLEANUP:
+      for filename in self.__files:
+        os.unlink(filename)
  
 class SameParamCase(Case):
   def __init__(self, name1, name2, **kwargs):

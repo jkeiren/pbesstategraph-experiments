@@ -30,11 +30,7 @@ class Property(PBESCase):
     '''Generate a PBES out of self.lps and self.mcffile, and apply pbesconstelm
        to it.'''
     self.__rename()
-    lps = self._newTempFilename("lps")
-    f = open(lps, 'w')
-    f.write(self.lps)
-    f.close()
-    return tools.lps2pbes('-f', self.mcffile, '-v', lps, memlimit=MEMLIMIT)['out']
+    return tools.lps2pbes('-f', self.mcffile, '-v', stdin=self.lps, memlimit=MEMLIMIT)['out']
 
 class Case(TempObj):
   def __init__(self, name, **kwargs):

@@ -8,6 +8,10 @@ import tools
 import pool
 import sys
 
+# Whether intermediate results and BESs should be removed
+# Note that the PBESs are treated separately
+CLEANUP = True
+
 GENERATE_TIMEOUT = 2*60*60
 SOLVE_TIMEOUT = 60*60
 REDUCTION_TIMEOUT = 15*60
@@ -106,6 +110,9 @@ class ReduceAndSolveTask(TempObj):
                '.*Block nesting depth:\s*(?P<bnd>\d+).*?'
       m = re.search(BESINFO_RE, info, re.DOTALL)
       self.result['sizes'] = m.groupdict()
+      
+      if CLEANUP:
+        os.unlink(self.__besfile)
       
     except (tools.Timeout) as e:
       log.info('Timeout (intantiating)')
