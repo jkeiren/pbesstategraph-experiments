@@ -110,10 +110,7 @@ class ReduceAndSolveTask(TempObj):
                '.*Block nesting depth:\s*(?P<bnd>\d+).*?'
       m = re.search(BESINFO_RE, info, re.DOTALL)
       self.result['sizes'] = m.groupdict()
-      
-      if CLEANUP:
-        os.unlink(self.__besfile)
-      
+     
     except (tools.Timeout) as e:
       log.info('Timeout (intantiating) {0}'.format(self))
       self.result['times']['instantiation'] = 'timeout'
@@ -121,6 +118,9 @@ class ReduceAndSolveTask(TempObj):
     except (tools.OutOfMemory) as e:
       log.info('Out of memory (instantiating)'.format(self))
       self.result['memory']['instantiation'] = 'outofmemory'
+      raise e
+    except (tools.ToolException) as e:
+      log.info('Instantation failed {0} with exception {1}'.format(self, e))
       raise e
     
   def __solve(self, log):
@@ -134,6 +134,8 @@ class ReduceAndSolveTask(TempObj):
     except (tools.OutOfMemory):
       log.info('Out of memory (solving) {0}'.format(self))        
       self.result['memory']['solving'] = 'outofmemory'
+    except (tools.ToolException) as e:
+      log.error('Solving failed {0} with exception {1}'.format(self, e))
   
   def phase0(self, log):
     try:
@@ -145,6 +147,10 @@ class ReduceAndSolveTask(TempObj):
       self.__solve(log)
     except:
       pass
+  
+  def phase1(self, log):
+    if CLEANUP:
+        os.unlink(self.__besfile)
   
 class PBESCase(TempObj):
   def __init__(self, temppath='temp', prefix=""):
