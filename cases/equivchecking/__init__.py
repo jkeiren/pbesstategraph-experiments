@@ -35,13 +35,18 @@ class Case(TempObj):
   
   def __str__(self):
     return self.__desc
-
-  def __linearise(self, log):
+  
+  def _lineariseSpec(self, spec, log):
+    lps = tools.mcrl22lps('-fn', stdin=self.spec1, memlimit=MEMLIMIT)['out']
+    return lps
+  
+  def _linearise(self, log):
     '''Linearises self.spec1 and self.spec2 and applies lpssuminst to the 
        resulting LPSs.'''
     log.info('Linearising LPSs for {0}'.format(self))
-    lps1 = tools.mcrl22lps('-fn', stdin=self.spec1, memlimit=MEMLIMIT)['out']
-    lps2 = tools.mcrl22lps('-fn', stdin=self.spec2, memlimit=MEMLIMIT)['out']
+    lps1 = self._lineariseSpec(self.spec1, log)
+    lps2 = self._lineariseSpec(self.spec2, log)
+    
     lpsfile1 = self._newTempFile('lps')
     lpsfile1.write(lps1)
     lpsfile1.close()
@@ -51,7 +56,7 @@ class Case(TempObj):
     return lpsfile1.name, lpsfile2.name
   
   def phase0(self, log):
-    lpsfile1, lpsfile2 = self.__linearise(log)
+    lpsfile1, lpsfile2 = self._linearise(log)
     for equiv in ['strong-bisim', 'weak-bisim', 'branching-bisim', 'branching-sim']:
     #for equiv in ['strong-bisim']:
       self.subtasks.append(EquivCase(self.__desc, lpsfile1, lpsfile2, equiv, self._temppath))
@@ -71,12 +76,31 @@ class SameParamCase(Case):
     super(SameParamCase, self).__init__(
       '{0}/{1} ({2})'.format(name1, name2, ' '.join('{0}={1}'.format(k,v) for k,v in kwargs.items())),
       specs.get(name1).mcrl2(**kwargs),
-      specs.get(name2).mcrl2(**kwargs)) 
+      specs.get(name2).mcrl2(**kwargs))
+
+# Unused    
+class ProtocolCase(SameParamCase):
+  def __init__(self, name1, name2, **kwargs):
+    super(ProtocolCase, self).__init__(name1, name2, **kwargs)
+    self.__kwargs = kwargs
+    
+  def _lineariseSpec(self, spec, log):
+    lps = tools.mcrl22lps('-fn', stdin=self.spec1, memlimit=MEMLIMIT)['out']
+    
+    lps = tools.lpsparunfold('-lv', '-sFrame', '-n1', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-lv', '-sFrameOB', '-n1', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-lv', '-sFrame', '-n1', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-lv', '-sDBuf', '-n{0}'.format(self.__kwargs.get('capacity')), stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-lv', '-sBBuf', '-n{0}'.format(self.__kwargs.get('windowsize')), stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsconstelm('-v', stdin=lps, memlimit=MEMLIMIT)['out']
+           
+    return lps
+  
 
 def getcases(debug):
   if debug:
     return \
-      [SameParamCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=2)]
+      [ProtocolCase('CABP', 'ABP', windowsize=1, capacity=1, datasize=2)]
      
   else:
     datarange = [2,4,8]
