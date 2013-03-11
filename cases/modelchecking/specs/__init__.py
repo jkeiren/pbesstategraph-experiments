@@ -20,7 +20,8 @@ class LiftSpec(Spec):
 
 class LeaderSpec(Spec):
   def mcrl2(self, nparticipants):
-    return self._template.substitute(nparticipants=nparticipants)
+    return self._template.substitute(nparticipants=nparticipants,
+                                     parts=' || '.join(['Part({0})'.format (i+1) for i in range(0, nparticipants)]))
 
 class DataSpec(Spec):
   def mcrl2(self, datasize):
