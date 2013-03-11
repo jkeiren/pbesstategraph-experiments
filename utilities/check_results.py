@@ -9,6 +9,8 @@ def run(infilename, outfilename, log):
   
   for (case, instances) in data.items():
     for (instance, tools) in instances.items():
+      if tools['original'] == 'failed':
+        continue
       if tools['original']['solution'] != tools['pbesparelm']['solution'] and tools['original']['solution'] != 'unknown' and tools['pbesparelm']['solution'] != 'unknown':
         print 'The solution of the original PBES and parelm reduced PBES differ for {0} -- {1}'.format(case, instance)
         print '  solution of the original:           {0}'.format(tools['original']['solution'])
