@@ -737,9 +737,7 @@ ABP [datasize=2]:
       memory: {}
       name: pbesstategraph
       sizes: {bnd: '1', eqns: '95', mueqns: '36', nueqns: '59'}
-      solution: 'true
-
-        timeout: WARNING: Wait(9912) failed: No child processes'
+      solution: 'true'
       times:
         instantiation: {instantiation: 0.10000000000000001, total: 0.14000000000000001}
         reduction: {total: 0.070000000000000007}
@@ -2302,9 +2300,7 @@ Elevator [policy=FIFO, storeys=5]:
       memory: {}
       name: pbesstategraph
       sizes: {bnd: '0', eqns: '23', mueqns: '0', nueqns: '23'}
-      solution: 'true
-
-        timeout: WARNING: Wait(13021) failed: No child processes'
+      solution: 'true'
       times:
         instantiation: {instantiation: 0.25, total: 0.29999999999999999}
         reduction: {total: 0.059999999999999998}
@@ -8243,9 +8239,7 @@ ABP/SWP (datasize=2 capacity=1 windowsize=1):
       memory: {}
       name: pbesstategraph
       sizes: {bnd: '0', eqns: '2', mueqns: '0', nueqns: '2'}
-      solution: 'false
-
-        timeout: WARNING: Wait(31223) failed: No child processes'
+      solution: 'false'
       times:
         instantiation: {instantiation: 0.25, total: 0.34000000000000002}
         reduction: {total: 2.5}
@@ -8926,9 +8920,7 @@ ABP/SWP (datasize=8 capacity=1 windowsize=1):
       memory: {}
       name: pbesparelm
       sizes: {bnd: '0', eqns: '2', mueqns: '0', nueqns: '2'}
-      solution: 'false
-
-        timeout: WARNING: Wait(15082) failed: No child processes'
+      solution: 'false'
       times:
         instantiation: {instantiation: 0.23999999999999999, total: 0.32000000000000001}
         reduction: {total: 0.059999999999999998}
@@ -13838,9 +13830,7 @@ SWP [datasize=5, windowsize=1]:
       memory: {}
       name: original
       sizes: {bnd: '0', eqns: '1981', mueqns: '0', nueqns: '1981'}
-      solution: 'true
-
-        timeout: WARNING: Wait(28165) failed: No child processes'
+      solution: 'true'
       times:
         instantiation: {instantiation: 0.32000000000000001, total: 0.42999999999999999}
         reduction: unknown
@@ -15454,9 +15444,7 @@ SWP [datasize=6, windowsize=1]:
       memory: {}
       name: pbesparelm
       sizes: {bnd: '2', eqns: '6121', mueqns: '2016', nueqns: '4105'}
-      solution: 'true
-
-        timeout: WARNING: Wait(21559) failed: No child processes'
+      solution: 'true'
       times:
         instantiation: {instantiation: 0.41999999999999998, total: 0.57999999999999996}
         reduction: {total: 0.029999999999999999}
