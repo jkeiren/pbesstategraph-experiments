@@ -12,6 +12,7 @@ class Property(PBESCase):
   def __init__(self, description, lps, mcf, temppath):
     PBESCase.__init__(self, temppath=temppath, prefix=description + '_' + os.path.splitext(os.path.split(mcf)[1])[0])
     self.__desc = description
+    self.__detailed_desc = description + '_' + os.path.splitext(os.path.split(mcf)[1])[0]
     self._temppath = temppath
     self.lps = lps
     self.mcffile = mcf
@@ -56,12 +57,16 @@ class Case(TempObj):
   def phase0(self, log):
     '''Generates an LPS and creates subtasks for every property that should be
     verified.'''
-    lps = self._makeLPS(log)    
-    for prop in os.listdir(self.proppath):
-      if not prop.endswith('.mcf'):
-        continue
-      self.subtasks.append(Property(self._prefix, lps, os.path.join(self.proppath, prop), 
-                                    self._temppath))
+    try:
+      lps = self._makeLPS(log)    
+      for prop in os.listdir(self.proppath):
+        if not prop.endswith('.mcf'):
+          continue
+        self.subtasks.append(Property(self._prefix, lps, os.path.join(self.proppath, prop), 
+                                      self._temppath))
+    except (tools.ToolException, tools.Timeout, tools.OutOfMemory) as e:
+      log.error('Failed to generate LPS for {0} with exception\n{1}'.format(self, e))
+      self.result['original'] = 'failed'      
     
   def phase1(self, log):
     log.debug('Finalising {0}'.format(self))

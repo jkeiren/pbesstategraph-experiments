@@ -89,11 +89,11 @@ class ReduceAndSolveTask(TempObj):
       tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
     
     except (tools.Timeout) as e:
-      log.info('Timeout (reducing)')
+      log.info('Timeout (reducing) {0}'.format(self))
       self.result['times']['reduction'] = 'timeout'
       raise e   
     except (tools.OutOfMemory) as e:
-      log.info('Out of memory (reducing)')
+      log.info('Out of memory (reducing) {0}'.format(self))
       self.result['memory']['reduction'] = 'outofmemory'
       raise e
 
@@ -115,11 +115,11 @@ class ReduceAndSolveTask(TempObj):
         os.unlink(self.__besfile)
       
     except (tools.Timeout) as e:
-      log.info('Timeout (intantiating)')
+      log.info('Timeout (intantiating) {0}'.format(self))
       self.result['times']['instantiation'] = 'timeout'
       raise e
     except (tools.OutOfMemory) as e:
-      log.info('Out of memory (instantiating)')
+      log.info('Out of memory (instantiating)'.format(self))
       self.result['memory']['instantiation'] = 'outofmemory'
       raise e
     
@@ -129,10 +129,10 @@ class ReduceAndSolveTask(TempObj):
       self.result['times']['solving'] = result['times']      
       self.result['solution'] = result['out'].strip()
     except (tools.Timeout):
-      log.info('Timeout (solving)')
+      log.info('Timeout (solving) {0}'.format(self))
       self.result['times']['solving'] = 'timeout'
     except (tools.OutOfMemory):
-      log.info('Out of memory (solving)')        
+      log.info('Out of memory (solving) {0}'.format(self))        
       self.result['memory']['solving'] = 'outofmemory'
   
   def phase0(self, log):
@@ -150,7 +150,14 @@ class PBESCase(TempObj):
   def __init__(self, temppath='temp', prefix=""):
     super(PBESCase, self).__init__(temppath, prefix)
     self.__pbesfile = self._newTempFilename('pbes')
+    self.__detailed_desc = None
     self.result = {}
+
+  def _errString(self):
+    if self.__detailed_desc:
+      return self.__detailed_desc
+    else:
+      return str(self)
   
   def _makePBES(self):
     raise NotImplementedError()
@@ -181,8 +188,8 @@ class PBESCase(TempObj):
       self._writePBESfile(log)
       log.debug('Reducing PBES and instantiating and solving')
       self.__reduce(self.__pbesfile, log)
-    except tools.ToolException as e:
-      log.warning('Failed to generate PBES for {0} with exception\n{1}'.format(self, e))
+    except (tools.ToolException, tools.Timeout, tools.OutOfMemory) as e:
+      log.error('Failed to generate PBES for {0} with exception\n{1}'.format(self._errString(), e))
       self.result['original'] = 'failed'
     
   def phase1(self, log):
