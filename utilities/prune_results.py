@@ -9,7 +9,7 @@ def run(infilename, outfilename, log):
   
   for (case, instances) in data.items():
     for (instance, tools) in instances.items():
-      if tools['pbesstategraph']['sizes'] != tools['pbesparelm']['sizes']:
+      if tools['original'] != 'failed' and tools['pbesstategraph']['sizes'] != tools['pbesparelm']['sizes']:
         newdata.setdefault(case,{})[instance] = tools
         #print tools
         log.info('Keeping {0} - {1}'.format(case, instance))
