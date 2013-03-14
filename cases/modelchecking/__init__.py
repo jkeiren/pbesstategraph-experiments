@@ -110,7 +110,7 @@ def getcases(debug):
   if debug:
     return [Case('Debug spec'),
      Case('Lossy buffer', datasize=8)]+ \
-      [ParunfoldCase('IEEE1394', [('SIG_TUPLE', 10), ('SIGNAL', 10), ('LDC', 10), ('LDI', 10)], nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,3)]
+     [Case('ABP', datasize=i) for i in [2]]
   else:
     return \
       [Case('Debug spec')] + \

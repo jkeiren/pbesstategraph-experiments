@@ -49,7 +49,10 @@ class ReduceAndSolveTask(TempObj):
     if name.startswith('pbesparelm'):
       self.__reducedPbesfile = self._newTempFilename('pbes', '.parelm.constelm')
       self.__besfile = self._newTempFilename('bes', '.parelm.constelm')
-    elif name.startswith('pbesstategraph'):
+    elif name.startswith('pbesstategraph (global)'):
+      self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')
+      self.__besfile = self._newTempFilename('bes', '.stategraph.constelm')
+    elif name.startswith('pbesstategraph (local)'):
       self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')
       self.__besfile = self._newTempFilename('bes', '.stategraph.constelm')
     else:
@@ -70,8 +73,10 @@ class ReduceAndSolveTask(TempObj):
     log.debug('Creating temp files')
     if self.name.startswith('pbesparelm'):
       tmpfile = self._newTempFilename('pbes', '.parelm')
-    elif self.name.startswith('pbesstategraph'):
-      tmpfile = self._newTempFilename('pbes', '.stategraph')
+    elif self.name.startswith('pbesstategraph (global)'):
+      tmpfile = self._newTempFilename('pbes', '.global.stategraph')
+    elif self.name.startswith('pbesstategraph (local)'):
+      tmpfile = self._newTempFilename('pbes', '.local.stategraph')
     else:
       return
     
@@ -80,9 +85,12 @@ class ReduceAndSolveTask(TempObj):
       if self.name.startswith('pbesparelm'):
         log.debug('Parelm')
         result = tools.pbesparelm(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
-      else:
-        log.debug('Stategraph')
-        result = tools.pbesstategraph(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+      elif self.name.startswith('pbesstategraph (global)'):
+        log.debug('Stategraph (global algorithm)')
+        result = tools.pbesstategraph(self.__pbesfile, '-v', '-s0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+      elif self.name.startswith('pbesstategraph (local)'):
+        log.debug('Stategraph (local algorithm)')
+        result = tools.pbesstategraph(self.__pbesfile, '-v', '-l1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
        
       self.result['times']['reduction'] = result['times']
 
@@ -185,7 +193,8 @@ class PBESCase(TempObj):
     self.subtasks = [ 
       ReduceAndSolveTask('original', self._prefix, pbesfile, self._temppath),
       ReduceAndSolveTask('pbesparelm', self._prefix, pbesfile, self._temppath),
-      ReduceAndSolveTask('pbesstategraph', self._prefix, pbesfile, self._temppath),
+      ReduceAndSolveTask('pbesstategraph (global)', self._prefix, pbesfile, self._temppath),
+      ReduceAndSolveTask('pbesstategraph (local)', self._prefix, pbesfile, self._temppath),
     ]
     
   def phase0(self, log):
