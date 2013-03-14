@@ -1,0 +1,18 @@
+% The protocol does not duplicate messages
+% Messages are counted. Whenever there is one message in the buffer
+% then as long as no other message is added to the buffer, then
+% the message in the buffer cannot be removed from the buffer twice.
+%
+
+nu X(n:Int = 0).
+[exists d:D. ra(d)]X(n+1)
+&&
+val(n >= 0)
+&&
+[!(exists d:D. (ra(d) || sb(d)))]X(n)
+&&
+[exists d:D. sb(d)]X(n-1)
+&&
+forall dd:D. [ra(dd). (!exists d:D. (ra(d) || sb(d))). sb(dd). (!ra(dd)).sb(dd)]val(n > 0)
+
+

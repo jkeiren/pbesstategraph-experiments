@@ -125,7 +125,7 @@ class ReduceAndSolveTask(TempObj):
     
   def __solve(self, log):
     try:      
-      result = tools.pbespgsolve(self.__besfile, timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
+      result = tools.pbespgsolve(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
       self.result['times']['solving'] = result['times']      
       self.result['solution'] = result['out'].strip()
     except (tools.Timeout):

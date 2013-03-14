@@ -87,11 +87,8 @@ class ProtocolCase(SameParamCase):
   def _lineariseSpec(self, spec, log):
     lps = tools.mcrl22lps('-fn', stdin=self.spec1, memlimit=MEMLIMIT)['out']
     
-    lps = tools.lpsparunfold('-lv', '-sFrame', '-n1', stdin=lps, memlimit=MEMLIMIT)['out']
-    lps = tools.lpsparunfold('-lv', '-sFrameOB', '-n1', stdin=lps, memlimit=MEMLIMIT)['out']
-    lps = tools.lpsparunfold('-lv', '-sFrame', '-n1', stdin=lps, memlimit=MEMLIMIT)['out']
-    lps = tools.lpsparunfold('-lv', '-sDBuf', '-n{0}'.format(self.__kwargs.get('capacity')), stdin=lps, memlimit=MEMLIMIT)['out']
-    lps = tools.lpsparunfold('-lv', '-sBBuf', '-n{0}'.format(self.__kwargs.get('windowsize')), stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-lv', '-sFrame', '-n10', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-lv', '-sFrameOB', '-n10', stdin=lps, memlimit=MEMLIMIT)['out']
     lps = tools.lpsconstelm('-v', stdin=lps, memlimit=MEMLIMIT)['out']
            
     return lps
@@ -105,32 +102,32 @@ def getcases(debug):
   else:
     datarange = [2,4,8]
     return \
-      [SameParamCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('Buffer', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('Buffer', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('Buffer', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('Buffer', 'Onebit', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
-      [SameParamCase('Buffer', 'SWP', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
-      [SameParamCase('ABP', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP(BW)', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP(BW)', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP(BW)', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP(BW)', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('ABP(BW)', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('CABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('CABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('CABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [SameParamCase('Par', 'Par', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
-      [SameParamCase('Par', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
-      [SameParamCase('Par', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
-      [SameParamCase('Onebit', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
-      [SameParamCase('Onebit', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
-      [SameParamCase('SWP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [ProtocolCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('Buffer', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('Buffer', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('Buffer', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('Buffer', 'Onebit', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
+      [ProtocolCase('Buffer', 'SWP', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
+      [ProtocolCase('ABP', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP(BW)', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP(BW)', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP(BW)', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP(BW)', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('ABP(BW)', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('CABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('CABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('CABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('Par', 'Par', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [ProtocolCase('Par', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [ProtocolCase('Par', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [ProtocolCase('Onebit', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [ProtocolCase('Onebit', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
+      [ProtocolCase('SWP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in range(4,5)] + \
       [SameParamCase('Hesselink (Specification)', 'Hesselink (Implementation)', datasize=d) for d in range(2,5) ] + \
       [SameParamCase('Hesselink (Implementation)', 'Hesselink (Specification)', datasize=d) for d in range(2,5) ]
   

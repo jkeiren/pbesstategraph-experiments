@@ -110,18 +110,16 @@ def getcases(debug):
   if debug:
     return [Case('Debug spec'),
      Case('Lossy buffer', datasize=8)]+ \
-      [Case('ABP(BW)', datasize=2)] + \
-      [Case('CABP', [('Frame', 1)], datasize=2)] + \
-      [Case('CABP', [('Frame', 1)], datasize=2)]
+      [ParunfoldCase('IEEE1394', [('SIG_TUPLE', 10), ('SIGNAL', 10), ('LDC', 10), ('LDI', 10)], nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,3)]
   else:
     return \
       [Case('Debug spec')] + \
       [Case('Lossy buffer', datasize=i) for i in [2,3,4,5,6,7,8,16,32,64,128]] + \
       [Case('ABP', datasize=i) for i in [2,4,8,16,32]] + \
       [Case('ABP(BW)', datasize=i) for i in [2,4,8,16,32]] + \
-      [Case('CABP',datasize=i) for i in [2,4,8,16,32]] + \
-      [Case('Par', datasize=i) for i in [2,4,8,16,32]] + \
-      [Case('CCP')] + \
+      [ParunfoldCase('CABP', [('Frame', 10)], datasize=i) for i in [2,4,8,16,32]] + \
+      [ParunfoldCase('Par', [('Frame', 10)], datasize=i) for i in [2,4,8,16,32]] + \
+      [ParunfoldCase('CCP', [('Region', 10)])] + \
       [Case('Hesselink', datasize=i) for i in range(2,5)] + \
       [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \
       [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
@@ -132,11 +130,11 @@ def getcases(debug):
       [Case('Snake', width=4, height=4)] + \
       [Case('Hex', width=4, height=4)] + \
       [Case('Domineering', width=4, height=4)] + \
-      [Case('IEEE1394', nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
+      [ParunfoldCase('IEEE1394', [('SIG_TUPLE', 10), ('SIGNAL', 10), ('LDC', 10), ('LDI', 10)], nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
       [Case('Hanoi', ndisks=n) for n in range(10,18)] + \
-      [Case('Lift (Correct)', nlifts=n) for n in range(2, 5)] + \
-      [Case('Lift (Incorrect)', nlifts=n) for n in range(2, 5)] + \
+      [ParunfoldCase('Lift (Correct)', [('Message', 10)], nlifts=n) for n in range(2, 5)] + \
+      [ParunfoldCase('Lift (Incorrect)',[('Message', 10)], nlifts=n) for n in range(2, 5)] + \
       [Case('SWP', windowsize=3, datasize=i) for i in range(2, 5)] + \
       [Case('SWP', windowsize=4, datasize=2)] + \
-      [Case('Onebit', datasize=i) for i in range(2,5)] + \
+      [ParunfoldCase('Onebit', [('Frame', 10)], datasize=i) for i in range(2,5)] + \
       [Case('Leader', nparticipants=n) for n in range(3, 7)]
