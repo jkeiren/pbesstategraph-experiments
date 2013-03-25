@@ -12,6 +12,10 @@ import sys
 # Note that the PBESs are treated separately
 CLEANUP = True
 
+PARELM=True
+GLOBAL_STATEGRAPH=True
+LOCAL_STATEGRAPH=False
+
 GENERATE_TIMEOUT = 2*60*60
 SOLVE_TIMEOUT = 60*60
 REDUCTION_TIMEOUT = 15*60
@@ -179,8 +183,8 @@ class PBESCase(TempObj):
   def _writePBESfile(self, log):
     pbes = self._makePBES()
     tmp = tools.pbesrewr('-psimplify', stdin=pbes, memlimit=MEMLIMIT)
-    #tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
-    #tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
+    tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
+    tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
     tmp = tools.pbesconstelm(stdin=tmp['out'], memlimit=MEMLIMIT)
 
     log.debug("Writing PBES")
@@ -190,12 +194,14 @@ class PBESCase(TempObj):
     
   def __reduce(self, pbesfile, log):
     log.debug('Reduction...')
-    self.subtasks = [ 
-      ReduceAndSolveTask('original', self._prefix, pbesfile, self._temppath),
-      ReduceAndSolveTask('pbesparelm', self._prefix, pbesfile, self._temppath),
-      ReduceAndSolveTask('pbesstategraph (global)', self._prefix, pbesfile, self._temppath),
-      ReduceAndSolveTask('pbesstategraph (local)', self._prefix, pbesfile, self._temppath),
-    ]
+    self.subtasks = [ReduceAndSolveTask('original', self._prefix, pbesfile, self._temppath)]
+    
+    if PARELM:
+      self.subtasks.append(ReduceAndSolveTask('pbesparelm', self._prefix, pbesfile, self._temppath))
+    if GLOBAL_STATEGRAPH:
+      self.subtasks.append(ReduceAndSolveTask('pbesstategraph (global)', self._prefix, pbesfile, self._temppath))
+    if LOCAL_STATEGRAPH:
+      self.substasks.append(ReduceAndSolveTask('pbesstategraph (local)', self._prefix, pbesfile, self._temppath))
     
   def phase0(self, log):
     log.debug('Generating initial PBES')

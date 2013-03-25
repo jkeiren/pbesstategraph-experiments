@@ -119,22 +119,19 @@ def getcases(debug):
       [Case('ABP(BW)', datasize=i) for i in [2,4,8,16,32]] + \
       [ParunfoldCase('CABP', [('Frame', 10)], datasize=i) for i in [2,4,8,16,32]] + \
       [ParunfoldCase('Par', [('Frame', 10)], datasize=i) for i in [2,4,8,16,32]] + \
+      [ParunfoldCase('Onebit', [('Frame', 10)], datasize=i) for i in range(2,5)] + \
+      [Case('SWP', windowsize=w, datasize=i) for i in [2,4,8] for w in range(1,5)] + \
+      [Case('BRP', datasize=i) for i in [2,3,4] ] + \
       [ParunfoldCase('CCP', [('Region', 10)])] + \
       [Case('Hesselink', datasize=i) for i in range(2,5)] + \
-      [Case('SWP', windowsize=1, datasize=i) for i in range(2, 7)] + \
-      [Case('SWP', windowsize=2, datasize=i) for i in range(2, 7)] + \
-      [Case('BRP', datasize=i) for i in [3]] + \
+      [ParunfoldCase('Lift (Correct)', [('Message', 10)], nlifts=n) for n in range(2, 5)] + \
+      [ParunfoldCase('Lift (Incorrect)',[('Message', 10)], nlifts=n) for n in range(2, 5)] + \
       [Case('Elevator', policy=p, storeys=n) for p in ['FIFO', 'LIFO'] for n in range(3,6)] + \
+      [Case('Leader', nparticipants=n) for n in range(3, 7)] + \
       [Case('Othello', width=4, height=4)] + \
       [Case('Clobber', width=4, height=4)] + \
       [Case('Snake', width=4, height=4)] + \
       [Case('Hex', width=4, height=4)] + \
       [Case('Domineering', width=4, height=4)] + \
       [ParunfoldCase('IEEE1394', [('SIG_TUPLE', 10), ('SIGNAL', 10), ('LDC', 10), ('LDI', 10)], nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
-      [Case('Hanoi', ndisks=n) for n in range(10,18)] + \
-      [ParunfoldCase('Lift (Correct)', [('Message', 10)], nlifts=n) for n in range(2, 5)] + \
-      [ParunfoldCase('Lift (Incorrect)',[('Message', 10)], nlifts=n) for n in range(2, 5)] + \
-      [Case('SWP', windowsize=3, datasize=i) for i in range(2, 5)] + \
-      [Case('SWP', windowsize=4, datasize=2)] + \
-      [ParunfoldCase('Onebit', [('Frame', 10)], datasize=i) for i in range(2,5)] + \
-      [Case('Leader', nparticipants=n) for n in range(3, 7)]
+      [Case('Hanoi', ndisks=n) for n in range(10,18)] 
