@@ -13,8 +13,8 @@ import sys
 CLEANUP = True
 
 PARELM=True
-GLOBAL_STATEGRAPH=True
-LOCAL_STATEGRAPH=False
+GLOBAL_STATEGRAPH=False
+LOCAL_STATEGRAPH=True
 
 GENERATE_TIMEOUT = 2*60*60
 SOLVE_TIMEOUT = 60*60
@@ -201,7 +201,7 @@ class PBESCase(TempObj):
     if GLOBAL_STATEGRAPH:
       self.subtasks.append(ReduceAndSolveTask('pbesstategraph (global)', self._prefix, pbesfile, self._temppath))
     if LOCAL_STATEGRAPH:
-      self.substasks.append(ReduceAndSolveTask('pbesstategraph (local)', self._prefix, pbesfile, self._temppath))
+      self.subtasks.append(ReduceAndSolveTask('pbesstategraph (local)', self._prefix, pbesfile, self._temppath))
     
   def phase0(self, log):
     log.debug('Generating initial PBES')
