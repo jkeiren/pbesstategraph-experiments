@@ -2,7 +2,7 @@
 % delaying the reply to another node while replies to its own requests are 
 % available.
 
-sort Message = struct OFFER | ACCEPT | REJECT | NONE?not;
+sort Message = struct OFFER | ACCEPT | REJECT | NONE;
 sort Status = struct FOLLOWER | LEADER | TRIGGERED | AWAIT;
 act send, send', Send,
     recv, recv', Recv: Nat # Message;
@@ -26,9 +26,9 @@ proc Channel(from, to: Pos, send: Message, received: Message, togo: Set(Pos)) =
     sum id: Pos . (id in togo) -> send'(from, OFFER) . Channel(to=id)
   ) <> (
     sum r: Message . 
-      not(received) -> reply'(to, OFFER, r) . Channel(received=r, togo=if(togo=={to} || r==ACCEPT, all - {from}, togo - {to}))
+      (received == NONE) -> reply'(to, OFFER, r) . Channel(received=r, togo=if(togo=={to} || r==ACCEPT, all - {from}, togo - {to}))
   )
-+ not(received)
++ (received == NONE)
   -> idle . Channel()
   <> recv'(from, received) . Channel(to=from, received=NONE);
   
