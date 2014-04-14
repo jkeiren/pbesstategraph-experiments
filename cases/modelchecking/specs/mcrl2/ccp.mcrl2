@@ -1,6 +1,6 @@
-sort ThreadId = struct T1 | T2 | T3;
-     ProcessId = struct P1 | P2 | P3;
-     RegionId = struct R1;
+sort ThreadId = struct ${threadids};
+     ProcessId = struct ${processids};
+     RegionId = struct ${regionids};
      State = struct UNUSED | USED;
      Region = struct RGN(id: RegionId, 
                          home: ProcessId, 
@@ -649,24 +649,8 @@ init
       s_home|r_home->c_home,
       s_copy|r_copy->c_copy
     },
-       Thread(T1, P1, {})
-    || Thread(T2, P2, {})
-    || Thread(T3, P3, {})
-    || Locker(P1, 0, 0, 0, 0, 0, 0, 0, 0) 
-    || Locker(P2, 0, 0, 0, 0, 0, 0, 0, 0) 
-    || Locker(P3, 0, 0, 0, 0, 0, 0, 0, 0) 
-    || HomeQueue(P1)
-    || HomeQueue(P2)
-    || HomeQueue(P3)
-    || RemoteQueue(P1)
-    || RemoteQueue(P2)
-    || RemoteQueue(P3)
-    || Processor(P1)
-    || Processor(P2)
-    || Processor(P3)
-    || Region(P1, RGN(R1, P1, UNUSED, [], notnull, null, 0))
-    || Region(P2, RGN(R1, P1, UNUSED, [], null   , null, 0))
-    || Region(P3, RGN(R1, P1, UNUSED, [], notnull, null, 0))
+           
+     ${init}
   ));
 
 

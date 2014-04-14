@@ -29,6 +29,29 @@ class DataSpec(Spec):
       data='|'.join(['d' + str(i + 1) for i in range(0, datasize)])
     )
     
+class CCPSpec(Spec):
+  '''Always assign all regions to each process, each thread tid is assigned to
+     the process pid such that tid mod nprocesses == pid'''
+  def mcrl2(self, nprocesses, nthreads, nregions):
+    print "nprocesses: {0}, nthreads: {1}, nregions: {2}".format(nprocesses, nthreads, nregions)
+    assert(nthreads >= nprocesses)
+    assert(nregions > 0)
+    
+    processes = [' || '.join('''Locker(P{0}, 0, 0, 0, 0, 0, 0, 0, 0)
+    || HomeQueue(P{0})
+    || RemoteQueue(P{0})
+    || Processor(P{0})
+    '''.format(pid+1) for pid in range(0, nprocesses) )]
+    regions = [' || '.join('''Region(P{0}, RGN(R{1}, P1, UNUSED, [], notnull, null, 0))'''.format(pid+1, rid+1) for rid in range(0, nregions) for pid in range(0, nprocesses))]
+    threads = [' || '.join('''Thread(T{0}, P{1}, {{}})'''.format(tid+1, (tid % nprocesses)+1) for tid in range(0,nthreads))]
+    
+    return self._template.substitute(
+      processids='|'.join(['P' + str(i+1) for i in range(0,nprocesses)]),
+      threadids='|'.join(['T' + str(i+1) for i in range(0,nthreads)]),
+      regionids='|'.join(['R' + str(i+1) for i in range(0,nregions)]),
+      init=' || '.join(processes + regions + threads)
+    )
+    
 class ElevatorSpec(Spec):
   def mcrl2(self, policy, storeys):
     return self._template.substitute(policy=policy, storeys=storeys)
@@ -93,7 +116,7 @@ __SPECS = {
     'ABP(BW)':DataSpec('abp_bw'),
     'CABP':DataSpec('cabp'),
     'Par':DataSpec('par'),
-    'CCP':Spec('ccp33'),
+    'CCP':CCPSpec('ccp'),
     'Hesselink':DataSpec('hesselink'),
     'BRP':DataSpec('brp'),
     'SWP': SWPSpec(),
