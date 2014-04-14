@@ -12,6 +12,7 @@ import sys
 # Note that the PBESs are treated separately
 CLEANUP = True
 
+QUANTIFIER_ONEPOINT = False
 PARELM=True
 GLOBAL_STATEGRAPH=False
 LOCAL_STATEGRAPH=True
@@ -183,8 +184,9 @@ class PBESCase(TempObj):
   def _writePBESfile(self, log):
     pbes = self._makePBES()
     tmp = tools.pbesrewr('-psimplify', stdin=pbes, memlimit=MEMLIMIT)
-    tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
-    tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
+    if QUANTIFIER_ONEPOINT:
+      tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
+      tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
     tmp = tools.pbesconstelm(stdin=tmp['out'], memlimit=MEMLIMIT)
 
     log.debug("Writing PBES")
