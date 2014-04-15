@@ -5,6 +5,8 @@ import yaml
 import os
 import re
 
+USELIMITS = True
+
 __LOG = logging.getLogger('tools')
 logging.raiseExceptions = False
 
@@ -67,7 +69,7 @@ class Tool(object):
     self.result['cmdline'] = ' '.join(cmdline)
     timeoutcmd = []
 
-    if timeout is not None or memlimit is not None:
+    if (timeout is not None or memlimit is not None) and USELIMITS:
       if not os.path.exists(_TIMEOUTSCRIPT):
         self.__log.error('The script {0} does not exists, cannot run without it'.format(_TIMEOUTSCRIPT))
         raise Exception('File {0} not found'.format(_TIMEOUTSCRIPT))

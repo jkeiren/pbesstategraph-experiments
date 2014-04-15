@@ -3,11 +3,14 @@ import logging
 import yaml
 import sys
 import os
+from cases.tools import USELIMITS
 from cases import modelchecking, equivchecking
 from cases.pool import TaskPool 
 
-def run(poolsize, resultsfile, debug):
+def run(poolsize, resultsfile, debug, nolimits):
   log = logging.getLogger('experiments')
+
+  cases.tools.USELIMITS = not nolimits
 
   casesdone = []
   if resultsfile is not None:
@@ -51,6 +54,8 @@ def runCmdLine():
   parser = optparse.OptionParser(usage='usage: %prog [options] [outfile]')
   parser.add_option('-j', '--jobs', action='store', type='int', dest='poolsize',
                     help='Run N jobs simultaneously.', metavar='N', default=4)
+  parser.add_option('-n', '--nolimits', action='store_true', dest='nolimits',
+                    help='Do not impose time and/or memory limits')
   parser.add_option('-v', action='count', dest='verbosity',
                     help='Be more verbose. Use more than once to increase verbosity even more.')
   parser.add_option('-d', action='store_true', dest='debug',
@@ -69,7 +74,7 @@ def runCmdLine():
     logging.getLogger('experiments').setLevel(logging.DEBUG)
     logging.getLogger('tools').setLevel(logging.INFO)
 
-  run(options.poolsize, args[0], options.debug)
+  run(options.poolsize, args[0], options.debug, options.nolimits)
 
 if __name__ == '__main__':
   runCmdLine()
