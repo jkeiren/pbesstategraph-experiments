@@ -12,7 +12,7 @@ import sys
 # Note that the PBESs are treated separately
 CLEANUP = True
 
-QUANTIFIER_ONEPOINT = False
+QUANTIFIER_ONEPOINT = True
 PARELM=True
 GLOBAL_STATEGRAPH=False
 LOCAL_STATEGRAPH=True
@@ -95,7 +95,7 @@ class ReduceAndSolveTask(TempObj):
         result = tools.pbesstategraph(self.__pbesfile, '-v', '-s0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (local)'):
         log.debug('Stategraph (local algorithm)')
-        result = tools.pbesstategraph(self.__pbesfile, '-v', '-l1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        result = tools.pbesstategraph(self.__pbesfile, '-v', '-l1', '--use-alternative-reset-copy=1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
        
       self.result['times']['reduction'] = result['times']
 

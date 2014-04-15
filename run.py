@@ -7,7 +7,7 @@ from cases.tools import USELIMITS
 from cases import modelchecking, equivchecking
 from cases.pool import TaskPool 
 
-def run(poolsize, resultsfile, debug, nolimits):
+def run(poolsize, resultsfile, mode, nolimits):
   log = logging.getLogger('experiments')
 
   cases.tools.USELIMITS = not nolimits
@@ -30,7 +30,7 @@ def run(poolsize, resultsfile, debug, nolimits):
   pool = TaskPool(poolsize)
   try:
     tasks = []
-    for task in modelchecking.getcases(debug) + equivchecking.getcases(debug):
+    for task in modelchecking.getcases(mode) + equivchecking.getcases(mode):
       if str(task) in casesdone:
         log.info('- ' + str(task))
       else:
@@ -60,6 +60,8 @@ def runCmdLine():
                     help='Be more verbose. Use more than once to increase verbosity even more.')
   parser.add_option('-d', action='store_true', dest='debug',
                     help='Only run a few cases for debugging purposes.')
+  parser.add_option('-p', action='store_true', dest='paper',
+                    help='Only run the test cases that are reported in the paper.')
   options, args = parser.parse_args()
   if not args:
     args = (None,)
@@ -74,7 +76,17 @@ def runCmdLine():
     logging.getLogger('experiments').setLevel(logging.DEBUG)
     logging.getLogger('tools').setLevel(logging.INFO)
 
-  run(options.poolsize, args[0], options.debug, options.nolimits)
+  if options.debug and options.paper:
+    parser.error("-d and -p cannot be used simultaneously")
+  
+  if options.debug:
+    mode = 'debug'
+  elif options.paper:
+    mode = 'paper'
+  else:
+    mode = 'standard'
+
+  run(options.poolsize, args[0], mode, options.nolimits)
 
 if __name__ == '__main__':
   runCmdLine()
