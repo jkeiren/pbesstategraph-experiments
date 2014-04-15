@@ -12,7 +12,7 @@ import sys
 # Note that the PBESs are treated separately
 CLEANUP = True
 
-QUANTIFIER_ONEPOINT = False
+QUANTIFIER_ONEPOINT = True
 PARELM=True
 GLOBAL_STATEGRAPH=False
 LOCAL_STATEGRAPH=True
