@@ -93,23 +93,27 @@ class ProtocolCase(SameParamCase):
     return lps
   
 
-def getcases(debug):
-  if debug:
-    return \
-      [ProtocolCase('CABP', 'ABP', windowsize=1, capacity=1, datasize=2)]
+def getcases(mode):
+  datarange = [2,4]
+  cases = []
+  if mode == 'debug':
+    cases += [ProtocolCase('CABP', 'ABP', windowsize=1, capacity=1, datasize=2)]
      
-  else:
-    datarange = [2,4] #,8]
-    return \
+  if mode in ['paper', 'standard']:
+    cases += \
+      [ProtocolCase('ABP', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
+      [ProtocolCase('Buffer', 'Onebit', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
+      [SameParamCase('Hesselink (Implementation)', 'Hesselink (Specification)', datasize=2)]
+
+  if mode == 'standard':
+    cases += \
       [ProtocolCase('Buffer', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('Buffer', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('Buffer', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('Buffer', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [ProtocolCase('Buffer', 'Onebit', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
       [ProtocolCase('Buffer', 'SWP', windowsize=1, capacity=c, datasize=d) for d in datarange for c in range(1,3)] + \
       [ProtocolCase('ABP', 'ABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('ABP', 'ABP(BW)', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [ProtocolCase('ABP', 'CABP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('ABP', 'Par', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('ABP', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('ABP', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
@@ -126,6 +130,8 @@ def getcases(debug):
       [ProtocolCase('Par', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('Onebit', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('Onebit', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
-      [ProtocolCase('SWP', 'SWP', windowsize=w, capacity=1, datasize=d) for d in datarange for w in range(1,5)] + \
-      [SameParamCase('Hesselink (Specification)', 'Hesselink (Implementation)', datasize=d) for d in range(2,5) ] + \
-      [SameParamCase('Hesselink (Implementation)', 'Hesselink (Specification)', datasize=d) for d in range(2,5) ]
+      [ProtocolCase('SWP', 'SWP', windowsize=w, capacity=1, datasize=d) for d in datarange for w in range(1,4)] + \
+      [SameParamCase('Hesselink (Specification)', 'Hesselink (Implementation)', datasize=d) for d in range(2,4) ] + \
+      [SameParamCase('Hesselink (Implementation)', 'Hesselink (Specification)', datasize=d) for d in range(3,4) ]
+
+  return cases

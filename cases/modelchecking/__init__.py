@@ -106,24 +106,31 @@ class GameCase(ParunfoldCase):
     self.__boardheight = kwargs.get('height')
     self.__use_compiled_constelm = use_compiled_constelm
     
-def getcases(debug):
-  if debug:
-    return [Case('Debug spec'),
-     Case('Lossy buffer', datasize=8)]+ \
-     [Case('ABP', datasize=i) for i in [2]]
-  else:
-    return \
-      [Case('Debug spec')] + \
+def getcases(mode):
+  cases = []
+  if mode == 'debug':
+    cases += [Case('Debug spec')] + \
+     [Case('Lossy buffer', datasize=8)] + \
+     [Case('ABP', datasize=2)]
+  
+  if mode in ['paper', 'standard']:
+    cases += [Case('Debug spec')] + \
+      [ParunfoldCase('Onebit', [('Frame', 10)], datasize=i) for i in range(2,5)] + \
+      [Case('Hesselink', datasize=i) for i in range(2,4)] + \
+      [ParunfoldCase('CCP', [('Region', 10)], nprocesses=2,nthreads=2,nregions=1)]
+
+  if mode == 'standard':
+    cases += \
       [Case('Lossy buffer', datasize=i) for i in [2,3,4,5,6,7,8,16,32,64,128]] + \
       [Case('ABP', datasize=i) for i in [2,4,8,16,32]] + \
       [Case('ABP(BW)', datasize=i) for i in [2,4,8,16,32]] + \
       [ParunfoldCase('CABP', [('Frame', 10)], datasize=i) for i in [2,4,8,16,32]] + \
       [ParunfoldCase('Par', [('Frame', 10)], datasize=i) for i in [2,4,8,16,32]] + \
-      [ParunfoldCase('Onebit', [('Frame', 10)], datasize=i) for i in range(2,5)] + \
+      [Case('Hesselink', datasize=4)] + \
+      [ParunfoldCase('CCP', [('Region', 10)], nprocesses=2,nthreads=3,nregions=1)] + \
+      [ParunfoldCase('CCP', [('Region', 10)], nprocesses=3,nthreads=3,nregions=1)] + \
       [Case('SWP', windowsize=w, datasize=i) for i in [2,4,8] for w in range(1,5)] + \
       [Case('BRP', datasize=i) for i in [2,3,4] ] + \
-      [ParunfoldCase('CCP', [('Region', 10)])] + \
-      [Case('Hesselink', datasize=i) for i in range(2,5)] + \
       [ParunfoldCase('Lift (Correct)', [('Message', 10)], nlifts=n) for n in range(2, 5)] + \
       [ParunfoldCase('Lift (Incorrect)',[('Message', 10)], nlifts=n) for n in range(2, 5)] + \
       [Case('Elevator', policy=p, storeys=n) for p in ['FIFO', 'LIFO'] for n in range(3,6)] + \
@@ -135,3 +142,6 @@ def getcases(debug):
       [Case('Domineering', width=4, height=4)] + \
       [ParunfoldCase('IEEE1394', [('SIG_TUPLE', 10), ('SIGNAL', 10), ('LDC', 10), ('LDI', 10)], nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
       [Case('Hanoi', ndisks=n) for n in range(10,18)] 
+
+  return cases
+
