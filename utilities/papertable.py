@@ -65,7 +65,7 @@ def gettable(data, outfilename, log):
 \\multicolumn{11}{l}{\\textbf{No deadlock}}  \\\\
 ''')
   
-  texfile.write('  & \emph{Onebit}   & $|D| = 2$')
+  texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
   texfile.write(getrow(data, 'Onebit [datasize=2]', 'nodeadlock'))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
@@ -75,18 +75,18 @@ def gettable(data, outfilename, log):
   texfile.write(getrow(data, 'Onebit [datasize=4]', 'nodeadlock'))
   texfile.write('\n')
   
-  texfile.write('  & \emph{Hesselink}   & $|D| = 2$')
+  texfile.write('  & \\emph{Hesselink}   & $|D| = 2$')
   texfile.write(getrow(data, 'Hesselink [datasize=2]', 'nodeadlock'))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
   texfile.write(getrow(data, 'Hesselink [datasize=3]', 'nodeadlock'))
   texfile.write('\n')
   
-  texfile.write('''\\[-1ex]
-\multicolumn{11}{l}{\textbf{No spontaneous generation of messages}}  \\
+  texfile.write('''\\\\[-1ex]
+\\multicolumn{11}{l}{\\textbf{No spontaneous generation of messages}}  \\\\
 ''')
 
-  texfile.write('  & \emph{Onebit}   & $|D| = 2$')
+  texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
   texfile.write(getrow(data, 'Onebit [datasize=2]', 'no_spontaneous_messages'))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
@@ -97,10 +97,10 @@ def gettable(data, outfilename, log):
   texfile.write('\n')
 
   texfile.write('''
-\\[-1ex]
-\multicolumn{11}{l}{\textbf{Messages that are read are inevitably sent}}  \\
+\\\\[-1ex]
+\\multicolumn{11}{l}{\\textbf{Messages that are read are inevitably sent}}  \\\\
 ''')
-  texfile.write('  & \emph{Onebit}   & $|D| = 2$')
+  texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
   texfile.write(getrow(data, 'Onebit [datasize=2]', 'messages_read_are_inevitably_sent'))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
@@ -111,10 +111,10 @@ def gettable(data, outfilename, log):
   texfile.write('\n')    
 
   texfile.write('''
-\\[-1ex]
-\multicolumn{11}{l}{\textbf{Messages can overtake one another}}  \\
+\\\\[-1ex]
+\\multicolumn{11}{l}{\\textbf{Messages can overtake one another}}  \\\\
 ''')
-  texfile.write('  & \emph{Onebit}   & $|D| = 2$')
+  texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
   texfile.write(getrow(data, 'Onebit [datasize=2]', 'messages_can_be_overtaken'))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
@@ -125,70 +125,70 @@ def gettable(data, outfilename, log):
   texfile.write('\n')  
 
   texfile.write('''
-\\[-1ex]
-\multicolumn{11}{l}{\textbf{Values written to the register can be read}} \\
+\\\\[-1ex]
+\\multicolumn{11}{l}{\\textbf{Values written to the register can be read}} \\\\
 ''')
 
-  texfile.write('  & \emph{Hesselink}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Hesselink [datasize=2]', 'property1'))
+  texfile.write('  & \\emph{Hesselink}   & $|D| = 2$')
+  texfile.write(getrow(data, 'Hesselink [datasize=2]', 'property2'))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Hesselink [datasize=3]', 'property1'))
+  texfile.write(getrow(data, 'Hesselink [datasize=3]', 'property2'))
   texfile.write('\n')
   
-  texfile.write('''\\[-1ex]
-& \multicolumn{5}{c}{Equivalence Checking Problems} \\
- \cmidrule{2-6}  \\[-1ex]
+  texfile.write('''\\\\[-1ex]
+& \\multicolumn{5}{c}{Equivalence Checking Problems} \\\\
+ \\cmidrule{2-6}  \\\\[-1ex]
 
-\multicolumn{11}{l}{\textbf{Branching bisimulation equivalence}} \\
+\\multicolumn{11}{l}{\\textbf{Branching bisimulation equivalence}} \\\\
 ''')
 
-  texfile.write('  &  \emph{ABP-CABP} & $|D| = 2$')
+  texfile.write('  &  \\emph{ABP-CABP} & $|D| = 2$')
   texfile.write(getrow(data, 'ABP/CABP (datasize=2 capacity=1 windowsize=1)', 'branching-bisim'))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
   texfile.write(getrow(data, 'ABP/CABP (datasize=4 capacity=1 windowsize=1)', 'branching-bisim'))
   texfile.write('\n')
   
-  texfile.write('  &  \emph{Buf-Onebit} & $|D| = 2$')
+  texfile.write('  &  \\emph{Buf-Onebit} & $|D| = 2$')
   texfile.write(getrow(data, 'Buffer/Onebit (datasize=2 capacity=2 windowsize=1)', 'branching-bisim'))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
   texfile.write(getrow(data, 'Buffer/Onebit (datasize=4 capacity=2 windowsize=1)', 'branching-bisim'))
   texfile.write('\n')
   
-  texfile.write('  & \emph{Hesselink I-S} & $|D| = 2$')
+  texfile.write('  & \\emph{Hesselink I-S} & $|D| = 2$')
   texfile.write(getrow(data, 'Hesselink (Implementation)/Hesselink (Specification) (datasize=2)', 'branching-bisim'))
   texfile.write('\n')
   
   texfile.write('''
-\\[-1ex]
-\multicolumn{11}{l}{\textbf{Weak bisimulation equivalence}}  \\
+\\\\[-1ex]
+\\multicolumn{11}{l}{\\textbf{Weak bisimulation equivalence}}  \\\\
 ''')
 
-  texfile.write('  &  \emph{ABP-CABP} & $|D| = 2$')
+  texfile.write('  &  \\emph{ABP-CABP} & $|D| = 2$')
   texfile.write(getrow(data, 'ABP/CABP (datasize=2 capacity=1 windowsize=1)', 'weak-bisim'))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
   texfile.write(getrow(data, 'ABP/CABP (datasize=4 capacity=1 windowsize=1)', 'weak-bisim'))
   texfile.write('\n')
   
-  texfile.write('  &  \emph{Buf-Onebit} & $|D| = 2$')
+  texfile.write('  &  \\emph{Buf-Onebit} & $|D| = 2$')
   texfile.write(getrow(data, 'Buffer/Onebit (datasize=2 capacity=2 windowsize=1)', 'weak-bisim'))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
   texfile.write(getrow(data, 'Buffer/Onebit (datasize=4 capacity=2 windowsize=1)', 'weak-bisim'))
   texfile.write('\n')
   
-  texfile.write('  & \emph{Hesselink I-S} & $|D| = 2$')
+  texfile.write('  & \\emph{Hesselink I-S} & $|D| = 2$')
   texfile.write(getrow(data, 'Hesselink (Implementation)/Hesselink (Specification) (datasize=2)', 'weak-bisim'))
   texfile.write('\n')
 
   texfile.write('''
-\\[-1ex]
-\bottomrule
+\\\\[-1ex]
+\\bottomrule
 
-\end{tabular}
+\\end{tabular}
   ''')
 
   texfile.close()
