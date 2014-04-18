@@ -129,11 +129,11 @@ def getcases(mode):
       [ParunfoldCase('Lift (Incorrect)',[('Message', 10)], nlifts=n) for n in range(2, 5)] + \
       [Case('Elevator', policy=p, storeys=n) for p in ['FIFO', 'LIFO'] for n in range(3,6)] + \
       [Case('Leader', nparticipants=n) for n in range(3, 7)] + \
-      [Case('Othello', width=4, height=4)] + \
-      [Case('Clobber', width=4, height=4)] + \
-      [Case('Snake', width=4, height=4)] + \
-      [Case('Hex', width=4, height=4)] + \
-      [Case('Domineering', width=4, height=4)] + \
+      [GameCase('Othello', width=4, height=4)] + \
+      [GameCase('Clobber', width=4, height=4)] + \
+      [GameCase('Snake', width=4, height=4)] + \
+      [GameCase('Hex', width=4, height=4)] + \
+      [GameCase('Domineering', width=4, height=4)] + \
       [ParunfoldCase('IEEE1394', [('SIG_TUPLE', 10), ('SIGNAL', 10), ('LDC', 10), ('LDI', 10)], nparties=n, datasize=2, headersize=2, acksize=2) for n in range(2,5)] + \
       [Case('Hanoi', ndisks=n) for n in range(10,18)] 
 
