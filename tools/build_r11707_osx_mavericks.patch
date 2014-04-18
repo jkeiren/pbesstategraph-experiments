@@ -1,0 +1,142 @@
+Index: libraries/bes/include/mcrl2/bes/bes_deprecated.h
+===================================================================
+--- libraries/bes/include/mcrl2/bes/bes_deprecated.h	(revision 11707)
++++ libraries/bes/include/mcrl2/bes/bes_deprecated.h	(working copy)
+@@ -2615,21 +2615,18 @@
+         std::cout << "Below the justification for this outcome is listed\n1: ";
+         print_counter_example_rec(2,"  ",already_printed,std::cout);
+       }
+-      if (f!=NULL)
++      try
+       {
+-        try
+-        {
+-          std::ofstream f(filename.c_str());
+-          f << "Below the justification for this outcome is listed\n1: ";
+-          print_counter_example_rec(2,"  ",already_printed,f);
+-          f.close();
+-        }
+-        catch (std::exception& e)
+-        {
+-          mCRL2log(mcrl2::log::warning) << "Fail to write counterexample to " << filename <<
+-                    "(" << e.what() << ")" << std::endl;
+-        }
++        std::ofstream f(filename.c_str());
++        f << "Below the justification for this outcome is listed\n1: ";
++        print_counter_example_rec(2,"  ",already_printed,f);
++        f.close();
+       }
++      catch (std::exception& e)
++      {
++        mCRL2log(mcrl2::log::warning) << "Fail to write counterexample to " << filename <<
++                  "(" << e.what() << ")" << std::endl;
++      }
+     }
+ 
+ 
+Index: libraries/utilities/include/mcrl2/utilities/stack_alloc.h
+===================================================================
+--- libraries/utilities/include/mcrl2/utilities/stack_alloc.h	(revision 11707)
++++ libraries/utilities/include/mcrl2/utilities/stack_alloc.h	(working copy)
+@@ -8,7 +8,7 @@
+ #define MCRL2_UTILITIES_STACK_ALLOC_H
+ 
+ // TODO: use a cleaner way to find the type_traits header
+-#ifdef _MSC_VER
++#if defined(_MSC_VER) || defined(__APPLE__)
+ #define HAS_TYPE_TRAITS 1
+ #else
+ #define HAS_TYPE_TRAITS 0
+Index: tools/pbespgsolve/Graph.h
+===================================================================
+--- tools/pbespgsolve/Graph.h	(revision 11707)
++++ tools/pbespgsolve/Graph.h	(working copy)
+@@ -233,14 +233,10 @@
+     friend class EdgeIterator;
+ };
+ 
+-namespace std
++inline void swap(StaticGraph &a, StaticGraph &b)
+ {
+-    template<> inline void swap<StaticGraph>(StaticGraph &a, StaticGraph &b)
+-    {
+-        a.swap(b);
+-    }
++  a.swap(b);
+ }
+-
+ #include "Graph_impl.h"
+ 
+ #endif /* ndef GRAPH_H_INCLUDED */
+Index: tools/pbespgsolve/ParityGame.cpp
+===================================================================
+--- tools/pbespgsolve/ParityGame.cpp	(revision 11707)
++++ tools/pbespgsolve/ParityGame.cpp	(working copy)
+@@ -288,8 +288,9 @@
+ 
+ void ParityGame::swap(ParityGame &pg)
+ {
+-    std::swap(d_, pg.d_);
+-    std::swap(graph_, pg.graph_);
+-    std::swap(vertex_, pg.vertex_);
+-    std::swap(cardinality_, pg.cardinality_);
++    using std::swap;
++    swap(d_, pg.d_);
++    swap(graph_, pg.graph_);
++    swap(vertex_, pg.vertex_);
++    swap(cardinality_, pg.cardinality_);
+ }
+Index: tools/pbespgsolve/ParityGame.h
+===================================================================
+--- tools/pbespgsolve/ParityGame.h	(revision 11707)
++++ tools/pbespgsolve/ParityGame.h	(working copy)
+@@ -251,12 +251,9 @@
+     verti *cardinality_;
+ };
+ 
+-namespace std
++inline void swap(ParityGame &a, ParityGame &b)
+ {
+-    template<> inline void swap<ParityGame>(ParityGame &a, ParityGame &b)
+-    {
+-        a.swap(b);
+-    }
++  a.swap(b);
+ }
+ 
+ #ifdef WITH_MCRL2
+Index: tools/pbespgsolve/compatibility.h
+===================================================================
+--- tools/pbespgsolve/compatibility.h	(revision 11707)
++++ tools/pbespgsolve/compatibility.h	(working copy)
+@@ -62,26 +62,9 @@
+ int compat_strncasecmp(const char *s1, const char *s2, size_t n);
+ 
+ /* Figure out which hashtable implementation to use: */
+-#if (__cplusplus > 199711L || __GNUC__ >= 4)  /* C++ TR1 supported (GCC 4) */
+-#include <tr1/unordered_set>
+-#include <tr1/unordered_map>
+-#define HASH_SET(k) std::tr1::unordered_set<k>
+-#define HASH_MAP(k,v) std::tr1::unordered_map<k, v>
+-#elif (__GNUC__ >= 3)  /* GCC 3 hash tables (untested) */
+-#include <ext/hash_set>
+-#include <ext/hash_map>
+-#define HASH_SET(k) __gnu_cxx::hash_set<k>
+-#define HASH_MAP(k,v) __gnu_cxx::hash_map<k, v>
+-#elif defined(_MSC_VER) /* Microsoft Visual C/C++ compiler */
+-#include <hash_set>
+-#include <hash_map>
+-#define HASH_SET(k) stdext::hash_set<k>
+-#define HASH_MAP(k,v) stdext::hash_map<k, v>
+-#else  /* generic/old C++ compiler */
+-#include <map>
+-#include <set>
+-#define HASH_SET(k) std::set<k>
+-#define HASH_MAP(k,v) std::map<k, v>
+-#endif
++#include <unordered_set>
++#include <unordered_map>
++#define HASH_SET(k) std::unordered_set<k>
++#define HASH_MAP(k,v) std::unordered_map<k, v>
+ 
+ #endif /* ndef COMPATIBILITY_H_INCLUDED */
