@@ -14,7 +14,7 @@ CLEANUP = True
 
 QUANTIFIER_ONEPOINT = True
 PARELM=True
-GLOBAL_STATEGRAPH=False
+GLOBAL_STATEGRAPH=True
 LOCAL_STATEGRAPH=True
 
 GENERATE_TIMEOUT = 2*60*60
@@ -55,11 +55,11 @@ class ReduceAndSolveTask(TempObj):
       self.__reducedPbesfile = self._newTempFilename('pbes', '.parelm.constelm')
       self.__besfile = self._newTempFilename('bes', '.parelm.constelm')
     elif name.startswith('pbesstategraph (global)'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')
-      self.__besfile = self._newTempFilename('bes', '.stategraph.constelm')
+      self.__reducedPbesfile = self._newTempFilename('pbes', '.global.stategraph.constelm')
+      self.__besfile = self._newTempFilename('bes', '.global.stategraph.constelm')
     elif name.startswith('pbesstategraph (local)'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', '.stategraph.constelm')
-      self.__besfile = self._newTempFilename('bes', '.stategraph.constelm')
+      self.__reducedPbesfile = self._newTempFilename('pbes', '.local.stategraph.constelm')
+      self.__besfile = self._newTempFilename('bes', '.local.stategraph.constelm')
     else:
       self.__reducedPbesfile = self.__pbesfile
       self.__besfile = self._newTempFilename('bes')
@@ -92,14 +92,22 @@ class ReduceAndSolveTask(TempObj):
         result = tools.pbesparelm(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (global)'):
         log.debug('Stategraph (global algorithm)')
-        result = tools.pbesstategraph(self.__pbesfile, '-v', '-s0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        txtfile = self._newTempFilename('txt', '.pbes')
+        result = tools.pbespp(self.__pbesfile, txtfile)
+        tmppbesfile = self._newTempFilename('pbes', '.pbes.txt')
+        result = tools.txt2pbesold(txtfile, tmppbesfile, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        result = tools.pbesstategraphold(tmppbesfile, '-v', '-l0', '-s0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        #result = tools.pbesstategraph(self.__pbesfile, '-v', '-s0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (local)'):
         log.debug('Stategraph (local algorithm)')
         result = tools.pbesstategraph(self.__pbesfile, '-v', '-l1', '--use-alternative-reset-copy=1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
        
       self.result['times']['reduction'] = result['times']
 
-      tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
+      if self.name.startswith('pbesstategraph (global)'):
+        tools.pbesconstelmold(tmpfile, self.__reducedPbesfile, timed=True)
+      else:
+        tools.pbesconstelm(tmpfile, self.__reducedPbesfile, timed=True)
     
     except (tools.Timeout) as e:
       log.info('Timeout (reducing) {0}'.format(self))
@@ -109,14 +117,26 @@ class ReduceAndSolveTask(TempObj):
       log.info('Out of memory (reducing) {0}'.format(self))
       self.result['memory']['reduction'] = 'outofmemory'
       raise e
+    except (tools.ToolException) as e:
+      log.info('Reduction failed {0} with exception {1}'.format(self, e))
+      raise e
 
     
   def __instantiate(self, log):
     try:
-      result = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
+      if self.name.startswith('pbesstategraph (global)'):
+        result = tools.pbes2besold('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
+      else:
+        result = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
+
       self.result['times']['instantiation'] = result['times']
       
-      info = tools.besinfo(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
+      if self.name.startswith('pbesstategraph (global)'):
+        info = tools.besinfoold(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
+      else:
+        info = tools.besinfo(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
+
+
       BESINFO_RE = '.*Number of equations:\s*(?P<eqns>\d+)' \
                '.*Number of mu.?s:\s*(?P<mueqns>\d+)' \
                '.*Number of nu.?s:\s*(?P<nueqns>\d+)' \
@@ -137,8 +157,11 @@ class ReduceAndSolveTask(TempObj):
       raise e
     
   def __solve(self, log):
-    try:      
-      result = tools.pbespgsolve(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
+    try:
+      if self.name.startswith('pbesstategraph (global)'):
+        result = tools.pbespgsolveold(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
+      else:
+        result = tools.pbespgsolve(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
       self.result['times']['solving'] = result['times']      
       self.result['solution'] = result['out'].strip()
     except (tools.Timeout):
