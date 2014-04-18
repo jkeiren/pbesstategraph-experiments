@@ -3,7 +3,7 @@ import logging
 import yaml
 import sys
 import os
-from cases.tools import USELIMITS
+import cases
 from cases import modelchecking, equivchecking
 from cases.pool import TaskPool 
 
