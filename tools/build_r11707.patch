@@ -1,0 +1,204 @@
+Index: tools/pbespgsolve/ParityGame.h
+===================================================================
+--- tools/pbespgsolve/ParityGame.h	(revision 11707)
++++ tools/pbespgsolve/ParityGame.h	(working copy)
+@@ -251,12 +251,9 @@
+     verti *cardinality_;
+ };
+ 
+-namespace std
++inline void swap(ParityGame &a, ParityGame &b)
+ {
+-    template<> inline void swap<ParityGame>(ParityGame &a, ParityGame &b)
+-    {
+-        a.swap(b);
+-    }
++  a.swap(b);
+ }
+ 
+ #ifdef WITH_MCRL2
+Index: tools/pbespgsolve/Graph.h
+===================================================================
+--- tools/pbespgsolve/Graph.h	(revision 11707)
++++ tools/pbespgsolve/Graph.h	(working copy)
+@@ -233,14 +233,10 @@
+     friend class EdgeIterator;
+ };
+ 
+-namespace std
++inline void swap(StaticGraph &a, StaticGraph &b)
+ {
+-    template<> inline void swap<StaticGraph>(StaticGraph &a, StaticGraph &b)
+-    {
+-        a.swap(b);
+-    }
++  a.swap(b);
+ }
+-
+ #include "Graph_impl.h"
+ 
+ #endif /* ndef GRAPH_H_INCLUDED */
+Index: tools/pbespgsolve/ParityGame.cpp
+===================================================================
+--- tools/pbespgsolve/ParityGame.cpp	(revision 11707)
++++ tools/pbespgsolve/ParityGame.cpp	(working copy)
+@@ -288,8 +288,9 @@
+ 
+ void ParityGame::swap(ParityGame &pg)
+ {
+-    std::swap(d_, pg.d_);
+-    std::swap(graph_, pg.graph_);
+-    std::swap(vertex_, pg.vertex_);
+-    std::swap(cardinality_, pg.cardinality_);
++    using std::swap;
++    swap(d_, pg.d_);
++    swap(graph_, pg.graph_);
++    swap(vertex_, pg.vertex_);
++    swap(cardinality_, pg.cardinality_);
+ }
+Index: tools/pbespgsolve/compatibility.h
+===================================================================
+--- tools/pbespgsolve/compatibility.h	(revision 11707)
++++ tools/pbespgsolve/compatibility.h	(working copy)
+@@ -62,26 +62,9 @@
+ int compat_strncasecmp(const char *s1, const char *s2, size_t n);
+ 
+ /* Figure out which hashtable implementation to use: */
+-#if (__cplusplus > 199711L || __GNUC__ >= 4)  /* C++ TR1 supported (GCC 4) */
+-#include <tr1/unordered_set>
+-#include <tr1/unordered_map>
+-#define HASH_SET(k) std::tr1::unordered_set<k>
+-#define HASH_MAP(k,v) std::tr1::unordered_map<k, v>
+-#elif (__GNUC__ >= 3)  /* GCC 3 hash tables (untested) */
+-#include <ext/hash_set>
+-#include <ext/hash_map>
+-#define HASH_SET(k) __gnu_cxx::hash_set<k>
+-#define HASH_MAP(k,v) __gnu_cxx::hash_map<k, v>
+-#elif defined(_MSC_VER) /* Microsoft Visual C/C++ compiler */
+-#include <hash_set>
+-#include <hash_map>
+-#define HASH_SET(k) stdext::hash_set<k>
+-#define HASH_MAP(k,v) stdext::hash_map<k, v>
+-#else  /* generic/old C++ compiler */
+-#include <map>
+-#include <set>
+-#define HASH_SET(k) std::set<k>
+-#define HASH_MAP(k,v) std::map<k, v>
+-#endif
++#include <unordered_set>
++#include <unordered_map>
++#define HASH_SET(k) std::unordered_set<k>
++#define HASH_MAP(k,v) std::unordered_map<k, v>
+ 
+ #endif /* ndef COMPATIBILITY_H_INCLUDED */
+Index: libraries/bes/include/mcrl2/bes/bes_deprecated.h
+===================================================================
+--- libraries/bes/include/mcrl2/bes/bes_deprecated.h	(revision 11707)
++++ libraries/bes/include/mcrl2/bes/bes_deprecated.h	(working copy)
+@@ -2615,21 +2615,18 @@
+         std::cout << "Below the justification for this outcome is listed\n1: ";
+         print_counter_example_rec(2,"  ",already_printed,std::cout);
+       }
+-      if (f!=NULL)
++      try
+       {
+-        try
+-        {
+-          std::ofstream f(filename.c_str());
+-          f << "Below the justification for this outcome is listed\n1: ";
+-          print_counter_example_rec(2,"  ",already_printed,f);
+-          f.close();
+-        }
+-        catch (std::exception& e)
+-        {
+-          mCRL2log(mcrl2::log::warning) << "Fail to write counterexample to " << filename <<
+-                    "(" << e.what() << ")" << std::endl;
+-        }
++        std::ofstream f(filename.c_str());
++        f << "Below the justification for this outcome is listed\n1: ";
++        print_counter_example_rec(2,"  ",already_printed,f);
++        f.close();
+       }
++      catch (std::exception& e)
++      {
++        mCRL2log(mcrl2::log::warning) << "Fail to write counterexample to " << filename <<
++                  "(" << e.what() << ")" << std::endl;
++      }
+     }
+ 
+ 
+Index: libraries/data/include/mcrl2/data/set.h
+===================================================================
+--- libraries/data/include/mcrl2/data/set.h	(revision 11707)
++++ libraries/data/include/mcrl2/data/set.h	(working copy)
+@@ -261,7 +261,7 @@
+       inline
+       application set_comprehension(const sort_expression& s, const data_expression& arg0)
+       {
+-        return set_comprehension(s)(arg0);
++        return sort_set::set_comprehension(s)(arg0);
+       }
+ 
+       /// \brief Recogniser for application of \@setcomp
+@@ -863,7 +863,7 @@
+         function_symbol_vector result;
+         result.push_back(empty(s));
+         result.push_back(set_fset(s));
+-        result.push_back(set_comprehension(s));
++        result.push_back(sort_set::set_comprehension(s));
+         result.push_back(in(s));
+         result.push_back(complement(s));
+         result.push_back(union_(s));
+@@ -930,7 +930,7 @@
+         data_equation_vector result;
+         result.push_back(data_equation(variable_list(), empty(s), constructor(s, false_function(s), sort_fset::empty(s))));
+         result.push_back(data_equation(atermpp::make_vector(vs), set_fset(s, vs), constructor(s, false_function(s), vs)));
+-        result.push_back(data_equation(atermpp::make_vector(vf), set_comprehension(s, vf), constructor(s, vf, sort_fset::empty(s))));
++        result.push_back(data_equation(atermpp::make_vector(vf), sort_set::set_comprehension(s, vf), constructor(s, vf, sort_fset::empty(s))));
+         result.push_back(data_equation(atermpp::make_vector(ve, vf, vs), in(s, ve, constructor(s, vf, vs)), not_equal_to(vf(ve), sort_fset::in(s, ve, vs))));
+         result.push_back(data_equation(atermpp::make_vector(vf, vg, vs, vt), equal_to(constructor(s, vf, vs), constructor(s, vg, vt)), forall(atermpp::make_vector(vc), not_equal_to(equal_to(vf(vc), vg(vc)), sort_fset::in(s, vc, sort_fset::difference(s, vs, vt))))));
+         result.push_back(data_equation(atermpp::make_vector(vx, vy), less(vx, vy), sort_bool::and_(less_equal(vx, vy), not_equal_to(vx, vy))));
+Index: libraries/data/include/mcrl2/data/bag.h
+===================================================================
+--- libraries/data/include/mcrl2/data/bag.h	(revision 11707)
++++ libraries/data/include/mcrl2/data/bag.h	(working copy)
+@@ -263,7 +263,7 @@
+       inline
+       application bag_comprehension(const sort_expression& s, const data_expression& arg0)
+       {
+-        return bag_comprehension(s)(arg0);
++        return sort_bag::bag_comprehension(s)(arg0);
+       }
+ 
+       /// \brief Recogniser for application of \@bagcomp
+@@ -1095,7 +1095,7 @@
+         function_symbol_vector result;
+         result.push_back(empty(s));
+         result.push_back(bag_fbag(s));
+-        result.push_back(bag_comprehension(s));
++        result.push_back(sort_bag::bag_comprehension(s));
+         result.push_back(count(s));
+         result.push_back(in(s));
+         result.push_back(join(s));
+@@ -1168,7 +1168,7 @@
+         data_equation_vector result;
+         result.push_back(data_equation(variable_list(), empty(s), constructor(s, zero_function(s), sort_fbag::empty(s))));
+         result.push_back(data_equation(atermpp::make_vector(vb), bag_fbag(s, vb), constructor(s, zero_function(s), vb)));
+-        result.push_back(data_equation(atermpp::make_vector(vf), bag_comprehension(s, vf), constructor(s, vf, sort_fbag::empty(s))));
++        result.push_back(data_equation(atermpp::make_vector(vf), sort_bag::bag_comprehension(s, vf), constructor(s, vf, sort_fbag::empty(s))));
+         result.push_back(data_equation(atermpp::make_vector(vb, ve, vf), count(s, ve, constructor(s, vf, vb)), sort_nat::swap_zero(vf(ve), sort_fbag::count(s, ve, vb))));
+         result.push_back(data_equation(atermpp::make_vector(ve, vx), in(s, ve, vx), greater(count(s, ve, vx), sort_nat::c0())));
+         result.push_back(data_equation(atermpp::make_vector(vb, vc, vf, vg), equal_to(constructor(s, vf, vb), constructor(s, vg, vc)), if_(equal_to(vf, vg), equal_to(vb, vc), forall(atermpp::make_vector(vd), equal_to(count(s, vd, constructor(s, vf, vb)), count(s, vd, constructor(s, vg, vc)))))));
+Index: libraries/utilities/include/mcrl2/utilities/stack_alloc.h
+===================================================================
+--- libraries/utilities/include/mcrl2/utilities/stack_alloc.h	(revision 11707)
++++ libraries/utilities/include/mcrl2/utilities/stack_alloc.h	(working copy)
+@@ -8,7 +8,7 @@
+ #define MCRL2_UTILITIES_STACK_ALLOC_H
+ 
+ // TODO: use a cleaner way to find the type_traits header
+-#ifdef _MSC_VER
++#if defined(_MSC_VER) || defined(__APPLE__)
+ #define HAS_TYPE_TRAITS 1
+ #else
+ #define HAS_TYPE_TRAITS 0

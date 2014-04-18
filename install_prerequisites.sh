@@ -12,7 +12,7 @@ for rev in ${newrev} ${oldrev}; do
   svn checkout https://svn.win.tue.nl/repos/MCRL2/trunk -r${rev} src
   if [[ "${rev}" = "${oldrev}" ]]; then
     cd src
-    patch -p0 < ${curdir}/tools/build_r11707_osx_mavericks.patch
+    patch -p0 < ${curdir}/tools/build_r11707.patch
     cd ..
   fi
   mkdir build
