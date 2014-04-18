@@ -75,36 +75,30 @@ class Case(TempObj):
 
 # Currenlty unused, since parunfold is broken.
 class ParunfoldCase(Case):
-  def __init__(self, name, unfoldList, apply_suminst=False,use_compiled_constelm=False, **kwargs):
+  def __init__(self, name, unfoldList, **kwargs):
     super(ParunfoldCase, self).__init__(name, **kwargs)
     self.__unfoldList = unfoldList
-    self.__apply_suminst = apply_suminst
-    self.__use_compiled_constelm = use_compiled_constelm
   
   def _makeLPS(self, log):
     '''Linearises the specification in self._mcrl2 and applies lpssuminst,
     lpsparunfold and lpsconstelm to the result.'''
     log.debug('Linearising {0}'.format(self))
     result = tools.mcrl22lps('-vnf', stdin=self._mcrl2, memlimit=MEMLIMIT)
-    if self.__apply_suminst:
-      log.debug('Applying suminst on LPS of {0}'.format(self))
-      result = tools.lpssuminst(stdin=result['out'], memlimit=MEMLIMIT)
     
     for (sort, times) in self.__unfoldList:
       log.debug('Applying parunfold (for {0}) on LPS of {1}'.format(sort, self))
       result = tools.lpsparunfold('-lv', '-n{0}'.format(times), '-s{0}'.format(sort), stdin=result['out'], memlimit=MEMLIMIT)
       
     log.debug('Applying constelm on LPS of {0}'.format(self))
-    result = tools.lpsconstelm('-ctvrjittyc' if self.__use_compiled_constelm else '-ctv', stdin=result['out'], memlimit=MEMLIMIT)
+    result = tools.lpsconstelm('-ctv', stdin=result['out'], memlimit=MEMLIMIT)
     return result['out']
   
   
 class GameCase(ParunfoldCase):
-  def __init__(self, name, use_compiled_constelm=False, **kwargs):
-    super(GameCase, self).__init__(name, [('Board', kwargs.get('height')), ('Row', kwargs.get('width'))], False, use_compiled_constelm, **kwargs)
+  def __init__(self, name, **kwargs):
+    super(GameCase, self).__init__(name, [('Board', kwargs.get('height')), ('Row', kwargs.get('width'))], **kwargs)
     self.__boardwidth = kwargs.get('width')
     self.__boardheight = kwargs.get('height')
-    self.__use_compiled_constelm = use_compiled_constelm
     
 def getcases(mode):
   cases = []
