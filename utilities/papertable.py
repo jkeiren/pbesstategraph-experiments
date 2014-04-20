@@ -6,6 +6,7 @@ import re
 import sys
 import tempfile
 import yaml
+import datetime
 
 def addsep(number):
   if number == '??':
@@ -14,7 +15,7 @@ def addsep(number):
   result = '{:,}'.format(int(number))
   return result
 
-def getrow(data, case, property):
+def getrowsizes(data, case, property):
   casedata = data[case][property]
   sizes = {}
   solutions = {}
@@ -46,9 +47,56 @@ def getrow(data, case, property):
     solstr = solution
     
   return ' && {0} && {1} && {2} && {3} && ${4}$ \\\\'.format(sizes['original'], sizes['pbesparelm'], sizes['pbesstategraph (global)'], sizes['pbesstategraph (local)'], solstr)
-  
 
-def gettable(data, outfilename, log):
+def printtime(t):
+  if t in ['unknown', 'timeout']:
+    return t
+  else:
+    secs = int(t)
+    msecs = int((t - secs)*100)
+    msecsstr = str(msecs)[:2]
+    if len(msecsstr) == 1:
+      msecsstr += '0'
+    res = datetime.timedelta(seconds = secs)
+    return '{0}.{1}'.format(res, msecsstr)
+  
+def getrowtimes(data, case, property):
+  casedata = data[case][property]
+  times = {}
+      
+  time = casedata.get('original', {}).get('times', {})
+  instantiation = time.get('instantiation', {}).get('total', 'unknown')
+  solving = time.get('solving', {}).get('total', 'unknown')
+  if instantiation == 'timeout' or solving == 'timeout':
+    times['original'] = 'timeout'
+  elif instantiation == 'unknown' or solving == 'unknown':
+    times['original'] = 'unknown'
+  else:
+    times['original'] = instantiation + solving
+  
+  for tool in ['pbesparelm', 'pbesstategraph (global)', 'pbesstategraph (local)']:
+    time = casedata.get(tool, {}).get('times', {})
+    instantiation = time.get('instantiation', {}).get('total', 'unknown')
+    reduction = time.get('reduction', {}).get('total', 'unknown')
+    solving = time.get('solving', {}).get('total', 'unknown')
+    if instantiation == 'timeout' or reduction == 'timeout' or solving == 'timeout':
+      times[tool] = 'timeout'
+    elif instantiation == 'unknown' or reduction == 'unknown' or solving == 'unknown':
+      times[tool] = 'unknown'
+    else:
+      times[tool] = instantiation + reduction + solving
+    
+  return ' && {0} && {1} && {2} && {3} &&  \\\\'.format(printtime(times['original']), printtime(times['pbesparelm']), printtime(times['pbesstategraph (global)']), printtime(times['pbesstategraph (local)']))
+ 
+
+def getrow(data, case, property, times):
+  if times:
+    return getrowtimes(data, case, property)
+  else:
+    return getrowsizes(data, case, property)
+    
+
+def gettable(data, outfilename, times, log):
   texfile = open(outfilename, 'w')
   
   texfile.write('''\\centering
@@ -66,20 +114,20 @@ def gettable(data, outfilename, log):
 ''')
   
   texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Onebit [datasize=2]', 'nodeadlock'))
+  texfile.write(getrow(data, 'Onebit [datasize=2]', 'nodeadlock', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Onebit [datasize=3]', 'nodeadlock'))
+  texfile.write(getrow(data, 'Onebit [datasize=3]', 'nodeadlock', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 4$')
-  texfile.write(getrow(data, 'Onebit [datasize=4]', 'nodeadlock'))
+  texfile.write(getrow(data, 'Onebit [datasize=4]', 'nodeadlock', times))
   texfile.write('\n')
   
   texfile.write('  & \\emph{Hesselink}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Hesselink [datasize=2]', 'nodeadlock'))
+  texfile.write(getrow(data, 'Hesselink [datasize=2]', 'nodeadlock', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Hesselink [datasize=3]', 'nodeadlock'))
+  texfile.write(getrow(data, 'Hesselink [datasize=3]', 'nodeadlock', times))
   texfile.write('\n')
   
   texfile.write('''\\\\[-1ex]
@@ -87,13 +135,13 @@ def gettable(data, outfilename, log):
 ''')
 
   texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Onebit [datasize=2]', 'no_spontaneous_messages'))
+  texfile.write(getrow(data, 'Onebit [datasize=2]', 'no_spontaneous_messages', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Onebit [datasize=3]', 'no_spontaneous_messages'))
+  texfile.write(getrow(data, 'Onebit [datasize=3]', 'no_spontaneous_messages', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 4$')
-  texfile.write(getrow(data, 'Onebit [datasize=4]', 'no_spontaneous_messages'))
+  texfile.write(getrow(data, 'Onebit [datasize=4]', 'no_spontaneous_messages', times))
   texfile.write('\n')
 
   texfile.write('''
@@ -101,13 +149,13 @@ def gettable(data, outfilename, log):
 \\multicolumn{11}{l}{\\textbf{Messages that are read are inevitably sent}}  \\\\
 ''')
   texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Onebit [datasize=2]', 'messages_read_are_inevitably_sent'))
+  texfile.write(getrow(data, 'Onebit [datasize=2]', 'messages_read_are_inevitably_sent', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Onebit [datasize=3]', 'messages_read_are_inevitably_sent'))
+  texfile.write(getrow(data, 'Onebit [datasize=3]', 'messages_read_are_inevitably_sent', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 4$')
-  texfile.write(getrow(data, 'Onebit [datasize=4]', 'messages_read_are_inevitably_sent'))
+  texfile.write(getrow(data, 'Onebit [datasize=4]', 'messages_read_are_inevitably_sent', times))
   texfile.write('\n')    
 
   texfile.write('''
@@ -115,13 +163,13 @@ def gettable(data, outfilename, log):
 \\multicolumn{11}{l}{\\textbf{Messages can overtake one another}}  \\\\
 ''')
   texfile.write('  & \\emph{Onebit}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Onebit [datasize=2]', 'messages_can_be_overtaken'))
+  texfile.write(getrow(data, 'Onebit [datasize=2]', 'messages_can_be_overtaken', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Onebit [datasize=3]', 'messages_can_be_overtaken'))
+  texfile.write(getrow(data, 'Onebit [datasize=3]', 'messages_can_be_overtaken', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 4$')
-  texfile.write(getrow(data, 'Onebit [datasize=4]', 'messages_can_be_overtaken'))
+  texfile.write(getrow(data, 'Onebit [datasize=4]', 'messages_can_be_overtaken', times))
   texfile.write('\n')  
 
   texfile.write('''
@@ -130,10 +178,10 @@ def gettable(data, outfilename, log):
 ''')
 
   texfile.write('  & \\emph{Hesselink}   & $|D| = 2$')
-  texfile.write(getrow(data, 'Hesselink [datasize=2]', 'property2'))
+  texfile.write(getrow(data, 'Hesselink [datasize=2]', 'property2', times))
   texfile.write('\n')
   texfile.write('  &                 & $|D| = 3$')
-  texfile.write(getrow(data, 'Hesselink [datasize=3]', 'property2'))
+  texfile.write(getrow(data, 'Hesselink [datasize=3]', 'property2', times))
   texfile.write('\n')
   
   texfile.write('''\\\\[-1ex]
@@ -144,21 +192,21 @@ def gettable(data, outfilename, log):
 ''')
 
   texfile.write('  &  \\emph{ABP-CABP} & $|D| = 2$')
-  texfile.write(getrow(data, 'ABP/CABP (datasize=2 capacity=1 windowsize=1)', 'branching-bisim'))
+  texfile.write(getrow(data, 'ABP/CABP (datasize=2 capacity=1 windowsize=1)', 'branching-bisim', times))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
-  texfile.write(getrow(data, 'ABP/CABP (datasize=4 capacity=1 windowsize=1)', 'branching-bisim'))
+  texfile.write(getrow(data, 'ABP/CABP (datasize=4 capacity=1 windowsize=1)', 'branching-bisim', times))
   texfile.write('\n')
   
   texfile.write('  &  \\emph{Buf-Onebit} & $|D| = 2$')
-  texfile.write(getrow(data, 'Buffer/Onebit (datasize=2 capacity=2 windowsize=1)', 'branching-bisim'))
+  texfile.write(getrow(data, 'Buffer/Onebit (datasize=2 capacity=2 windowsize=1)', 'branching-bisim', times))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
-  texfile.write(getrow(data, 'Buffer/Onebit (datasize=4 capacity=2 windowsize=1)', 'branching-bisim'))
+  texfile.write(getrow(data, 'Buffer/Onebit (datasize=4 capacity=2 windowsize=1)', 'branching-bisim', times))
   texfile.write('\n')
   
   texfile.write('  & \\emph{Hesselink I-S} & $|D| = 2$')
-  texfile.write(getrow(data, 'Hesselink (Implementation)/Hesselink (Specification) (datasize=2)', 'branching-bisim'))
+  texfile.write(getrow(data, 'Hesselink (Implementation)/Hesselink (Specification) (datasize=2)', 'branching-bisim', times))
   texfile.write('\n')
   
   texfile.write('''
@@ -167,21 +215,21 @@ def gettable(data, outfilename, log):
 ''')
 
   texfile.write('  &  \\emph{ABP-CABP} & $|D| = 2$')
-  texfile.write(getrow(data, 'ABP/CABP (datasize=2 capacity=1 windowsize=1)', 'weak-bisim'))
+  texfile.write(getrow(data, 'ABP/CABP (datasize=2 capacity=1 windowsize=1)', 'weak-bisim', times))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
-  texfile.write(getrow(data, 'ABP/CABP (datasize=4 capacity=1 windowsize=1)', 'weak-bisim'))
+  texfile.write(getrow(data, 'ABP/CABP (datasize=4 capacity=1 windowsize=1)', 'weak-bisim', times))
   texfile.write('\n')
   
   texfile.write('  &  \\emph{Buf-Onebit} & $|D| = 2$')
-  texfile.write(getrow(data, 'Buffer/Onebit (datasize=2 capacity=2 windowsize=1)', 'weak-bisim'))
+  texfile.write(getrow(data, 'Buffer/Onebit (datasize=2 capacity=2 windowsize=1)', 'weak-bisim', times))
   texfile.write('\n')
   texfile.write('  &                  & $|D| = 4$')
-  texfile.write(getrow(data, 'Buffer/Onebit (datasize=4 capacity=2 windowsize=1)', 'weak-bisim'))
+  texfile.write(getrow(data, 'Buffer/Onebit (datasize=4 capacity=2 windowsize=1)', 'weak-bisim', times))
   texfile.write('\n')
   
   texfile.write('  & \\emph{Hesselink I-S} & $|D| = 2$')
-  texfile.write(getrow(data, 'Hesselink (Implementation)/Hesselink (Specification) (datasize=2)', 'weak-bisim'))
+  texfile.write(getrow(data, 'Hesselink (Implementation)/Hesselink (Specification) (datasize=2)', 'weak-bisim', times))
   texfile.write('\n')
 
   texfile.write('''
@@ -195,14 +243,16 @@ def gettable(data, outfilename, log):
 
   return texfile.name
 
-def run(infilename, outfilename, log):
+def run(infilename, outfilename, times, log):
   data = yaml.load(open(infilename).read())
-  gettable(data, outfilename, log)
+  gettable(data, outfilename, times, log)
   
 def runCmdLine():
   parser = optparse.OptionParser(usage='usage: %prog [options] infile outfile')
   parser.add_option('-v', action='count', dest='verbosity',
                     help='Be more verbose. Use more than once to increase verbosity even more.')
+  parser.add_option('-t', action='store_true', dest='times',
+                    help='Print timing instead of sizes')
 
   options, args = parser.parse_args()
   if len(args) < 2:
@@ -215,7 +265,7 @@ def runCmdLine():
   if options.verbosity > 0:
     logging.getLogger('extract').setLevel(logging.INFO)
   
-  run(infilename, outfilename, logging.getLogger('extract'))
+  run(infilename, outfilename, options.times, logging.getLogger('extract'))
 
 if __name__ == '__main__':
   runCmdLine()
