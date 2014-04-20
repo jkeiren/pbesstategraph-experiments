@@ -110,38 +110,35 @@ The common code performing the steps described below can be found in `cases/__in
 #### Preprocessing
 First, every PBES is preprocessed using the following commands:
 
-    pbesrewr -psimplify <name>.pbes | pbesrewr -pquantifier-one-point | pbesrewr -psimplify > <simplified>.pbes
+    pbesrewr -psimplify <name>.pbes | pbesrewr -pquantifier-one-point | pbesrewr -psimplify | pbespp | txt2pbes > <simplified>.pbes
 
 #### Reduction
 
 Depending on the reduction, the following commands are performed.
 
+##### Original
+
+The following is not really a reduction, but just for converting to the old version of mCRL2 for the next phase.
+
+    pbespp <simplified>.pbes | txt2pbesold > <reduced>.pbes
+
 ##### Parelm
 
-    pbesparelm <simplified>.pbes | pbesconstelm > <reduced>.pbes
+    pbesparelm <simplified>.pbes | pbesconstelm | pbespp | txt2pbesold > <reduced>.pbes
 
 ##### Stategraph (local algorithm)
 
-    pbesstategraph <simplified>.pbes -l1 --use-alternative-reset-copy=1 | pbesconstelm > <reduced>.pbes
+    pbesstategraph <simplified>.pbes -l1 --use-alternative-reset-copy=1 | pbesconstelm | pbespp | txt2pbesold > <reduced>.pbes
 
 ##### Stategraph (global algorithm)
 
 For the global algorithm of stategraph we resort to an older version of the mCRL2 toolset:
 
-    pbespp <simplified>.pbes <simplified>.txt
-    txt2pbesold <simplified>.txt | pbesstategraphold -s0 -l0 | pbesconstelm > <reducedold>.pbes
+    pbespp <simplified>.pbes | txt2pbesold | pbesstategraphold -s0 -l0 | pbesconstelm > <reduced>.pbes
 
 #### Instantiation & solving
 
-Finally, the PBES is instantiated and solved, and the statistics about the generated BES are collected. Again for the global stategraph algorithm we resort to an older version of the mCRL2 toolset.
-
-##### Parelm & Stategraph (local algorithm)
-
-    pbes2bes -rjittyc <reduced>.pbes <reduced>.bes
-    besinfo <reduced>.bes
-    pbespgsolve -srecursive <reduced>.bes
-
-##### Parelm & Stategraph (global algorithm)
+Finally, the PBES is instantiated and solved, and the statistics about the generated BES are collected. Due to the low performance of instantiation in the current version of mCRL2, we resort to the old version for this phase (note that this is the least favourable option for our experiments, in terms of the performance improvement that has been obtained).
 
     pbes2besold -rjittyc <reduced>.pbes <reduced>.bes
     besinfoold <reduced>.bes
