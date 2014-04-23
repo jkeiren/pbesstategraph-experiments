@@ -213,8 +213,6 @@ class PBESCase(TempObj):
     if QUANTIFIER_ONEPOINT:
       tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
       tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
-      tmp = tools.pbespp(stdin=tmp['out'])
-      tmp = tools.txt2pbes(stdin=tmp['out'])
     tmp = tools.pbesconstelm(stdin=tmp['out'], memlimit=MEMLIMIT)
 
     log.debug("Writing PBES")
