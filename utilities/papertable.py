@@ -17,13 +17,13 @@ def addsep(number):
 
 def printsize(sizes, tool, percentages):
   if percentages and tool != 'original' and sizes['original'] != '??' and sizes[tool] != '??':
-      return '{0:.2f}\%'.format((float(sizes[tool])/float(sizes['original'])) * 100)
+      return '{0:.0f}\%'.format(((float(sizes['original'])-float(sizes[tool]))/float(sizes['original'])) * 100)
   else:
       return addsep(sizes[tool])
 
 def printtime(times, tool, percentages, msecs=False):
   if percentages and tool != 'original' and times['original'] != 'unknown' and times[tool] != 'unknown':
-    return '{0:.2f}\%'.format((times[tool]/times['original']) * 100)
+    return '{0:.0f}\%'.format(((times['original']-times[tool])/times['original']) * 100)
   elif times[tool] in ['unknown', 'timeout']:
     return times[tool]
   else:
@@ -38,7 +38,7 @@ def printtime(times, tool, percentages, msecs=False):
       return '{0}.{1}'.format(res, msecsstr)
 
     else:
-      return str(res)
+      return '{0:.1f}'.format(times[tool])#str(res)
   
 
 def getrow(data, case, property, reportsizes, reporttimes, reportsolution, percentages):
@@ -59,9 +59,19 @@ def getrow(data, case, property, reportsizes, reporttimes, reportsolution, perce
 
     solutions[tool] = casedata.get(tool, {}).get('solution', 'unknown')
 
+  if sizes['pbesstategraph (global)'] > sizes['pbesstategraph (local)']:
+    print 'Warning, {0} -- {1} has global stategraph > local stategraph ({2} > {3})'.format(case, property, sizes['pbesstategraph (global)'], sizes['pbesstategraph (local)'])
+
   times = {}
-  time = casedata.get('original', {}).get('times', {})
-  instantiation = time.get('instantiation', {}).get('total', 'unknown')
+  time = casedata.get('original', {})
+  if isinstance(time, dict):
+    time = time.get('times', {})
+  else:
+    time = {}
+  instantiation = time.get('instantiation', {})
+  if isinstance(instantiation, dict):
+    instantiation = instantiation.get('total', 'unknown')
+
   solving = time.get('solving', {}).get('total', 'unknown')
   if instantiation == 'timeout' or solving == 'timeout':
     times['original'] = 'timeout'
@@ -71,10 +81,23 @@ def getrow(data, case, property, reportsizes, reporttimes, reportsolution, perce
     times['original'] = instantiation + solving
   
   for tool in ['pbesparelm', 'pbesstategraph (global)', 'pbesstategraph (local)']:
-    time = casedata.get(tool, {}).get('times', {})
-    instantiation = time.get('instantiation', {}).get('total', 'unknown')
-    reduction = time.get('reduction', {}).get('total', 'unknown')
-    solving = time.get('solving', {}).get('total', 'unknown')
+    time = casedata.get(tool, {})
+    if isinstance(time, dict):
+      time = time.get('times', {})
+    else:
+      time = {}
+    
+    instantiation = time.get('instantiation', {})
+    if isinstance(instantiation, dict):
+      instantiation = instantiation.get('total', 'unknown')
+    
+    reduction = time.get('reduction', {})
+    if isinstance(reduction, dict):
+      reduction = reduction.get('total', 'unknown')
+    
+    solving = time.get('solving', {})
+    if isinstance(solving, dict):
+      solving = solving.get('total', 'unknown')
     if instantiation == 'timeout' or reduction == 'timeout' or solving == 'timeout':
       times[tool] = 'timeout'
     elif instantiation == 'unknown' or reduction == 'unknown' or solving == 'unknown':
@@ -138,7 +161,7 @@ def gettable(data, outfilename, sizes, times, solution, percentages):
 ''')
   texfile.write('\\begin{{tabular}}{{lc@{{\\hspace{{5pt}}}}|@{{\\hspace{{5pt}}}}{0}{1}{2}@{{}}}}'.format('rrrr' if sizes else '', '@{\\hspace{5pt}}|@{\\hspace{5pt}}rrrr' if times else '', '@{\\hspace{5pt}}|@{\\hspace{5pt}}c' if solution else ''))
 #  texfile.write(
-
+  texfile.write(' & {0}{1}{2}\\\\'.format(' & \\multicolumn{4}{c}{Sizes}' if sizes else '',  ' & \\multicolumn{4}{c}{Times}' if times else '', '&' if solution else ''))
   texfile.write(' & $|D|$ {0}{1}{2}\\\\'.format(' & Original & \\texttt{parelm} & \\texttt{st.graph} & \\texttt{st.graph}' if sizes else '',
     ' & Original & \\texttt{parelm} & \\texttt{st.graph} & \\texttt{st.graph}' if times else '',
     ' & verdict' if solution else ''))
