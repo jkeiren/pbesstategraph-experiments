@@ -12,6 +12,11 @@ import sys
 # Note that the PBESs are treated separately
 CLEANUP = True
 
+# Whether or not to use the old version pbes2bes
+# The trunk, as of r12523, is slow in instantiating PBESs to BESs, and
+# might therefore show too positive effects of our tools.
+USE_OLD_INSTANTIATION = True
+
 QUANTIFIER_ONEPOINT = True
 PARELM=True
 GLOBAL_STATEGRAPH=True
@@ -51,19 +56,8 @@ class ReduceAndSolveTask(TempObj):
   def __init__(self, name, prefix, filename, temppath):
     super(ReduceAndSolveTask, self).__init__(temppath,prefix)
     self.__pbesfile = filename
-    if name.startswith('pbesparelm'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', '.parelm.constelm')
-      self.__besfile = self._newTempFilename('bes', '.parelm.constelm')
-    elif name.startswith('pbesstategraph (global)'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', '.global.stategraph.constelm')
-      self.__besfile = self._newTempFilename('bes', '.global.stategraph.constelm')
-    elif name.startswith('pbesstategraph (local)'):
-      self.__reducedPbesfile = self._newTempFilename('pbes', '.local.stategraph.constelm')
-      self.__besfile = self._newTempFilename('bes', '.local.stategraph.constelm')
-    else:
-      assert name.startswith('original')
-      self.__reducedPbesfile = self._newTempFilename('pbes', '.oldtools') #self.__pbesfile
-      self.__besfile = self._newTempFilename('bes')
+    self.__reducedPbesfile = self._newTempFilename('pbes', '.{0}.constelm'.format(name))
+    self.__besfile = self._newTempFilename('bes', '.{0}.constelm'.format(name))
     self.name = name
     self.result = {}
     self.result['name'] = self.name
@@ -77,49 +71,26 @@ class ReduceAndSolveTask(TempObj):
   
   def __reduce(self, log):
     log.debug('Creating temp files')
-    if self.name.startswith('pbesparelm'):
-      tmpfile = self._newTempFilename('pbes', '.parelm')
-    elif self.name.startswith('pbesstategraph (global)'):
-      tmpfile = self._newTempFilename('pbes', '.global.stategraph')
-    elif self.name.startswith('pbesstategraph (local)'):
-      tmpfile = self._newTempFilename('pbes', '.local.stategraph')
-    else:
-      assert self.name.startswith('original')
+    if self.name.startswith('original'):
       tmpfile = self.__pbesfile
+    else:
+      tmpfile = self._newTempFilename('pbes', '.{0}'.format(self.name))
 
     try:
       if self.name.startswith('pbesparelm'):
-        log.debug('Parelm')
         result = tools.pbesparelm(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (global)'):
-        log.debug('Stategraph (global algorithm)')
-        result = tools.pbespp(self.__pbesfile)
-        result = tools.txt2pbesold(stdin=result['out'], timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
-        result = tools.pbesstategraphold('-v', '-l0', '-s0', stdin=result['out'], timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
-        f = open(tmpfile, 'w')
-        f.write(result['out'])
-        f.close()
-        #result = tools.pbesstategraph(self.__pbesfile, '-v', '-s0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        result = tools.pbesstategraph('-l0', '-s1', self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (local)'):
-        log.debug('Stategraph (local algorithm)')
-        result = tools.pbesstategraph(self.__pbesfile, '-v', '-l1', '--use-alternative-reset-copy=1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        result = tools.pbesstategraph(self.__pbesfile, '-l1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       else:
         result = {}
         result['times'] = None
       
       # tmpfile contains the (possibly) reduced PBES.
-       
       self.result['times']['reduction'] = result['times']
 
-      if self.name.startswith('pbesstategraph (global)'):
-        tools.pbesconstelmold(tmpfile, self.__reducedPbesfile)
-      else:
-        temp = tools.pbesconstelm(tmpfile)
-        temp = tools.pbespp(stdin=temp['out'])
-        temp = tools.txt2pbesold(stdin=temp['out'])
-        f = open(self.__reducedPbesfile, 'w')
-        f.write(temp['out'])
-        f.close()
+      tools.pbesconstelm(tmpfile, self.__reducedPbesfile)
     
     except (tools.Timeout) as e:
       log.info('Timeout (reducing) {0}'.format(self))
@@ -136,10 +107,15 @@ class ReduceAndSolveTask(TempObj):
     
   def __instantiate(self, log):
     try:
-      result = tools.pbes2besold('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
-      
+      if USE_OLD_INSTANTIATION:
+        result = tools.pbes2besold('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
+        
+      else:
+        result = tools.pbes2bes('-rjittyc', self.__reducedPbesfile, self.__besfile, timeout=GENERATE_TIMEOUT, memlimit=MEMLIMIT, timed=True)
+        
       self.result['times']['instantiation'] = result['times']
-      info = tools.besinfoold(self.__besfile, '-v', memlimit=MEMLIMIT)['out']
+      info = tools.besinfo(self.__besfile, memlimit=MEMLIMIT)['out']
+
       
       BESINFO_RE = '.*Number of equations:\s*(?P<eqns>\d+)' \
                '.*Number of mu.?s:\s*(?P<mueqns>\d+)' \
@@ -162,7 +138,7 @@ class ReduceAndSolveTask(TempObj):
     
   def __solve(self, log):
     try:
-      result = tools.pbespgsolveold(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
+      result = tools.pbespgsolve(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
       
       self.result['times']['solving'] = result['times']      
       self.result['solution'] = result['out'].strip()
@@ -177,11 +153,8 @@ class ReduceAndSolveTask(TempObj):
   
   def phase0(self, log):
     try:
-      log.info('Reducing PBES')
       self.__reduce(log)
-      log.info('Instantiating PBES')
       self.__instantiate(log)
-      log.info('Solving PBES')
       self.__solve(log)
     except Exception as e:
       log.debug('Unhandled exception {0}'.format(e))

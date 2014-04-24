@@ -1,14 +1,14 @@
 #!/bin/bash
 
-threads=16
+threads=24
 
 curdir=`pwd`
 
-newrev=12622
-oldrev=11707
+newrev=12637
+oldrev=12522
 
 export PATH=${curdir}/tools/mcrl2-${newrev}/install/bin:${curdir}/tools/mcrl2-${oldrev}/install/bin:$PATH
 which mcrl22lps
 which mcrl22lpsold
 
-python run.py -dn -j${threads} -vvv run.yaml >& run.log
+python run.py -d -j${threads} -vvv run.yaml >& run_paper.log
