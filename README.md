@@ -17,6 +17,10 @@ overwritten: if it already exists, then the experiments for which it
 contains results are skipped.
 If the option `-d` is provided than only some small cases are run to debug the scripts. With the optio `-p` only those cases reported in the paper are run. If the option `-n` is provided, no timing or memory limits are imposed.
 
+For convenience, the script `run.sh` is provided that sets the path consistently with the output of `install_prerequisites.sh`, see below. Using that script, the experiments as reported in the paper can be reproduced using
+
+    ./run.sh
+
 Installation
 ------------
 
@@ -24,7 +28,7 @@ To execute the script make sure that PyYAML is installed. The mCRL2 tools can be
 
     ./install_prequisites.sh
     
-This installs two versions of the mCRL2 toolset: revisions 11707 and 12616. All binaries from revision 11707 are renamed such that 'old' is appended to their name.
+This installs two versions of the mCRL2 toolset: revisions 12522 and 12637. All binaries from revision 12522 are renamed such that 'old' is appended to their name.
 
 Description
 -----------
@@ -110,7 +114,7 @@ The common code performing the steps described below can be found in `cases/__in
 #### Preprocessing
 First, every PBES is preprocessed using the following commands:
 
-    pbesrewr -psimplify <name>.pbes | pbesrewr -pquantifier-one-point | pbesrewr -psimplify | pbespp | txt2pbes > <simplified>.pbes
+    pbesrewr -psimplify <name>.pbes | pbesrewr -pquantifier-one-point | pbesrewr -psimplify > <simplified>.pbes
 
 #### Reduction
 
@@ -118,35 +122,32 @@ Depending on the reduction, the following commands are performed.
 
 ##### Original
 
-The following is not really a reduction, but just for converting to the old version of mCRL2 for the next phase.
-
-    pbespp <simplified>.pbes | txt2pbesold > <reduced>.pbes
+    pbesconstelm <simplified>.pbes <reduced>.pbes
 
 ##### Parelm
 
-    pbesparelm <simplified>.pbes | pbesconstelm | pbespp | txt2pbesold > <reduced>.pbes
+    pbesparelm <simplified>.pbes | pbesconstelm > <reduced>.pbes
 
 ##### Stategraph (local algorithm)
 
-    pbesstategraph <simplified>.pbes -l1 --use-alternative-reset-copy=1 | pbesconstelm | pbespp | txt2pbesold > <reduced>.pbes
+    pbesstategraph <simplified>.pbes -l1 | pbesconstelm > <reduced>.pbes
 
 ##### Stategraph (global algorithm)
 
 For the global algorithm of stategraph we resort to an older version of the mCRL2 toolset:
 
-    pbespp <simplified>.pbes | txt2pbesold | pbesstategraphold -s0 -l0 | pbesconstelm > <reduced>.pbes
+    pbesstategraphold <simplified>.pbes -s1 -l0 | pbesconstelm > <reduced>.pbes
 
 #### Instantiation & solving
 
-Finally, the PBES is instantiated and solved, and the statistics about the generated BES are collected. Due to the low performance of instantiation in the current version of mCRL2, we resort to the old version for this phase (note that this is the least favourable option for our experiments, in terms of the performance improvement that has been obtained).
+Finally, the PBES is instantiated and solved, and the statistics about the generated BES are collected. Due to the low performance of instantiation in the current version of mCRL2, we resort to the old version for instantiation (note that this is the least favourable option for our experiments, in terms of the performance improvement that has been obtained).
 
     pbes2besold -rjittyc <reduced>.pbes <reduced>.bes
-    besinfoold <reduced>.bes
-    pbespgsolveold -srecursive <reduced>.bes
+    besinfo <reduced>.bes
+    pbespgsolve -srecursive <reduced>.bes
 
 Results
 -------
-
 
 The full results reported in the SPIN 2013 submission J.J.A. Keiren, J.W. Wesselink, T.A.C. Willemse.
 "Improved Static Analysis of Parameterised Boolean Equation Systems using Control Flow Reconstruction" can
