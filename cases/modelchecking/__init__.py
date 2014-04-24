@@ -25,13 +25,13 @@ class Property(PBESCase):
     '''If a lpsactionrename specification exists for this property, transform
        the LPS.'''
     if os.path.exists(self.renfile):
-      self.lps = tools.lpsactionrename('-f', self.renfile, '-v', stdin=self.lps, memlimit=MEMLIMIT)['out']
+      self.lps = tools.lpsactionrename('-f', self.renfile, stdin=self.lps, memlimit=MEMLIMIT)['out']
   
   def _makePBES(self):
     '''Generate a PBES out of self.lps and self.mcffile, and apply pbesconstelm
        to it.'''
     self.__rename()
-    return tools.lps2pbes('-f', self.mcffile, '-v', stdin=self.lps, memlimit=MEMLIMIT)['out']
+    return tools.lps2pbes('-f', self.mcffile, stdin=self.lps, memlimit=MEMLIMIT)['out']
 
 class Case(TempObj):
   def __init__(self, name, **kwargs):
@@ -83,14 +83,14 @@ class ParunfoldCase(Case):
     '''Linearises the specification in self._mcrl2 and applies lpssuminst,
     lpsparunfold and lpsconstelm to the result.'''
     log.debug('Linearising {0}'.format(self))
-    result = tools.mcrl22lps('-vnf', stdin=self._mcrl2, memlimit=MEMLIMIT)
+    result = tools.mcrl22lps('-nf', stdin=self._mcrl2, memlimit=MEMLIMIT)
     
     for (sort, times) in self.__unfoldList:
       log.debug('Applying parunfold (for {0}) on LPS of {1}'.format(sort, self))
-      result = tools.lpsparunfold('-lv', '-n{0}'.format(times), '-s{0}'.format(sort), stdin=result['out'], memlimit=MEMLIMIT)
+      result = tools.lpsparunfold('-l', '-n{0}'.format(times), '-s{0}'.format(sort), stdin=result['out'], memlimit=MEMLIMIT)
       
     log.debug('Applying constelm on LPS of {0}'.format(self))
-    result = tools.lpsconstelm('-ctv', stdin=result['out'], memlimit=MEMLIMIT)
+    result = tools.lpsconstelm('-ct', stdin=result['out'], memlimit=MEMLIMIT)
     return result['out']
   
   

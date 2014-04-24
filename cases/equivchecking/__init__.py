@@ -86,9 +86,9 @@ class ProtocolCase(SameParamCase):
   def _lineariseSpec(self, spec, log):
     lps = tools.mcrl22lps('-fn', stdin=spec, memlimit=MEMLIMIT)['out']
     
-    lps = tools.lpsparunfold('-lv', '-sFrame', '-n10', stdin=lps, memlimit=MEMLIMIT)['out']
-    lps = tools.lpsparunfold('-lv', '-sFrameOB', '-n10', stdin=lps, memlimit=MEMLIMIT)['out']
-    lps = tools.lpsconstelm('-v', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-l', '-sFrame', '-n10', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsparunfold('-l', '-sFrameOB', '-n10', stdin=lps, memlimit=MEMLIMIT)['out']
+    lps = tools.lpsconstelm(stdin=lps, memlimit=MEMLIMIT)['out']
            
     return lps
   
