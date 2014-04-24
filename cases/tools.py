@@ -188,9 +188,4 @@ elevatorverification = Tool('elevatorverification', __LOG)
 elevatorverification_alt = Tool('elevatorverification_alt', __LOG)
 
 # Old tools for global algorithm
-txt2pbesold = Tool('txt2pbesold', __LOG)
-pbesstategraphold = Tool('pbesstategraphold', __LOG)
 pbes2besold = Tool('pbes2besold', __LOG)
-besinfoold = Tool('besinfoold', __LOG)
-pbesconstelmold = Tool('pbesconstelmold', __LOG)
-pbespgsolveold = Tool('pbespgsolveold', __LOG)
