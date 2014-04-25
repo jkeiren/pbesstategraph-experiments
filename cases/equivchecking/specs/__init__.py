@@ -18,7 +18,7 @@ class DataSpec(Spec):
   
   def mcrl2(self, datasize):
     return self._template.substitute(
-      data='|'.join(['d' + str(i) for i in range(0, datasize)])
+      data='|'.join(['d' + str(i+1) for i in range(0, datasize)])
     )
 
 # Class to denote a mix of buffer implementations. We combine all of these,
@@ -31,7 +31,7 @@ class GeneralBufferSpec(Spec):
   def mcrl2(self, windowsize, capacity, datasize):
     return self._template.substitute(
       windowsize=windowsize,
-      data='|'.join(['d' + str(i) for i in range(0, datasize)]),
+      data='|'.join(['d' + str(i+1) for i in range(0, datasize)]),
       initialwindow='[{0}]'.format(','.join(['d1'] * windowsize)),
       emptywindow='[{0}]'.format(','.join(['false'] * windowsize)),
       capacity=capacity
