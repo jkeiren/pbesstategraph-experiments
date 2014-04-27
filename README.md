@@ -136,7 +136,7 @@ Depending on the reduction, the following commands are performed.
 
 For the global algorithm of stategraph we resort to an older version of the mCRL2 toolset:
 
-    pbesstategraphold <simplified>.pbes -s1 -l0 | pbesconstelm > <reduced>.pbes
+    pbesstategraph <simplified>.pbes -s1 -l0 | pbesconstelm > <reduced>.pbes
 
 #### Instantiation & solving
 
@@ -149,6 +149,8 @@ Finally, the PBES is instantiated and solved, and the statistics about the gener
 Results
 -------
 
-The full results reported in the SPIN 2013 submission J.J.A. Keiren, J.W. Wesselink, T.A.C. Willemse.
-"Improved Static Analysis of Parameterised Boolean Equation Systems using Control Flow Reconstruction" can
+The full results reported in the ATVA 2014 submission J.J.A. Keiren,
+J.W. Wesselink and T.A.C. Willemse. "Liveness Analysis for Parameterised Boolean Equation Systems" can be found in `results/20140427/run.yaml`. Those results were obtained using r12637 of the mCRL2 toolset. A version of the paper with full proofs, and a selection of the results is also available from [arXiv:1304.6482v2 [cs.LO]](http://arxiv.org/abs/1304.6482v2)
+
+The results reported in [arXiv:1304.6482v1 [cs.LO]](http://arxiv.org/abs/1304.6482v1) can
 be found in `results/20130316/run.yaml`, those results were obtained using r11682 of the mCRL2 toolset. In this version only the global version of pbesstategraph was available.
