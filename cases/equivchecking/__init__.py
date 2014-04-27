@@ -131,7 +131,6 @@ def getcases(mode):
       [ProtocolCase('Onebit', 'Onebit', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('Onebit', 'SWP', windowsize=1, capacity=1, datasize=d) for d in datarange] + \
       [ProtocolCase('SWP', 'SWP', windowsize=w, capacity=1, datasize=d) for d in datarange for w in range(1,4)] + \
-      [SameParamCase('Hesselink (Specification)', 'Hesselink (Implementation)', datasize=d) for d in range(2,4) ] + \
       [SameParamCase('Hesselink (Implementation)', 'Hesselink (Specification)', datasize=d) for d in range(3,4) ]
 
   return cases
