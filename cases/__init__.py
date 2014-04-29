@@ -19,7 +19,7 @@ USE_OLD_INSTANTIATION = True
 
 QUANTIFIER_ONEPOINT = True
 PARELM=True
-GLOBAL_STATEGRAPH=True
+GLOBAL_STATEGRAPH=False
 LOCAL_STATEGRAPH=True
 
 GENERATE_TIMEOUT = 2*60*60
@@ -81,8 +81,12 @@ class ReduceAndSolveTask(TempObj):
         result = tools.pbesparelm(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (global)'):
         result = tools.pbesstategraph('-l0', '-s1', self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
-      elif self.name.startswith('pbesstategraph (local)'):
-        result = tools.pbesstategraph(self.__pbesfile, '-l1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+      elif self.name.startswith('pbesstategraph (local m0)'):
+        result = tools.pbesstategraph(self.__pbesfile, '-l1', '-m0', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+      elif self.name.startswith('pbesstategraph (local m1)'):
+        result = tools.pbesstategraph(self.__pbesfile, '-l1', '-m1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+      elif self.name.startswith('pbesstategraph (local m2)'):
+        result = tools.pbesstategraph(self.__pbesfile, '-l1', '-m2', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       else:
         result = {}
         result['times'] = None
@@ -202,7 +206,9 @@ class PBESCase(TempObj):
     if GLOBAL_STATEGRAPH:
       self.subtasks.append(ReduceAndSolveTask('pbesstategraph (global)', self._prefix, pbesfile, self._temppath))
     if LOCAL_STATEGRAPH:
-      self.subtasks.append(ReduceAndSolveTask('pbesstategraph (local)', self._prefix, pbesfile, self._temppath))
+      self.subtasks.append(ReduceAndSolveTask('pbesstategraph (local m0)', self._prefix, pbesfile, self._temppath))
+      self.subtasks.append(ReduceAndSolveTask('pbesstategraph (local m1)', self._prefix, pbesfile, self._temppath))
+      self.subtasks.append(ReduceAndSolveTask('pbesstategraph (local m2)', self._prefix, pbesfile, self._temppath))
     
   def phase0(self, log):
     log.debug('Generating initial PBES')
