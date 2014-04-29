@@ -72,7 +72,9 @@ def getrow(data, case, property, reportsizes, reporttimes, reportsolution, perce
   if isinstance(instantiation, dict):
     instantiation = instantiation.get('total', 'unknown')
 
-  solving = time.get('solving', {}).get('total', 'unknown')
+  solving = time.get('solving', {})
+  if isinstance(solving, dict):
+    solving = solving.get('total', 'unknown')
   if instantiation == 'timeout' or solving == 'timeout':
     times['original'] = 'timeout'
   elif instantiation == 'unknown' or solving == 'unknown':
