@@ -2,7 +2,7 @@
 
 curdir=`pwd`
 
-newrev=12637
+newrev=12659
 oldrev=12522
 
 for rev in ${newrev} ${oldrev}; do
