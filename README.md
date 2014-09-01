@@ -28,7 +28,7 @@ To execute the script make sure that PyYAML is installed. The mCRL2 tools can be
 
     ./install_prequisites.sh
     
-This installs two versions of the mCRL2 toolset: revisions 12522 and 12637. All binaries from revision 12522 are renamed such that 'old' is appended to their name.
+This installs revision 13039 of the mCRL2 toolset.
 
 Description
 -----------
@@ -60,7 +60,7 @@ For some specifications we first unfold some some data types using `lpsparunfold
 
     mcrl22lps -nf <case>.mcrl2 | lpsparunfold -l -nN -sSORT | lpsconstelm -ct > <case>.lps
 
-where `N` is the number of times parameters of `SORT` need to be unfolded. Exactly which sort is unfolded depends on the case we consider. Sometimes lpsparunfold is repeated for multiple sorts. The tpecifications for which `lpsparunfold` is applied (values of `SORT` and `N` are included) are:
+where `N` is the number of times parameters of `SORT` need to be unfolded. Exactly which sort is unfolded depends on the case we consider. Sometimes lpsparunfold is repeated for multiple sorts. The specifications for which `lpsparunfold` is applied (values of `SORT` and `N` are included) are:
 
 * Onebit (`Frame`, `10`)
 * CCP (`Region`, `10`)
@@ -140,9 +140,9 @@ For the global algorithm of stategraph we resort to an older version of the mCRL
 
 #### Instantiation & solving
 
-Finally, the PBES is instantiated and solved, and the statistics about the generated BES are collected. Due to the low performance of instantiation in the current version of mCRL2, we resort to the old version for instantiation (note that this is the least favourable option for our experiments, in terms of the performance improvement that has been obtained).
+Finally, the PBES is instantiated and solved, and the statistics about the generated BES are collected.
 
-    pbes2besold -rjittyc <reduced>.pbes <reduced>.bes
+    pbes2bes -rjittyc <reduced>.pbes <reduced>.bes
     besinfo <reduced>.bes
     pbespgsolve -srecursive <reduced>.bes
 

@@ -15,7 +15,7 @@ CLEANUP = True
 # Whether or not to use the old version pbes2bes
 # The trunk, as of r12523, is slow in instantiating PBESs to BESs, and
 # might therefore show too positive effects of our tools.
-USE_OLD_INSTANTIATION = True
+USE_OLD_INSTANTIATION = False
 
 QUANTIFIER_ONEPOINT = True
 PARELM=True
@@ -80,9 +80,9 @@ class ReduceAndSolveTask(TempObj):
       if self.name.startswith('pbesparelm'):
         result = tools.pbesparelm(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (global)'):
-        result = tools.pbesstategraph('-l0', '-s1', self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        result = tools.pbesstategraph('-g', self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       elif self.name.startswith('pbesstategraph (local)'):
-        result = tools.pbesstategraph(self.__pbesfile, '-l1', tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
+        result = tools.pbesstategraph(self.__pbesfile, tmpfile, timed=True, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
       else:
         result = {}
         result['times'] = None
