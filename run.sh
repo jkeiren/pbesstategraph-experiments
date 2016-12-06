@@ -1,6 +1,6 @@
 #!/bin/bash
 
-threads=24
+threads=1
 
 curdir=`pwd`
 
@@ -15,4 +15,4 @@ else
 fi
 which mcrl22lps
 
-python run.py -p -j${threads} -vvv run_14379.yaml >& run_14379.log
+python run.py -d -n -j${threads} -vvv run_14379.yaml >& run_14379.log
