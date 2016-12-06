@@ -28,7 +28,7 @@ To execute the script make sure that PyYAML is installed. The mCRL2 tools can be
 
     ./install_prequisites.sh
     
-This installs revision 13039 of the mCRL2 toolset.
+This installs revision 14379 of the mCRL2 toolset.
 
 Description
 -----------
@@ -130,13 +130,13 @@ Depending on the reduction, the following commands are performed.
 
 ##### Stategraph (local algorithm)
 
-    pbesstategraph <simplified>.pbes -l1 | pbesconstelm > <reduced>.pbes
+    pbesstategraph <simplified>.pbes | pbesconstelm > <reduced>.pbes
 
 ##### Stategraph (global algorithm)
 
 For the global algorithm of stategraph we resort to an older version of the mCRL2 toolset:
 
-    pbesstategraph <simplified>.pbes -s1 -l0 | pbesconstelm > <reduced>.pbes
+    pbesstategraph <simplified>.pbes -g | pbesconstelm > <reduced>.pbes
 
 #### Instantiation & solving
 
@@ -154,3 +154,4 @@ J.W. Wesselink and T.A.C. Willemse. "Liveness Analysis for Parameterised Boolean
 
 The results reported in [arXiv:1304.6482v1 [cs.LO]](http://arxiv.org/abs/1304.6482v1) can
 be found in `results/20130316/run.yaml`, those results were obtained using r11682 of the mCRL2 toolset. In this version only the global version of pbesstategraph was available.
+

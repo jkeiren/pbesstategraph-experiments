@@ -4,9 +4,15 @@ threads=24
 
 curdir=`pwd`
 
-rev=13039
+rev=14379
 
-export PATH=${curdir}/tools/mcrl2-${rev}/install/bin:$PATH
+if [[ $OSTYPE == darwin* ]]; then
+  echo "Running script on a MAC"
+  export PATH=${curdir}/tools/mcrl2-${rev}/install/mCRL2.app/Contents/bin:$PATH
+else
+  echo "Running script on $OSTYPE"
+  export PATH=${curdir}/tools/mcrl2-${rev}/install/bin:$PATH
+fi
 which mcrl22lps
 
-python run.py -p -j${threads} -vvv run.yaml >& run_paper.log
+python run.py -p -j${threads} -vvv run_14379.yaml >& run_14379.log

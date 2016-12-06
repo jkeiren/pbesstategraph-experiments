@@ -2,7 +2,7 @@
 
 curdir=`pwd`
 
-rev=13039
+rev=14379
 
 mkdir -p ${curdir}/tools/mcrl2-${rev}
 cd ${curdir}/tools/mcrl2-${rev}
