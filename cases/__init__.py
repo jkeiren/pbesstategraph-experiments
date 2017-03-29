@@ -1,5 +1,3 @@
-import multiprocessing
-import logging
 import traceback
 import tempfile
 import os
@@ -24,6 +22,7 @@ LOCAL_STATEGRAPH=True
 
 GENERATE_TIMEOUT = 2*60*60
 SOLVE_TIMEOUT = 60*60
+CONSTELM_TIMEOUT = 60*60 # Especially with -c option this can take a looooong time.
 REDUCTION_TIMEOUT = 15*60
 # Memlimit in KBytes
 MEMLIMIT = 64*1024*1024
@@ -41,7 +40,7 @@ class TempObj(pool.Task):
     if not os.path.exists(self._temppath):
       os.makedirs(self._temppath)
     name = self._temppath + '/' + self.__escape(self._prefix) + extraprefix + '.' + ext
-    if self._prefix <> "" and not os.path.exists(name):
+    if self._prefix != "" and not os.path.exists(name):
       fn = open(name, 'w+b')
       return fn
     else:
@@ -90,7 +89,7 @@ class ReduceAndSolveTask(TempObj):
       # tmpfile contains the (possibly) reduced PBES.
       self.result['times']['reduction'] = result['times']
 
-      tools.pbesconstelm(tmpfile, self.__reducedPbesfile)
+      tools.pbesconstelm('-c', tmpfile, self.__reducedPbesfile, timeout=REDUCTION_TIMEOUT, memlimit=MEMLIMIT)
     
     except (tools.Timeout) as e:
       log.info('Timeout (reducing) {0}'.format(self))
@@ -138,7 +137,7 @@ class ReduceAndSolveTask(TempObj):
     
   def __solve(self, log):
     try:
-      result = tools.pbespgsolve(self.__besfile, '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
+      result = tools.pbespgsolve(self.__besfile, '-ibes', '-srecursive', timed=True, timeout=SOLVE_TIMEOUT, memlimit=MEMLIMIT)
       
       self.result['times']['solving'] = result['times']      
       self.result['solution'] = result['out'].strip()
@@ -186,7 +185,7 @@ class PBESCase(TempObj):
     if QUANTIFIER_ONEPOINT:
       tmp = tools.pbesrewr('-pquantifier-one-point', stdin=tmp['out'], memlimit=MEMLIMIT)
       tmp = tools.pbesrewr('-psimplify', stdin=tmp['out'], memlimit=MEMLIMIT)
-    tmp = tools.pbesconstelm(stdin=tmp['out'], memlimit=MEMLIMIT)
+    tmp = tools.pbesconstelm('-c', stdin=tmp['out'], timeout=CONSTELM_TIMEOUT, memlimit=MEMLIMIT)
 
     log.debug("Writing PBES")
     pbes = open(self.__pbesfile, 'w')

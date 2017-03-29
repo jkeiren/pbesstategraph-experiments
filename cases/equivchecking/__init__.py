@@ -4,7 +4,7 @@ import os
 import tempfile
 import traceback
 
-from cases import tools, PBESCase, TempObj, MEMLIMIT, CLEANUP
+from cases import tools, PBESCase, TempObj, CONSTELM_TIMEOUT, MEMLIMIT, CLEANUP
 import specs
 
 class EquivCase(PBESCase):
@@ -20,7 +20,7 @@ class EquivCase(PBESCase):
   
   def _makePBES(self):
     pbes = tools.lpsbisim2pbes('-b' + self.equiv, self.lpsfile1, self.lpsfile2, memlimit=MEMLIMIT)['out']
-    return tools.pbesconstelm(stdin=pbes, memlimit=MEMLIMIT)['out']
+    return tools.pbesconstelm('-c', stdin=pbes, timeout=CONSTELM_TIMEOUT, memlimit=MEMLIMIT)['out']
   
 class Case(TempObj):
   def __init__(self, description, spec1, spec2):
