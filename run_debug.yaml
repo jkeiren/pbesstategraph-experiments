@@ -1,0 +1,769 @@
+Lossy buffer [datasize=8]:
+  received_no_other_read_then_delivered:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '71', mueqns: '0', nueqns: '71'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.21, total: 0.22}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '43', mueqns: '0', nueqns: '43'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.23}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '0', eqns: '22', mueqns: '0', nueqns: '22'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.73, total: 0.75}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '0', eqns: '22', mueqns: '0', nueqns: '22'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.82, total: 0.83}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+Debug spec:
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.22, total: 0.22}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.74, total: 0.75}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.03, total: 0.04}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.91, total: 0.91}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+ABP [datasize=2]:
+  infinitely_often_enabled_then_infinitely_often_taken:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '593', mueqns: '148', nueqns: '445'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.56, total: 0.58}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.01}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '305', mueqns: '76', nueqns: '229'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.5, total: 0.51}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '2', eqns: '305', mueqns: '76', nueqns: '229'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.46, total: 0.47}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '2', eqns: '305', mueqns: '76', nueqns: '229'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.88, total: 0.89}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.01, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  infinitely_often_lost:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '118', mueqns: '110', nueqns: '8'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.2, total: 0.21}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '118', mueqns: '110', nueqns: '8'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.43, total: 0.44}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '2', eqns: '82', mueqns: '74', nueqns: '8'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.66, total: 0.67}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '2', eqns: '118', mueqns: '110', nueqns: '8'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.37, total: 0.38}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  infinitely_often_read_write:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '2', eqns: '88', mueqns: '9', nueqns: '79'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.52, total: 0.53}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '2', eqns: '46', mueqns: '5', nueqns: '41'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.89, total: 0.9}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '2', eqns: '46', mueqns: '5', nueqns: '41'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.05, total: 0.06}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '2', eqns: '46', mueqns: '5', nueqns: '41'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.39, total: 0.4}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  infinitely_often_receive_d1:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '77', mueqns: '74', nueqns: '3'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.92, total: 0.93}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '41', mueqns: '38', nueqns: '3'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.54, total: 0.55}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '41', mueqns: '38', nueqns: '3'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.45, total: 0.47}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '41', mueqns: '38', nueqns: '3'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.52, total: 0.53}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  infinitely_often_receive_for_all_d:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '155', mueqns: '148', nueqns: '7'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.37, total: 0.38}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '83', mueqns: '76', nueqns: '7'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.15, total: 0.16}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '83', mueqns: '76', nueqns: '7'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.26, total: 0.27}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '83', mueqns: '76', nueqns: '7'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.7, total: 0.72}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  invariantly_infinitely_many_reachable_taus:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '222', mueqns: '74', nueqns: '148'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.38, total: 0.4}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '114', mueqns: '38', nueqns: '76'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.54, total: 0.55}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '114', mueqns: '38', nueqns: '76'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.02, total: 0.03}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '114', mueqns: '38', nueqns: '76'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.45, total: 0.47}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.01, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  no_duplication_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '222', mueqns: '0', nueqns: '222'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.24, total: 0.25}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '222', mueqns: '0', nueqns: '222'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.68, total: 0.69}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '0', eqns: '186', mueqns: '0', nueqns: '186'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.78, total: 0.79}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '0', eqns: '222', mueqns: '0', nueqns: '222'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.38, total: 0.4}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.01, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  no_generation_of_messages:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '77', mueqns: '0', nueqns: '77'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.47, total: 0.48}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '77', mueqns: '0', nueqns: '77'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.5, total: 0.51}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '0', eqns: '77', mueqns: '0', nueqns: '77'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.0, total: 1.01}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '0', eqns: '77', mueqns: '0', nueqns: '77'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.61, total: 0.62}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  nodeadlock:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '74', mueqns: '0', nueqns: '74'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.57, total: 0.58}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '38', mueqns: '0', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.95, total: 0.96}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '0', eqns: '38', mueqns: '0', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.88, total: 0.89}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '0', eqns: '38', mueqns: '0', nueqns: '38'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.5, total: 0.51}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  read_then_eventually_send:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '230', mueqns: '148', nueqns: '82'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.31, total: 0.32}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '230', mueqns: '148', nueqns: '82'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.89, total: 0.9}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '194', mueqns: '148', nueqns: '46'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.9, total: 0.92}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.01}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '230', mueqns: '148', nueqns: '82'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.69, total: 0.71}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.0, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  read_then_eventually_send_if_fair:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '130', mueqns: '36', nueqns: '94'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.03, total: 0.04}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '130', mueqns: '36', nueqns: '94'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.51, total: 0.52}
+        reduction: {total: 0.0}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '94', mueqns: '36', nueqns: '58'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.89, total: 0.9}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 0.0, compute_global_control_flow_marking: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '130', mueqns: '36', nueqns: '94'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 0.25, total: 0.27}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.01, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.0,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.0, marking initialization: 0.0, reset_variables_to_original: 0.0,
+          total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+CABP/ABP (datasize=2 capacity=1 windowsize=1):
+  branching-bisim:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '31264', mueqns: '22080', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.35, total: 2.34}
+        reduction: null
+        solving: {initialization: 0.52, load: 0.69, solving: 0.06, total: 1.28}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '31264', mueqns: '22080', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.06, total: 3.12}
+        reduction: {total: 0.04}
+        solving: {initialization: 0.44, load: 0.74, solving: 0.02, total: 1.2}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '30224', mueqns: '21328', nueqns: '8896'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 21.78, total: 27.58}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 18.61, compute_global_control_flow_marking: 2.65,
+          compute_global_control_flow_parameters: 0.01, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 31.26}
+        solving: {initialization: 0.25, load: 0.44, solving: 0.02, total: 0.71}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '31264', mueqns: '22080', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.02, total: 3.02}
+        reduction: {compute_belongs: 0.03, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 2.21, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.01, compute_local_control_flow_graphs: 0.03,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 2.04, marking initialization: 0.18, reset_variables_to_original: 0.26,
+          total: 2.97}
+        solving: {initialization: 0.3, load: 0.56, solving: 0.02, total: 0.88}
+  branching-sim:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '31264', mueqns: '22080', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.93, total: 2.86}
+        reduction: null
+        solving: {initialization: 0.43, load: 0.8, solving: 0.03, total: 1.26}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '31264', mueqns: '22080', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.74, total: 2.67}
+        reduction: {total: 0.04}
+        solving: {initialization: 0.29, load: 0.53, solving: 0.02, total: 0.84}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '30224', mueqns: '21328', nueqns: '8896'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 21.75, total: 27.58}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 18.51, compute_global_control_flow_marking: 4.03,
+          compute_global_control_flow_parameters: 0.01, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 38.73}
+        solving: {initialization: 0.22, load: 0.35, solving: 0.02, total: 0.59}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '31264', mueqns: '22080', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.65, total: 3.65}
+        reduction: {compute_belongs: 0.03, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 2.55, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.01, compute_local_control_flow_graphs: 0.06,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.01,
+          marking computation: 2.3, marking initialization: 0.26, reset_variables_to_original: 0.23,
+          total: 3.61}
+        solving: {initialization: 0.32, load: 0.62, solving: 0.02, total: 0.96}
+  strong-bisim:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.13, total: 0.18}
+        reduction: null
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.38, total: 0.42}
+        reduction: {total: 0.02}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.89, total: 1.53}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 1.23, compute_global_control_flow_marking: 0.32,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.0, total: 2.99}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '0', eqns: '1', mueqns: '0', nueqns: '1'}
+      solution: 'false'
+      times:
+        instantiation: {instantiation: 0.06, total: 0.12}
+        reduction: {compute_belongs: 0.0, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 0.52, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.0, compute_local_control_flow_graphs: 0.01,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.0,
+          marking computation: 0.46, marking initialization: 0.07, reset_variables_to_original: 0.02,
+          total: 0.67}
+        solving: {initialization: 0.0, load: 0.0, solving: 0.0, total: 0.0}
+  weak-bisim:
+    original:
+      memory: {}
+      name: original
+      sizes: {bnd: '1', eqns: '50712', mueqns: '41528', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 1.76, total: 3.27}
+        reduction: null
+        solving: {initialization: 0.41, load: 1.04, solving: 0.02, total: 1.48}
+    pbesparelm:
+      memory: {}
+      name: pbesparelm
+      sizes: {bnd: '1', eqns: '49616', mueqns: '40432', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.3, total: 4.17}
+        reduction: {total: 0.07}
+        solving: {initialization: 0.32, load: 0.62, solving: 0.02, total: 0.96}
+    pbesstategraph (global):
+      memory: {}
+      name: pbesstategraph (global)
+      sizes: {bnd: '1', eqns: '47480', mueqns: '38584', nueqns: '8896'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 22.05, total: 25.89}
+        reduction: {compute_connected_component_values: 0.0, compute_connected_components: 0.0,
+          compute_global_control_flow_graph: 38.22, compute_global_control_flow_marking: 3.01,
+          compute_global_control_flow_parameters: 0.01, compute_local_control_flow_parameters: 0.0,
+          compute_related_GCFP_parameters: 0.01, total: 48.36}
+        solving: {initialization: 0.28, load: 0.6, solving: 0.01, total: 0.9}
+    pbesstategraph (local):
+      memory: {}
+      name: pbesstategraph (local)
+      sizes: {bnd: '1', eqns: '49616', mueqns: '40432', nueqns: '9184'}
+      solution: 'true'
+      times:
+        instantiation: {instantiation: 2.33, total: 4.1}
+        reduction: {compute_belongs: 0.05, compute_connected_component_values: 0.0,
+          compute_connected_components: 0.0, compute_control_flow_marking: 2.98, compute_extra_local_control_flow_graph: 0.0,
+          compute_global_control_flow_parameters: 0.01, compute_local_control_flow_graphs: 0.04,
+          compute_local_control_flow_parameters: 0.0, compute_related_GCFP_parameters: 0.01,
+          marking computation: 2.77, marking initialization: 0.22, reset_variables_to_original: 0.82,
+          total: 4.54}
+        solving: {initialization: 0.5, load: 1.07, solving: 0.03, total: 1.6}
